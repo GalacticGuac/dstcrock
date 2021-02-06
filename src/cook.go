@@ -43,5 +43,6 @@ func main() {
 		fmt.Println(err)
 	}
 	fmt.Println(ingredientsData[0].INGREDIENT)
+	fmt.Println(ingredientsData[0].INGREDIENT)
 
 }

@@ -42,7 +42,31 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(ingredientsData[0].INGREDIENT)
-	fmt.Println(ingredientsData[0].INGREDIENT)
+	// 0 3 7 10
+	ingredients := []Ingredient{}
+	ingredients = append(ingredients, ingredientsData[0])
+	ingredients = append(ingredients, ingredientsData[3])
+	ingredients = append(ingredients, ingredientsData[7])
+	ingredients = append(ingredients, ingredientsData[10])
+
+	// fmt.Println(ingredients)
+	meatVal := 0.0
+	vegVal := 0.0
+	fruitVal := 0.0
+	eggVal := 0.0
+	for _, ingre := range ingredients {
+		meatVal += ingre.MEAT
+
+		vegVal += ingre.VEGETABLE
+
+		fruitVal += ingre.FRUIT
+
+		eggVal += ingre.EGG
+
+	}
+	fmt.Println("meat", meatVal)
+	fmt.Println("vegetable", vegVal)
+	fmt.Println("fruit", fruitVal)
+	fmt.Println("egg", eggVal)
 
 }

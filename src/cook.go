@@ -56,9 +56,16 @@ func main() {
 
 	// Initialize the baseline values
 	meatVal := 0.0
-	vegVal := 0.0
-	fruitVal := 0.0
+	fishVal := 0.0
 	eggVal := 0.0
+	fruitVal := 0.0
+	vegVal := 0.0
+	sweetVal := 0.0
+	monVal := 0.0
+	dairyVal := 0.0
+	bugVal := 0.0
+	inedVal := 0.0
+	miscVal := 0.0
 
 	titles := []string{}
 
@@ -68,11 +75,25 @@ func main() {
 
 		meatVal += ingre.MEAT
 
-		vegVal += ingre.VEGETABLE
+		fishVal += ingre.FISH
+
+		eggVal += ingre.EGG
 
 		fruitVal += ingre.FRUIT
 
-		eggVal += ingre.EGG
+		vegVal += ingre.VEGETABLE
+
+		sweetVal += ingre.SWEETENER
+
+		monVal += ingre.MONSTER
+
+		dairyVal += ingre.DAIRY
+
+		bugVal += ingre.BUG
+
+		inedVal += ingre.INEDIBLE
+
+		miscVal += ingre.MISC
 
 	}
 
@@ -81,8 +102,15 @@ func main() {
 	fmt.Println(title)
 
 	fmt.Println("Meat: ", meatVal)
-	fmt.Println("Vegetable: ", vegVal)
-	fmt.Println("Fruit: ", fruitVal)
+	fmt.Println("Fish: ", fishVal)
 	fmt.Println("Egg: ", eggVal)
+	fmt.Println("Fruit: ", fruitVal)
+	fmt.Println("Vegetable: ", vegVal)
+	fmt.Println("Sweetener: ", sweetVal)
+	fmt.Println("Monster: ", monVal)
+	fmt.Println("Dairy: ", dairyVal)
+	fmt.Println("Bug: ", bugVal)
+	fmt.Println("Inedible: ", inedVal)
+	fmt.Println("Misc: ", miscVal)
 
 }

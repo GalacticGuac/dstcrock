@@ -27,6 +27,18 @@ type IngredientDetails struct {
 	NOTES     string  `json:"NOTES"`
 }
 
+type RecipeDetails struct {
+	NAME      string  `json:"NAME"`
+	HEALTH      float64  `json:"HEALTH"`
+	HUNGER      float64  `json:"HUNGER"`
+	SANITY      float64  `json:"SANITY"`
+	NOTES string `json:"NOTES"`
+	CRITERIA string `json:"CRITERIA"`
+	EXPIRES float64 `json:"EXPIRES"`
+	PRIORITY float64 `json:"PRIORITY"`
+	// preferences?
+}
+
 func main() {
 	// Find that file
 	jsonFile, err := os.Open("../lib/ingredients.json")
@@ -48,11 +60,11 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	crockPot := []IngredientDetails{}
-	crockPot = append(crockPot, ingredientsData["Morsel"])
-	crockPot = append(crockPot, ingredientsData["Egg"])
-	crockPot = append(crockPot, ingredientsData["Egg"])
-	crockPot = append(crockPot, ingredientsData["Monster Meat"])
+	crockPot :=map[string]IngredientDetails{}
+	crockPot["Morsel"] = ingredientsData["Morsel"]
+	crockPot["Egg"] = ingredientsData["Egg"]
+	crockPot["Egg"] = ingredientsData["Egg"]
+	crockPot["Monster Meat"] = ingredientsData["Monster Meat"]
 
 	// Initialize the baseline values
 	meatVal := 0.0
@@ -69,7 +81,7 @@ func main() {
 
 	titles := []string{}
 
-	// Look through each ingredient
+	// Look through each ingredient and sets values
 	for _, ingre := range crockPot {
 		titles = append(titles, ingre.NAME)
 
@@ -97,9 +109,19 @@ func main() {
 
 	}
 
+
+	//	Create an array with all possible recipes
+
+	//	create an negative If conditional for each recipe 
+	if meatVal > 3 || meatVal == 0 || crockPot["Twigs"].NAME != "" {
+		// remove meatball recipe from possibles
+	}
+
+
 	// Output goes here
-	title := fmt.Sprintf("%s + %s + %s + %s:", titles[0], titles[1], titles[2], titles[3])
-	fmt.Println(title)
+	// title := fmt.Sprintf("%s + %s + %s + %s:", titles[0], titles[1], titles[2], titles[3])
+
+	fmt.Println(titles)
 
 	fmt.Println("Meat: ", meatVal)
 	fmt.Println("Fish: ", fishVal)

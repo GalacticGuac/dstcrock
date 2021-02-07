@@ -7,10 +7,6 @@ import (
 	"os"
 )
 
-type IngrediantList struct {
-	Ingredient map[string]IngredientDetails
-}
-
 type IngredientDetails struct {
 	NAME      string  `json:"INGREDIENT"`
 	MEAT      float64 `json:"MEAT"`
@@ -44,7 +40,7 @@ func main() {
 		fmt.Println(err)
 	}
 
-	// Fit the file 
+	// Fit the file
 	ingredientsData := map[string]IngredientDetails{}
 	err = json.Unmarshal(byteValue, &ingredientsData)
 	if err != nil {
@@ -57,7 +53,6 @@ func main() {
 	crockPot = append(crockPot, ingredientsData["Egg"])
 	crockPot = append(crockPot, ingredientsData["Egg"])
 	crockPot = append(crockPot, ingredientsData["Monster Meat"])
-
 
 	// Initialize the baseline values
 	meatVal := 0.0

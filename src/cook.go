@@ -7,7 +7,11 @@ import (
 	"os"
 )
 
-type Ingredient struct {
+type IngrediantList struct {
+	Ingredient map[string]IngredientDetails 
+}
+
+type IngredientDetails struct {
 	INGREDIENT string  `json:"INGREDIENT"`
 	MEAT       float64 `json:"MEAT"`
 	FISH       float64 `json:"FISH"`
@@ -33,16 +37,18 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+	
 	byteValue, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
 		fmt.Println(err)
 	}
-	var ingredientsData []Ingredient
+	var ingredientsData IngrediantList
 	err = json.Unmarshal(byteValue, &ingredientsData)
 	if err != nil {
 		fmt.Println(err)
 	}
 	// 0 3 7 10
+
 	ingredients := []Ingredient{}
 	ingredients = append(ingredients, ingredientsData[0])
 	ingredients = append(ingredients, ingredientsData[3])

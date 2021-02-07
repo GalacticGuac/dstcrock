@@ -32,29 +32,34 @@ type IngredientDetails struct {
 }
 
 func main() {
-
-	jsonFile, err := os.Open("../lib/ingredients-reformat.json")
+	// Find that file
+	jsonFile, err := os.Open("../lib/ingredients.json")
 	if err != nil {
 		fmt.Println(err)
 	}
 
+	// Read that file
 	byteValue, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	// Fit the file 
 	ingredientsData := map[string]IngredientDetails{}
 	err = json.Unmarshal(byteValue, &ingredientsData)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	// Set up fake Data/user input data
-	ingredients := []IngredientDetails{}
-	ingredients = append(ingredients, ingredientsData["Morsel"])
-	ingredients = append(ingredients, ingredientsData["Egg"])
-	ingredients = append(ingredients, ingredientsData["Egg"])
-	ingredients = append(ingredients, ingredientsData["Monster Meat"])
+	// Add Ingredients to the pot
+	crockPot := []IngredientDetails{}
+	crockPot = append(crockPot, ingredientsData["Morsel"])
+	crockPot = append(crockPot, ingredientsData["Egg"])
+	crockPot = append(crockPot, ingredientsData["Egg"])
+	crockPot = append(crockPot, ingredientsData["Monster Meat"])
 
+
+	// Initialize the baseline values
 	meatVal := 0.0
 	vegVal := 0.0
 	fruitVal := 0.0
@@ -62,7 +67,8 @@ func main() {
 
 	titles := []string{}
 
-	for _, ingre := range ingredients {
+	// Look through each ingredient
+	for _, ingre := range crockPot {
 		titles = append(titles, ingre.NAME)
 
 		meatVal += ingre.MEAT
@@ -75,6 +81,7 @@ func main() {
 
 	}
 
+	// Output goes here
 	title := fmt.Sprintf("%s + %s + %s + %s:", titles[0], titles[1], titles[2], titles[3])
 	fmt.Println(title)
 

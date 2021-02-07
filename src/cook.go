@@ -42,14 +42,14 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	var ingredientsData IngrediantList
+	var ingredientsData []IngredientDetails
 	err = json.Unmarshal(byteValue, &ingredientsData)
 	if err != nil {
 		fmt.Println(err)
 	}
 	// 0 3 7 10
 
-	ingredients := []Ingredient{}
+	ingredients := []IngredientDetails{}
 	ingredients = append(ingredients, ingredientsData[0])
 	ingredients = append(ingredients, ingredientsData[3])
 	ingredients = append(ingredients, ingredientsData[7])

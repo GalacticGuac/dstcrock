@@ -60,7 +60,7 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Morsel"
+	i1 := "Barnacles"
 	i2 := "Egg"
 	i3 := "Egg"
 	i4 := "Monster Meat"
@@ -123,7 +123,7 @@ func main() {
 	}
 
 	// Barnacle Linguine
-	if crockPot["Barnacle"].NAME == "" || crockPot["Vegetable"].NAME == "" || 2 != len(crockPot["Barnacle"].NAME) {
+	if crockPot["Barnacles"].NAME == "" || crockPot["Vegetable"].NAME == "" {
 		//  remove barnacle recipe
 	}
 
@@ -131,7 +131,6 @@ func main() {
 	if meatVal > 3 || meatVal == 0 || crockPot["Twigs"].NAME != "" {
 		// remove meatball recipe from possibles
 	}
-
 	// Output goes here
 	// title := fmt.Sprintf("%s + %s + %s + %s:", titles[0], titles[1], titles[2], titles[3])
 
@@ -148,5 +147,4 @@ func main() {
 	fmt.Println("Bug: ", bugVal)
 	fmt.Println("Inedible: ", inedVal)
 	fmt.Println("Misc: ", miscVal)
-
 }

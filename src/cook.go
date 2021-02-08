@@ -28,13 +28,13 @@ type IngredientDetails struct {
 }
 
 type RecipeDetails struct {
-	NAME      string  `json:"NAME"`
-	HEALTH      float64  `json:"HEALTH"`
-	HUNGER      float64  `json:"HUNGER"`
-	SANITY      float64  `json:"SANITY"`
-	NOTES string `json:"NOTES"`
-	CRITERIA string `json:"CRITERIA"`
-	EXPIRES float64 `json:"EXPIRES"`
+	NAME     string  `json:"NAME"`
+	HEALTH   float64 `json:"HEALTH"`
+	HUNGER   float64 `json:"HUNGER"`
+	SANITY   float64 `json:"SANITY"`
+	NOTES    string  `json:"NOTES"`
+	CRITERIA string  `json:"CRITERIA"`
+	EXPIRES  float64 `json:"EXPIRES"`
 	PRIORITY float64 `json:"PRIORITY"`
 	// preferences?
 }
@@ -60,7 +60,7 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	crockPot :=map[string]IngredientDetails{}
+	crockPot := map[string]IngredientDetails{}
 	crockPot["Morsel"] = ingredientsData["Morsel"]
 	crockPot["Egg"] = ingredientsData["Egg"]
 	crockPot["Egg"] = ingredientsData["Egg"]
@@ -109,14 +109,18 @@ func main() {
 
 	}
 
-
 	//	Create an array with all possible recipes
 
-	//	create an negative If conditional for each recipe 
+	//	create an negative If conditional for each recipe
+
+	// Bacon and Eggs
+	if meatVal <= 1 || eggVal <= 1 || vegVal > 0 {
+		// remove bacon and eggs from possibles
+	}
+	// Meatballs
 	if meatVal > 3 || meatVal == 0 || crockPot["Twigs"].NAME != "" {
 		// remove meatball recipe from possibles
 	}
-
 
 	// Output goes here
 	// title := fmt.Sprintf("%s + %s + %s + %s:", titles[0], titles[1], titles[2], titles[3])

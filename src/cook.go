@@ -60,11 +60,15 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
+	i1 := "Morsel"
+	i2 := "Egg"
+	i3 := "Egg"
+	i4 := "Monster Meat"
 	crockPot := map[string]IngredientDetails{}
-	crockPot["Morsel"] = ingredientsData["Morsel"]
-	crockPot["Egg"] = ingredientsData["Egg"]
-	crockPot["Egg"] = ingredientsData["Egg"]
-	crockPot["Monster Meat"] = ingredientsData["Monster Meat"]
+	crockPot[i1] = ingredientsData[i1]
+	crockPot[i2] = ingredientsData[i2]
+	crockPot[i3] = ingredientsData[i3]
+	crockPot[i4] = ingredientsData[i4]
 
 	// Initialize the baseline values
 	meatVal := 0.0
@@ -117,6 +121,12 @@ func main() {
 	if meatVal <= 1 || eggVal <= 1 || vegVal > 0 {
 		// remove bacon and eggs from possibles
 	}
+
+	// Barnacle Linguine
+	if crockPot["Barnacle"].NAME == "" || crockPot["Vegetable"].NAME == "" || 2 != len(crockPot["Barnacle"].NAME) {
+		//  remove barnacle recipe
+	}
+
 	// Meatballs
 	if meatVal > 3 || meatVal == 0 || crockPot["Twigs"].NAME != "" {
 		// remove meatball recipe from possibles

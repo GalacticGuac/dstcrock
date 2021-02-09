@@ -15,7 +15,7 @@ type IngredientDetails struct {
 	FRUIT     float64 `json:"FRUIT"`
 	VEGETABLE float64 `json:"VEGETABLE"`
 	SWEETENER float64 `json:"SWEETENER"`
-	MONSTER   float64 `json:"MONSTER"`
+	MONSTER   float64 `json:"MONSTER FOOD"`
 	DAIRY     float64 `json:"DAIRY"`
 	BUG       float64 `json:"BUG"`
 	INEDIBLE  float64 `json:"INEDIBLE"`
@@ -70,6 +70,7 @@ func main() {
 	crockPot[i3] = ingredientsData[i3]
 	crockPot[i4] = ingredientsData[i4]
 
+	newMeatVal := crockPot[i1].MEAT + crockPot[i2].MEAT
 	// Initialize the baseline values
 	meatVal := 0.0
 	fishVal := 0.0
@@ -85,11 +86,13 @@ func main() {
 
 	titles := []string{}
 
+	fmt.Println("Before the Loop")
 	// Look through each ingredient and sets values
-	for _, ingre := range crockPot {
+	for _, ingre := range ingredientsData {
+
 		titles = append(titles, ingre.NAME)
 
-		meatVal += ingre.MEAT
+		meatVal = meatVal + ingre.MEAT
 
 		fishVal += ingre.FISH
 
@@ -113,6 +116,8 @@ func main() {
 
 	}
 
+	fmt.Println("After the Loop")
+
 	//	Create an array with all possible recipes
 
 	//	create an negative If conditional for each recipe
@@ -126,6 +131,11 @@ func main() {
 	if crockPot["Barnacles"].NAME == "" || crockPot["Vegetable"].NAME == "" {
 		//  remove barnacle recipe
 	}
+
+	// if i1, i2 := crockPot["Egg"], crockPot["BEgg"];  { // || _, ok := crockPot["Egg"]; ok {
+	// 	//  remove barnacle recipe
+	// 	fmt.Println("has no egg: ")
+	// }
 
 	// Meatballs
 	if meatVal > 3 || meatVal == 0 || crockPot["Twigs"].NAME != "" {

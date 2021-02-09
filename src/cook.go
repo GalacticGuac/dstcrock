@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 type IngredientDetails struct {
@@ -60,63 +61,48 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Barnacles"
-	i2 := "Egg"
-	i3 := "Egg"
-	i4 := "Monster Meat"
+	i1 := "Berries"
+	i2 := "Barnacles"
+	i3 := "Blue Cap"
+	i4 := "Blue Cap"
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
 	crockPot[i2] = ingredientsData[i2]
 	crockPot[i3] = ingredientsData[i3]
 	crockPot[i4] = ingredientsData[i4]
 
-	newMeatVal := crockPot[i1].MEAT + crockPot[i2].MEAT
-	// Initialize the baseline values
-	meatVal := 0.0
-	fishVal := 0.0
-	eggVal := 0.0
-	fruitVal := 0.0
-	vegVal := 0.0
-	sweetVal := 0.0
-	monVal := 0.0
-	dairyVal := 0.0
-	bugVal := 0.0
-	inedVal := 0.0
-	miscVal := 0.0
+	// Initialize the baseline values *brian these were 0.0 before im messing with it to see if it works right
+	titles := "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
+	meatVal := crockPot[i1].MEAT + crockPot[i2].MEAT + crockPot[i3].MEAT + crockPot[i4].MEAT
+	fishVal := crockPot[i1].FISH + crockPot[i2].FISH + crockPot[i3].FISH + crockPot[i4].FISH
+	eggVal := crockPot[i1].EGG + crockPot[i2].EGG + crockPot[i3].EGG + crockPot[i4].EGG
+	fruitVal := crockPot[i1].FRUIT + crockPot[i2].FRUIT + crockPot[i3].FRUIT + crockPot[i4].FRUIT
+	vegVal := crockPot[i1].VEGETABLE + crockPot[i2].VEGETABLE + crockPot[i3].VEGETABLE + crockPot[i4].VEGETABLE
+	sweetVal := crockPot[i1].SWEETENER + crockPot[i2].SWEETENER + crockPot[i3].SWEETENER + crockPot[i4].SWEETENER
+	monVal := crockPot[i1].MONSTER + crockPot[i2].MONSTER + crockPot[i3].MONSTER + crockPot[i4].MONSTER
+	dairyVal := crockPot[i1].DAIRY + crockPot[i2].DAIRY + crockPot[i3].DAIRY + crockPot[i4].DAIRY
+	bugVal := crockPot[i1].BUG + crockPot[i2].BUG + crockPot[i3].BUG + crockPot[i4].BUG
+	inedVal := crockPot[i1].INEDIBLE + crockPot[i2].INEDIBLE + crockPot[i3].INEDIBLE + crockPot[i4].INEDIBLE
+	miscVal := crockPot[i1].MEAT + crockPot[i2].MEAT + crockPot[i3].MEAT + crockPot[i4].MEAT
 
-	titles := []string{}
+	// titles := []string{}
 
-	fmt.Println("Before the Loop")
 	// Look through each ingredient and sets values
-	for _, ingre := range ingredientsData {
+	// for _, ingre := range crockPot {
 
-		titles = append(titles, ingre.NAME)
-
-		meatVal = meatVal + ingre.MEAT
-
-		fishVal += ingre.FISH
-
-		eggVal += ingre.EGG
-
-		fruitVal += ingre.FRUIT
-
-		vegVal += ingre.VEGETABLE
-
-		sweetVal += ingre.SWEETENER
-
-		monVal += ingre.MONSTER
-
-		dairyVal += ingre.DAIRY
-
-		bugVal += ingre.BUG
-
-		inedVal += ingre.INEDIBLE
-
-		miscVal += ingre.MISC
-
-	}
-
-	fmt.Println("After the Loop")
+	// titles = append(titles, ingre.NAME)
+	// meatVal = meatVal + ingre.MEAT
+	// fishVal += ingre.FISH
+	// eggVal += ingre.EGG
+	// fruitVal += ingre.FRUIT
+	// vegVal += ingre.VEGETABLE
+	// sweetVal += ingre.SWEETENER
+	// monVal += ingre.MONSTER
+	// dairyVal += ingre.DAIRY
+	// bugVal += ingre.BUG
+	// inedVal += ingre.INEDIBLE
+	// miscVal += ingre.MISC
+	// }
 
 	//	Create an array with all possible recipes
 
@@ -125,13 +111,29 @@ func main() {
 	// Bacon and Eggs
 	if meatVal <= 1 || eggVal <= 1 || vegVal > 0 {
 		// remove bacon and eggs from possibles
+		fmt.Println("remove bacon and eggs")
+	} else {
+		fmt.Println("keep bacon and eggs")
 	}
 
 	// Barnacle Linguine
-	if crockPot["Barnacles"].NAME == "" || crockPot["Vegetable"].NAME == "" {
-		//  remove barnacle recipe
-	}
+	// *original* if crockPot["Barnacles"].NAME == "" || crockPot["Vegetable"].NAME == "" {}
 
+	// testing if there are 2 vegetables in crockpot
+
+	// first if is counting the occurence of "barnecle in "titles" (line 75)
+	if strings.Count(titles, "Barnacles") != 2 {
+		fmt.Println("remove barnacle liguine")
+	} else {
+		fmt.Println("keep barnacle liguine")
+	}
+	// second find vegetables tring to make "true" into 1 then adding to make 2. if != 2 then remove
+	crockSlots := []float64{crockPot[i1].VEGETABLE, crockPot[i2].VEGETABLE, crockPot[i3].VEGETABLE, crockPot[i4].VEGETABLE}
+	for _, v := range crockSlots {
+		if v > 0 {
+			fmt.Println("true")
+		}
+	}
 	// if i1, i2 := crockPot["Egg"], crockPot["BEgg"];  { // || _, ok := crockPot["Egg"]; ok {
 	// 	//  remove barnacle recipe
 	// 	fmt.Println("has no egg: ")

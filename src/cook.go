@@ -127,13 +127,27 @@ func main() {
 	} else {
 		fmt.Println("keep barnacle liguine")
 	}
+
 	// second find vegetables tring to make "true" into 1 then adding to make 2. if != 2 then remove
 	crockSlots := []float64{crockPot[i1].VEGETABLE, crockPot[i2].VEGETABLE, crockPot[i3].VEGETABLE, crockPot[i4].VEGETABLE}
+	vegeCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlots {
+		foundVege := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
+
 		if v > 0 {
+			foundVege = true
 			fmt.Println("true")
 		}
+
+		if foundVege { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
+			vegeCount += 1 // Adding 1 to the number of veggies found.
+		}
 	}
+
+	if vegeCount >= 2 {
+		//remove recipe
+	}
+
 	// if i1, i2 := crockPot["Egg"], crockPot["BEgg"];  { // || _, ok := crockPot["Egg"]; ok {
 	// 	//  remove barnacle recipe
 	// 	fmt.Println("has no egg: ")

@@ -272,11 +272,59 @@ func main() {
 	} else {
 		fmt.Println("keep barnacle pita")
 	}
+
 	// BEEFY GREENS
 	if strings.Count(titles, "Leafy Meat") < 1 || vegVal < 3 {
 		fmt.Println("remove beefy greens")
 	} else {
-		fmt.Println("keep beffy greens")
+		fmt.Println("keep beefy greens")
+	}
+
+	// butter muffin
+	if strings.Count(titles, "Butterfly Wings") < 1 || vegeCount < 1 || crockPot["Mandrake"].NAME != "" || meatCount > 0 {
+		fmt.Println("remove butter muffin")
+	} else {
+		fmt.Println("keep butter muffin")
+	}
+
+	// CREAMY POTATO PURÉE**
+	// need to look at potato or roasted potatoe can be used how we do brian?
+	if strings.Count(titles, "Potato") < 2 || strings.Count(titles, "Garlic") < 1 || crockPot["Twigs"].NAME != "" || meatCount > 0 {
+		fmt.Println("remove CREAMY POTATO PURÉE")
+	} else {
+		fmt.Println("keep CREAMY POTATO PURÉE")
+	}
+
+	// dragonpie
+	// need to look at dragon fruit or prepared dragon fruit can be used how we do brian?
+	if strings.Count(titles, "Dragon Fruit") < 1 || crockPot["Mandrake"].NAME != "" || meatCount > 0 {
+		fmt.Println("remove dragon pie")
+	} else {
+		fmt.Println("keep dragon pie")
+	}
+
+	// FANCY SPIRALLED TUBERS
+	// need to look at potato or roasted potato can be used how we do brian?
+	if strings.Count(titles, "Potato") < 1 || strings.Count(titles, "Twigs") < 1 || inedibleCount-1 > 1 || meatCount > 0 {
+		fmt.Println("remove FANCY SPIRALLED TUBERS")
+	} else {
+		fmt.Println("keep FANCY SPIRALLED TUBERS")
+	}
+
+	// fish tacos
+	// twig value - 1 twig 50% chance of  fish sticks
+	// need to look at corn or popcorn can be used how we do brian?
+	if fishVal < 0.5 || strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Twigs") == 1 {
+		fmt.Println("remove fish tacos")
+	} else {
+		fmt.Println("keep fish tacos")
+	}
+
+	// fishsticks
+	if fishVal < 0.25 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" {
+		fmt.Println("remove fishsticks")
+	} else {
+		fmt.Println("keep fishsticks")
 	}
 
 	// Meatballs

@@ -61,10 +61,10 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Honey"
-	i2 := "Honey"
-	i3 := "Honey"
-	i4 := "Jerky"
+	i1 := "Moon Shroom"
+	i2 := "Red Cap"
+	i3 := "Green Cap"
+	i4 := "Blue Cap"
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
 	crockPot[i2] = ingredientsData[i2]
@@ -374,18 +374,95 @@ func main() {
 	}
 
 	// Honey Nuggets
-	if strings.Count(titles, "Honey") < 1 || meatVal > 1.5 || inedibleCount != 0 {
+	if strings.Count(titles, "Honey") < 1 || meatVal > 1.5 || inedVal != 0 {
 		fmt.Println("remove honey nuggets")
 	} else {
 		fmt.Println("keep honey nuggets")
 	}
 
+	// ice cream
+	if strings.Count(titles, "Ice") < 1 || dairyCount < 1 || sweetenerCount < 1 || meatVal != 0 || vegVal != 0 || eggVal != 0 || crockPot["Twigs"].NAME != "" {
+		fmt.Println("remove ice cream")
+	} else {
+		fmt.Println("keep ice cream")
+	}
+
+	// jelly salad
+	// look for cooked version
+	if strings.Count(titles, "Leafy Meat") < 2 || sweetVal < 2 {
+		fmt.Println("remove jelly salad")
+	} else {
+		fmt.Println("keep jelly salad")
+	}
+
+	// jellybeans
+	if strings.Count(titles, "Royal Jelly") < 1 || monVal != 0 || inedVal != 0 {
+		fmt.Println("remove jellybeans")
+	} else {
+		fmt.Println("keep jellybeans")
+	}
+
+	// kabobs
+	if meatCount < 1 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || fishVal != 0 {
+		fmt.Println("remove kabobs")
+	} else {
+		fmt.Println("keep kabobs")
+	}
+
+	// leafy meatloaf
+	if strings.Count(titles, "Leafy Meat") < 2 {
+		fmt.Println("remove leafy meat loaf")
+	} else {
+		fmt.Println("keep leafy meat loaf")
+	}
+
+	// mandrake soup
+	if strings.Count(titles, "Mandrake") < 1 {
+		fmt.Println("remove mandrake soup")
+	} else {
+		fmt.Println("keep mandrake soup")
+	}
+
 	// Meatballs
-	if meatVal > 3 || meatVal == 0 || crockPot["Twigs"].NAME != "" {
-		// remove meatball recipe from possibles
+	if meatVal >= 3 || meatVal == 0 || crockPot["Twigs"].NAME != "" {
 		fmt.Println("remove meatballs")
 	} else {
 		fmt.Println("keep meatballs")
+	}
+
+	// meaty stew
+	if meatVal < 3 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Honey"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
+		fmt.Println("remove meaty stew")
+	} else {
+		fmt.Println("keep meaty stew")
+	}
+
+	// melonsicle
+	if strings.Count(titles, "Watermelon") < 1 || strings.Count(titles, "Ice") < 1 || strings.Count(titles, "Twigs") < 1 || meatVal != 0 || vegVal != 0 || eggVal != 0 {
+		fmt.Println("remove melonsicle")
+	} else {
+		fmt.Println("keep melonsicle")
+	}
+
+	// monster lasagna
+	if monsterCount < 2 || crockPot["Twigs"].NAME != "" {
+		fmt.Println("remove monster lasagna")
+	} else {
+		fmt.Println("keep monster lasagna")
+	}
+
+	// Mushy Cake
+	if strings.Count(titles, "Moon Shroom") != 1 || strings.Count(titles, "Red Cap") != 1 || strings.Count(titles, "Blue Cap") != 1 || strings.Count(titles, "Green Cap") != 1 {
+		fmt.Println("remove Mushy cake")
+	} else {
+		fmt.Println("keep Mushy cake")
+	}
+
+	// Pierogi
+	if meatCount < 0 || eggCount < 0 || vegeCount < 0 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
+		fmt.Println("remove Pierogi")
+	} else {
+		fmt.Println("keep Pierogi")
 	}
 
 	// Output goes here

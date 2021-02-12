@@ -61,10 +61,10 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Berries"
-	i2 := "Barnacles"
-	i3 := "Blue Cap"
-	i4 := "Twigs"
+	i1 := "Honey"
+	i2 := "Honey"
+	i3 := "Honey"
+	i4 := "Jerky"
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
 	crockPot[i2] = ingredientsData[i2]
@@ -243,7 +243,7 @@ func main() {
 	//	create an negative If conditional for each recipe
 
 	// Bacon and Eggs
-	if meatVal <= 1 || eggVal <= 1 || vegVal > 0 {
+	if meatVal <= 1 || eggVal <= 1 || vegVal != 0 {
 		// remove bacon and eggs from possibles
 		fmt.Println("remove bacon and eggs")
 	} else {
@@ -281,7 +281,7 @@ func main() {
 	}
 
 	// butter muffin
-	if strings.Count(titles, "Butterfly Wings") < 1 || vegeCount < 1 || crockPot["Mandrake"].NAME != "" || meatCount > 0 {
+	if strings.Count(titles, "Butterfly Wings") < 1 || vegeCount < 1 || crockPot["Mandrake"].NAME != "" || meatCount != 0 {
 		fmt.Println("remove butter muffin")
 	} else {
 		fmt.Println("keep butter muffin")
@@ -297,7 +297,7 @@ func main() {
 
 	// dragonpie
 	// need to look at dragon fruit or prepared dragon fruit can be used how we do brian?
-	if strings.Count(titles, "Dragon Fruit") < 1 || crockPot["Mandrake"].NAME != "" || meatCount > 0 {
+	if strings.Count(titles, "Dragon Fruit") < 1 || crockPot["Mandrake"].NAME != "" || meatCount != 0 {
 		fmt.Println("remove dragon pie")
 	} else {
 		fmt.Println("keep dragon pie")
@@ -305,7 +305,7 @@ func main() {
 
 	// FANCY SPIRALLED TUBERS
 	// need to look at potato or roasted potato can be used how we do brian?
-	if strings.Count(titles, "Potato") < 1 || strings.Count(titles, "Twigs") < 1 || inedibleCount-1 > 1 || meatCount > 0 {
+	if strings.Count(titles, "Potato") < 1 || strings.Count(titles, "Twigs") < 1 || inedibleCount-1 > 1 || meatCount != 0 {
 		fmt.Println("remove FANCY SPIRALLED TUBERS")
 	} else {
 		fmt.Println("keep FANCY SPIRALLED TUBERS")
@@ -325,6 +325,59 @@ func main() {
 		fmt.Println("remove fishsticks")
 	} else {
 		fmt.Println("keep fishsticks")
+	}
+
+	// fist full of jam
+	if fruitVal < 0.5 || meatVal != 0 || vegVal != 0 || inedVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
+		fmt.Println("remove fist full of jam")
+	} else {
+		fmt.Println(" keep fist full of jam")
+	}
+
+	// flower salad
+	if strings.Count(titles, "Cactus Flower") < 1 || vegVal-.5 < 1.5 || meatVal != 0 || fruitVal != 0 || eggVal != 0 || sweetVal != 0 || crockPot["Twigs"].NAME != "" {
+		fmt.Println("remove flower salad")
+	} else {
+		fmt.Println("keep flower salad")
+	}
+
+	// froggle bunwich
+	// need to look at frog legs or cooked frog legs
+	// makes kabob if only one stick
+	if strings.Count(titles, "Frog Legs") < 1 || eggVal != 0 || sweetVal != 0 || strings.Count(titles, "Twigs") == 1 || crockPot["Mandrake"].NAME != "" {
+		fmt.Println("remove froggle bunwich")
+	} else {
+		fmt.Println("keep froggle bunwich")
+	}
+
+	// fruit medley
+	// twigs is safest anything else 50% of fist full of jam
+	if fruitVal < 3 || strings.Count(titles, "Twigs") == 1 || meatVal != 0 || vegVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
+		fmt.Println("remove fruit medley")
+	} else {
+		fmt.Println("keep fruit medley")
+	}
+
+	// guacamole
+	// need to look at cactus flesh or stone fruit
+	if strings.Count(titles, "Moleworm") < 1 || strings.Count(titles, "Cactus Flesh") < 1 || fruitVal != 0 {
+		fmt.Println("remove guacamole")
+	} else {
+		fmt.Println("keep guacamole")
+	}
+
+	// Honey Ham
+	if strings.Count(titles, "Honey") < 1 || meatVal <= 1.5 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
+		fmt.Println("remove honey ham")
+	} else {
+		fmt.Println("keep honey ham")
+	}
+
+	// Honey Nuggets
+	if strings.Count(titles, "Honey") < 1 || meatVal > 1.5 || inedibleCount != 0 {
+		fmt.Println("remove honey nuggets")
+	} else {
+		fmt.Println("keep honey nuggets")
 	}
 
 	// Meatballs

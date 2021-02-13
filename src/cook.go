@@ -459,10 +459,25 @@ func main() {
 	}
 
 	// Pierogi
-	if meatCount < 0 || eggCount < 0 || vegeCount < 0 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
+	if meatCount < 1 || eggCount < 1 || vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
 		fmt.Println("remove Pierogi")
 	} else {
 		fmt.Println("keep Pierogi")
+	}
+
+	//powdercake
+	if strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Twigs") < 1 {
+		fmt.Println("remove powdercake")
+	} else {
+		fmt.Println("keep powder cake")
+	}
+
+	//Pumkin cookie
+	// 3 honey or comb 50% chance of making taffy
+	if strings.Count(titles, "Pumpkin") < 1 || strings.Count(titles, "Honey") <= 1 {
+		fmt.Println("remove Pumpkin cookie")
+	} else {
+		fmt.Println("keep Pumpkin cookie")
 	}
 
 	// Output goes here

@@ -41,6 +41,8 @@ type RecipeDetails struct {
 }
 
 func main() {
+
+	// version := DST
 	// Find that file
 	jsonFile, err := os.Open("../lib/ingredients.json")
 	if err != nil {
@@ -61,9 +63,9 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Blue Cap"
-	i2 := "Berries"
-	i3 := "Berries"
+	i1 := "Roasted Birchnut"
+	i2 := "Roasted Berries"
+	i3 := "Juicy Berries"
 	i4 := "Berries"
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
@@ -288,7 +290,7 @@ func main() {
 	}
 
 	// CREAMY POTATO PURÉE**
-	// need to look at potato or roasted potatoe can be used how we do brian?
+	// need to look at potato or roasted potato
 	if strings.Count(titles, "Potato") < 2 || strings.Count(titles, "Garlic") < 1 || crockPot["Twigs"].NAME != "" || meatCount > 0 {
 		fmt.Println("remove CREAMY POTATO PURÉE")
 	} else {
@@ -296,7 +298,7 @@ func main() {
 	}
 
 	// dragonpie
-	// need to look at dragon fruit or prepared dragon fruit can be used how we do brian?
+	// need to look at dragon fruit or prepared dragon fruit
 	if strings.Count(titles, "Dragon Fruit") < 1 || crockPot["Mandrake"].NAME != "" || meatCount != 0 {
 		fmt.Println("remove dragon pie")
 	} else {
@@ -304,7 +306,7 @@ func main() {
 	}
 
 	// FANCY SPIRALLED TUBERS
-	// need to look at potato or roasted potato can be used how we do brian?
+	// need to look at potato or roasted potato
 	if strings.Count(titles, "Potato") < 1 || strings.Count(titles, "Twigs") < 1 || inedibleCount-1 > 1 || meatCount != 0 {
 		fmt.Println("remove FANCY SPIRALLED TUBERS")
 	} else {
@@ -313,9 +315,13 @@ func main() {
 
 	// fish tacos
 	// twig value - 1 twig 50% chance of  fish sticks
-	// need to look at corn or popcorn can be used how we do brian?
+	// need to look at corn or popcorn
 	if fishVal < 0.5 || strings.Count(titles, "Corn") < 1 {
-		fmt.Println("remove fish tacos")
+		if fishVal < 0.5 || strings.Count(titles, "Popcorn") < 1 {
+			fmt.Println("remove fish tacos")
+		} else {
+			fmt.Println("keep fish tacos")
+		}
 	} else {
 		fmt.Println("keep fish tacos")
 	}
@@ -344,7 +350,7 @@ func main() {
 	// froggle bunwich
 	// need to look at frog legs or cooked frog legs
 	// makes kabob if only one stick
-	if strings.Count(titles, "Frog Legs") < 1 || eggVal != 0 || sweetVal != 0 || crockPot["Mandrake"].NAME != "" {
+	if strings.Count(titles, "Frog Legs") < 1 || vegeCount < 1 || eggVal != 0 || sweetVal != 0 || crockPot["Mandrake"].NAME != "" {
 		fmt.Println("remove froggle bunwich")
 	} else {
 		fmt.Println("keep froggle bunwich")
@@ -361,7 +367,11 @@ func main() {
 	// guacamole
 	// need to look at cactus flesh or stone fruit
 	if strings.Count(titles, "Moleworm") < 1 || strings.Count(titles, "Cactus Flesh") < 1 || fruitVal != 0 {
-		fmt.Println("remove guacamole")
+		if strings.Count(titles, "Moleworm") < 1 || strings.Count(titles, "Ripe Stone Fruit") < 1 || fruitVal != 0 {
+			fmt.Println("remove guacamole")
+		} else {
+			fmt.Println("keep guacamole")
+		}
 	} else {
 		fmt.Println("keep guacamole")
 	}
@@ -545,6 +555,55 @@ func main() {
 		fmt.Println("keep Taffy")
 	}
 
+	// trail mix
+	// required berries must be uncooked
+	if strings.Count(titles, "Roasted Birchnut") < 1 || strings.Count(titles, "Berries") < 1 || strings.Count(titles, "Roasted") > 3 || fruitCount-1 < 1 || meatCount != 0 || fishCount != 0 || eggCount != 0 || vegeCount != 0 || dairyCount != 0 {
+		fmt.Println("remove trail mix")
+	} else {
+		fmt.Println("keep trail mix")
+	}
+
+	// TURKEY DINNER
+	// checkingg twice for veg or fruit
+	if strings.Count(titles, "Drumstick") < 2 || meatVal-1 < 0.25 || fruitVal < .5 {
+		if strings.Count(titles, "Drumstick") < 2 || meatVal-1 < 0.25 || vegVal < .5 {
+			fmt.Println("remove TURKEY DINNER")
+		} else {
+			fmt.Println("keep TURKEY DINNER")
+		}
+	} else {
+		fmt.Println("keep TURKEY DINNER") //fmt.Println("remove TURKEY DINNER")
+	}
+
+	// unagi
+	if strings.Count(titles, "Eel") < 1 || strings.Count(titles, "Lichen") < 1 {
+		if strings.Count(titles, "Eel") < 1 || strings.Count(titles, "Kelp Fronds") < 1 {
+			fmt.Println("remove unagi")
+		} else {
+			fmt.Println("keep unagi")
+		}
+	} else {
+		fmt.Println("keep unagi")
+	}
+
+	// Veggie Burger
+	if strings.Count(titles, "Leafy Meat") < 1 || strings.Count(titles, "Onion") < 1 || vegVal-1 < 1 {
+		fmt.Println("remove Veggie Burger")
+	} else {
+		fmt.Println("keep Veggie Burger")
+	}
+
+	// waffles
+	if strings.Count(titles, "Butter") < 1 || strings.Count(titles, "Berries") < 1 || eggCount < 1 {
+		fmt.Println("remove waffles")
+	} else {
+		fmt.Println("keep waffles")
+	}
+
+	// wet goop
+	// if everything is false
+	//
+	//
 	// Output goes here
 	// title := fmt.Sprintf("%s + %s + %s + %s:", titles[0], titles[1], titles[2], titles[3])
 

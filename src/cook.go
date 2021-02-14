@@ -61,10 +61,10 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Moon Shroom"
-	i2 := "Red Cap"
-	i3 := "Green Cap"
-	i4 := "Blue Cap"
+	i1 := "Blue Cap"
+	i2 := "Berries"
+	i3 := "Berries"
+	i4 := "Berries"
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
 	crockPot[i2] = ingredientsData[i2]
@@ -267,7 +267,7 @@ func main() {
 
 	// BARNACLE PITA
 	// fishval over 1 can cause stuffed fish head but idk the percentage
-	if strings.Count(titles, "Barnacles") < 1 || vegVal < 0.5 || fishVal > 1 {
+	if strings.Count(titles, "Barnacles") < 1 || vegVal < 0.5 {
 		fmt.Println("remove barnacle pita")
 	} else {
 		fmt.Println("keep barnacle pita")
@@ -314,7 +314,7 @@ func main() {
 	// fish tacos
 	// twig value - 1 twig 50% chance of  fish sticks
 	// need to look at corn or popcorn can be used how we do brian?
-	if fishVal < 0.5 || strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Twigs") == 1 {
+	if fishVal < 0.5 || strings.Count(titles, "Corn") < 1 {
 		fmt.Println("remove fish tacos")
 	} else {
 		fmt.Println("keep fish tacos")
@@ -344,7 +344,7 @@ func main() {
 	// froggle bunwich
 	// need to look at frog legs or cooked frog legs
 	// makes kabob if only one stick
-	if strings.Count(titles, "Frog Legs") < 1 || eggVal != 0 || sweetVal != 0 || strings.Count(titles, "Twigs") == 1 || crockPot["Mandrake"].NAME != "" {
+	if strings.Count(titles, "Frog Legs") < 1 || eggVal != 0 || sweetVal != 0 || crockPot["Mandrake"].NAME != "" {
 		fmt.Println("remove froggle bunwich")
 	} else {
 		fmt.Println("keep froggle bunwich")
@@ -352,7 +352,7 @@ func main() {
 
 	// fruit medley
 	// twigs is safest anything else 50% of fist full of jam
-	if fruitVal < 3 || strings.Count(titles, "Twigs") == 1 || meatVal != 0 || vegVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
+	if fruitVal < 3 || meatVal != 0 || vegVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
 		fmt.Println("remove fruit medley")
 	} else {
 		fmt.Println("keep fruit medley")
@@ -478,6 +478,71 @@ func main() {
 		fmt.Println("remove Pumpkin cookie")
 	} else {
 		fmt.Println("keep Pumpkin cookie")
+	}
+
+	// RATATOUILLE
+	if vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Butterfly Wings"].NAME != "" || crockPot["Dragon Fruit"].NAME != "" {
+		fmt.Println("remove Ratatouille")
+	} else {
+		fmt.Println("keep Ratatouille")
+	}
+
+	// SALSA FRESCA
+	// look for cooked versions
+	if strings.Count(titles, "Toma Root") < 1 || meatCount != 0 || inedibleCount != 0 || eggCount != 0 {
+		fmt.Println("remove Salsa Fresca")
+	} else {
+		fmt.Println("keep Salsa Fresca")
+	}
+
+	//  Soothing tea
+	// look for honey or comb
+	if strings.Count(titles, "Forget-Me-Lots") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Ice") < 1 || monsterCount != 0 || meatCount != 0 || fishCount != 0 || eggCount != 0 || inedibleCount != 0 || dairyCount != 0 {
+		fmt.Println("remove Soothing tea")
+	} else {
+		fmt.Println("keep Soothing tea")
+	}
+
+	//  Spicy Chili
+	if meatCount != 2 || vegeCount != 2 || meatVal < 1.5 || vegVal < 1.5 {
+		fmt.Println("remove Spicy Chili")
+	} else {
+		fmt.Println("keep Spicy Chili")
+	}
+
+	// STUFFED EGGPLANT
+	if strings.Count(titles, "Eggplant") < 1 || vegeCount < 1 {
+		fmt.Println("remove STUFFED EGGPLANT")
+	} else {
+		fmt.Println("keep STUFFED EGGPLANT")
+	}
+
+	// stuffed fish heads
+	if strings.Count(titles, "Barnacles") < 1 || fishVal-0.5 < 1 {
+		fmt.Println("remove stuffed fish heads")
+	} else {
+		fmt.Println("keep stuffed fish heads")
+	}
+
+	// STUFFED PEPPER POPPERS
+	if strings.Count(titles, "Pepper") < 1 || meatVal > 1.5 || meatCount == 0 || crockPot["Twigs"].NAME != "" {
+		fmt.Println("remove STUFFED PEPPER POPPERS")
+	} else {
+		fmt.Println("keep STUFFED PEPPER POPPERS")
+	}
+
+	// SURF 'N' TURF
+	if meatVal < 2.5 || fishVal < 1.5 || crockPot["Ice"].NAME != "" {
+		fmt.Println("remove SURF 'N' TURF")
+	} else {
+		fmt.Println("keep SURF 'N' TURF")
+	}
+
+	// Taffy
+	if sweetVal < 3 || meatCount != 0 {
+		fmt.Println("remove Taffy")
+	} else {
+		fmt.Println("keep Taffy")
 	}
 
 	// Output goes here

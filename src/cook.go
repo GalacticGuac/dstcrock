@@ -89,17 +89,15 @@ func main() {
 
 	// counts type of ingredients
 	// count Meat
+	// SIDNEY: the way you did these is fine, however there is a faster/cleaner way to do it. I have altered the meatcount below to use that faster method
 	crockSlotsMea := []float64{crockPot[i1].MEAT, crockPot[i2].MEAT, crockPot[i3].MEAT, crockPot[i4].MEAT}
 	meatCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsMea {
-		foundMeat := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
 		if v > 0 {
-			foundMeat = true
-		}
-		if foundMeat { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
 			meatCount++ // Adding 1 to the number of veggies found.
 		}
 	}
+
 	// count Fish
 	crockSlotsFis := []float64{crockPot[i1].FISH, crockPot[i2].FISH, crockPot[i3].FISH, crockPot[i4].FISH}
 	fishCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
@@ -283,6 +281,7 @@ func main() {
 	}
 
 	// butter muffin
+
 	if strings.Count(titles, "Butterfly Wings") < 1 || vegeCount < 1 || crockPot["Mandrake"].NAME != "" || meatCount != 0 {
 		fmt.Println("remove butter muffin")
 	} else {
@@ -291,6 +290,7 @@ func main() {
 
 	// CREAMY POTATO PURÉE**
 	// need to look at potato or roasted potato
+	// SIDNEY: interesting that you use two different meatCount Varients to check for no meat. both != 0 and > 0. Both will work though
 	if strings.Count(titles, "Potato") < 2 || strings.Count(titles, "Garlic") < 1 || crockPot["Twigs"].NAME != "" || meatCount > 0 {
 		fmt.Println("remove CREAMY POTATO PURÉE")
 	} else {
@@ -315,7 +315,9 @@ func main() {
 
 	// fish tacos
 	// twig value - 1 twig 50% chance of  fish sticks
+	// SIDNEY: Will probably need data to test the 50% chance thing, my thinking is that at the end we will have this recipe AND fish sticks remaning, with equal priority. If that doesn't work at the end we may need to evaulate that here.
 	// need to look at corn or popcorn
+	// SIDNEY: what the deal with checking fishVal twice here? if there isnt fish it will fail out in the first if, and if there is, it will pass in both. One of these is redundant. I feel like this was my idea that you maybe misheard or I misthought
 	if fishVal < 0.5 || strings.Count(titles, "Corn") < 1 {
 		if fishVal < 0.5 || strings.Count(titles, "Popcorn") < 1 {
 			fmt.Println("remove fish tacos")
@@ -358,6 +360,7 @@ func main() {
 
 	// fruit medley
 	// twigs is safest anything else 50% of fist full of jam
+	// SIDNEY: We will definitely need to think about suggestions for the "best" version of the recipes
 	if fruitVal < 3 || meatVal != 0 || vegVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
 		fmt.Println("remove fruit medley")
 	} else {
@@ -535,6 +538,7 @@ func main() {
 	}
 
 	// STUFFED PEPPER POPPERS
+	// SIDNEY: is meatCount == 0 redundant if the meatcount just checks the meatVal? like, if you're checking for enough meatVal, doesn't that mean the meatCount will always not be 0?
 	if strings.Count(titles, "Pepper") < 1 || meatVal > 1.5 || meatCount == 0 || crockPot["Twigs"].NAME != "" {
 		fmt.Println("remove STUFFED PEPPER POPPERS")
 	} else {
@@ -565,6 +569,7 @@ func main() {
 
 	// TURKEY DINNER
 	// checkingg twice for veg or fruit
+	// SIDNEY: why meatval-1 < 0.25? couldnt you just do meatVal < 1.25?, and same as neat 320, why check the exact same thing twice (regarding fruit?)
 	if strings.Count(titles, "Drumstick") < 2 || meatVal-1 < 0.25 || fruitVal < .5 {
 		if strings.Count(titles, "Drumstick") < 2 || meatVal-1 < 0.25 || vegVal < .5 {
 			fmt.Println("remove TURKEY DINNER")

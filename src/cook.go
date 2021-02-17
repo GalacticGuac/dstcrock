@@ -65,9 +65,9 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Monster Jerky"
+	i1 := "Barnacles"
 	i2 := "Monster Jerky"
-	i3 := "Juicy Berries"
+	i3 := "Egg"
 	i4 := "Berries"
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
@@ -91,12 +91,11 @@ func main() {
 
 	// counts type of ingredients
 	// count Meat
-	// SIDNEY: the way you did these is fine, however there is a faster/cleaner way to do it. I have altered the meatcount below to use that faster method
 	crockSlotsMea := []float64{crockPot[i1].MEAT, crockPot[i2].MEAT, crockPot[i3].MEAT, crockPot[i4].MEAT}
 	meatCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsMea {
 		if v > 0 {
-			meatCount++ // Adding 1 to the number of veggies found.
+			meatCount++
 		}
 	}
 
@@ -104,120 +103,100 @@ func main() {
 	crockSlotsFis := []float64{crockPot[i1].FISH, crockPot[i2].FISH, crockPot[i3].FISH, crockPot[i4].FISH}
 	fishCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsFis {
-		foundFish := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
 		if v > 0 {
-			foundFish = true
-		}
-		if foundFish { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			fishCount++ // Adding 1 to the number of veggies found.
+			fishCount++
 		}
 	}
 	// count egg
 	crockSlotsEgg := []float64{crockPot[i1].EGG, crockPot[i2].EGG, crockPot[i3].EGG, crockPot[i4].EGG}
 	eggCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsEgg {
-		foundEgg := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
 		if v > 0 {
-			foundEgg = true
-		}
-		if foundEgg { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			eggCount++ // Adding 1 to the number of veggies found.
+			eggCount++
 		}
 	}
 	// count fruit
 	crockSlotsFru := []float64{crockPot[i1].FRUIT, crockPot[i2].FRUIT, crockPot[i3].FRUIT, crockPot[i4].FRUIT}
 	fruitCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsFru {
-		foundFruit := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
 		if v > 0 {
-			foundFruit = true
-		}
-		if foundFruit { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			fruitCount++ // Adding 1 to the number of veggies found.
+			fruitCount++
 		}
 	}
 	// count vegetables
 	crockSlotsVeg := []float64{crockPot[i1].VEGETABLE, crockPot[i2].VEGETABLE, crockPot[i3].VEGETABLE, crockPot[i4].VEGETABLE}
 	vegeCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsVeg {
-		foundVege := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
 		if v > 0 {
-			foundVege = true
-		}
-		if foundVege { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			vegeCount++ // Adding 1 to the number of veggies found.
+			vegeCount++
 		}
 	}
 	// count sweetener
 	crockSlotsSwe := []float64{crockPot[i1].SWEETENER, crockPot[i2].SWEETENER, crockPot[i3].SWEETENER, crockPot[i4].SWEETENER}
 	sweetenerCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsSwe {
-		foundSwee := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
 		if v > 0 {
-			foundSwee = true
-		}
-		if foundSwee { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			sweetenerCount++ // Adding 1 to the number of veggies found.
+			sweetenerCount++
 		}
 	}
 	// count monster food
 	crockSlotsMon := []float64{crockPot[i1].MONSTER, crockPot[i2].MONSTER, crockPot[i3].MONSTER, crockPot[i4].MONSTER}
 	monsterCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsMon {
-		foundMons := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
+		foundMons := false
 		if v > 0 {
 			foundMons = true
 		}
-		if foundMons { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			monsterCount++ // Adding 1 to the number of veggies found.
+		if foundMons {
+			monsterCount++
 		}
 	}
 	// count monster food
 	crockSlotsDai := []float64{crockPot[i1].DAIRY, crockPot[i2].DAIRY, crockPot[i3].DAIRY, crockPot[i4].DAIRY}
 	dairyCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsDai {
-		foundDair := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
+		foundDair := false
 		if v > 0 {
 			foundDair = true
 		}
-		if foundDair { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			dairyCount++ // Adding 1 to the number of veggies found.
+		if foundDair {
+			dairyCount++
 		}
 	}
 	// count bug
 	crockSlotsBug := []float64{crockPot[i1].BUG, crockPot[i2].BUG, crockPot[i3].BUG, crockPot[i4].BUG}
 	bugCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsBug {
-		foundBug := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
+		foundBug := false
 		if v > 0 {
 			foundBug = true
 		}
-		if foundBug { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			bugCount++ // Adding 1 to the number of veggies found.
+		if foundBug {
+			bugCount++
 		}
 	}
 	// count inedable
 	crockSlotsIne := []float64{crockPot[i1].INEDIBLE, crockPot[i2].INEDIBLE, crockPot[i3].INEDIBLE, crockPot[i4].INEDIBLE}
 	inedibleCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsIne {
-		foundIned := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
+		foundIned := false
 		if v > 0 {
 			foundIned = true
 		}
-		if foundIned { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			inedibleCount++ // Adding 1 to the number of veggies found.
+		if foundIned {
+			inedibleCount++
 		}
 	}
 	// count misc (moleworm, butterfly, etc.)
 	crockSlotsMis := []float64{crockPot[i1].MISC, crockPot[i2].MISC, crockPot[i3].MISC, crockPot[i4].MISC}
 	miscCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsMis {
-		foundMisc := false // initializing a boolean (true/false) variable outside the if statement, so we can alter it inside and check after
+		foundMisc := false
 		if v > 0 {
 			foundMisc = true
 		}
-		if foundMisc { // if statements always read `if "true" do this`, so since it a boolean, this says the same thing as if foundVege == true
-			miscCount++ // Adding 1 to the number of veggies found.
+		if foundMisc {
+			miscCount++
 		}
 	}
 

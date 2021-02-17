@@ -29,14 +29,16 @@ type IngredientDetails struct {
 }
 
 type RecipeDetails struct {
-	NAME     string  `json:"NAME"`
-	HEALTH   float64 `json:"HEALTH"`
-	HUNGER   float64 `json:"HUNGER"`
-	SANITY   float64 `json:"SANITY"`
-	NOTES    string  `json:"NOTES"`
-	CRITERIA string  `json:"CRITERIA"`
-	EXPIRES  float64 `json:"EXPIRES"`
-	PRIORITY float64 `json:"PRIORITY"`
+	NAME        string  `json:"NAME"`
+	HEALTH      float64 `json:"HEALTH"`
+	HUNGER      float64 `json:"HUNGER"`
+	SANITY      float64 `json:"SANITY"`
+	INGREDIENTS string  `json:"INGREDIENTS"`
+	EXCLUDE     string  `json:"EXCLUDE"`
+	NOTES       string  `json:"NOTES"`
+	EXPIRES     float64 `json:"EXPIRES"`
+	COOKTIME    float64 `json:"COOK TIME"`
+	PRIORITY    float64 `json:"PRIORITY"`
 	// preferences?
 }
 
@@ -63,8 +65,8 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Roasted Birchnut"
-	i2 := "Roasted Berries"
+	i1 := "Monster Jerky"
+	i2 := "Monster Jerky"
 	i3 := "Juicy Berries"
 	i4 := "Berries"
 	crockPot := map[string]IngredientDetails{}
@@ -242,13 +244,32 @@ func main() {
 
 	//	create an negative If conditional for each recipe
 
+	// AMBEROSIA
+	if strings.Count(titles, "Collected Dust") < 1 {
+		fmt.Println("remove AMBEROSIA")
+	} else {
+		fmt.Println("keep AMBEROSIA")
+	}
+
+	// ASPARAGUS SOUP
+	if strings.Count(titles, "Asparagus") < 1 || vegVal < 1.5 || meatCount != 0 || inedibleCount != 0 {
+		fmt.Println("remove ASPARAGUS SOUP")
+	} else {
+		fmt.Println("keep ASPARAGUS SOUP")
+	}
+
 	// Bacon and Eggs
 	if meatVal <= 1 || eggVal <= 1 || vegVal != 0 {
-		// remove bacon and eggs from possibles
 		fmt.Println("remove bacon and eggs")
 	} else {
-		// keep bacon from possibles
 		fmt.Println("keep bacon and eggs")
+	}
+
+	// BANANA POP
+	if strings.Count(titles, "Banana") < 1 || strings.Count(titles, "twigs") < 1 || meatCount != 0 || fishCount != 0 {
+		fmt.Println("remove BANANA POP")
+	} else {
+		fmt.Println("keep BANANA POP")
 	}
 
 	// Barnacle Linguine
@@ -281,17 +302,29 @@ func main() {
 	}
 
 	// butter muffin
-
 	if strings.Count(titles, "Butterfly Wings") < 1 || vegeCount < 1 || crockPot["Mandrake"].NAME != "" || meatCount != 0 {
 		fmt.Println("remove butter muffin")
 	} else {
 		fmt.Println("keep butter muffin")
 	}
 
+	// CALIFORNIA ROLL
+	if strings.Count(titles, "Kelp Fronds") < 2 || fishVal < 1 {
+		fmt.Println("remove CALIFORNIA ROLL")
+	} else {
+		fmt.Println("keep CALIFORNIA ROLL")
+	}
+
+	// ceviche
+	if strings.Count(titles, "Ice") < 2 || fishVal < 2 || eggCount != 0 || inedibleCount != 0 {
+		fmt.Println("remove CALIFORNIA ROLL")
+	} else {
+		fmt.Println("keep CALIFORNIA ROLL")
+	}
+
 	// CREAMY POTATO PURÉE**
 	// need to look at potato or roasted potato
-	// SIDNEY: interesting that you use two different meatCount Varients to check for no meat. both != 0 and > 0. Both will work though
-	if strings.Count(titles, "Potato") < 2 || strings.Count(titles, "Garlic") < 1 || crockPot["Twigs"].NAME != "" || meatCount > 0 {
+	if strings.Count(titles, "Potato") < 2 || strings.Count(titles, "Garlic") < 1 || crockPot["Twigs"].NAME != "" || meatCount != 0 {
 		fmt.Println("remove CREAMY POTATO PURÉE")
 	} else {
 		fmt.Println("keep CREAMY POTATO PURÉE")
@@ -315,15 +348,9 @@ func main() {
 
 	// fish tacos
 	// twig value - 1 twig 50% chance of  fish sticks
-	// SIDNEY: Will probably need data to test the 50% chance thing, my thinking is that at the end we will have this recipe AND fish sticks remaning, with equal priority. If that doesn't work at the end we may need to evaulate that here.
 	// need to look at corn or popcorn
-	// SIDNEY: what the deal with checking fishVal twice here? if there isnt fish it will fail out in the first if, and if there is, it will pass in both. One of these is redundant. I feel like this was my idea that you maybe misheard or I misthought
-	if fishVal < 0.5 || strings.Count(titles, "Corn") < 1 {
-		if fishVal < 0.5 || strings.Count(titles, "Popcorn") < 1 {
-			fmt.Println("remove fish tacos")
-		} else {
-			fmt.Println("keep fish tacos")
-		}
+	if fishVal < 0.5 || (strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Popcorn") < 1) {
+		fmt.Println("remove fish tacos")
 	} else {
 		fmt.Println("keep fish tacos")
 	}
@@ -339,7 +366,7 @@ func main() {
 	if fruitVal < 0.5 || meatVal != 0 || vegVal != 0 || inedVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
 		fmt.Println("remove fist full of jam")
 	} else {
-		fmt.Println(" keep fist full of jam")
+		fmt.Println("keep fist full of jam")
 	}
 
 	// flower salad
@@ -369,12 +396,8 @@ func main() {
 
 	// guacamole
 	// need to look at cactus flesh or stone fruit
-	if strings.Count(titles, "Moleworm") < 1 || strings.Count(titles, "Cactus Flesh") < 1 || fruitVal != 0 {
-		if strings.Count(titles, "Moleworm") < 1 || strings.Count(titles, "Ripe Stone Fruit") < 1 || fruitVal != 0 {
-			fmt.Println("remove guacamole")
-		} else {
-			fmt.Println("keep guacamole")
-		}
+	if strings.Count(titles, "Moleworm") < 1 || (strings.Count(titles, "Cactus Flesh") < 1 || strings.Count(titles, "Ripe Stone Fruit") < 1) || fruitVal != 0 {
+		fmt.Println("remove guacamole")
 	} else {
 		fmt.Println("keep guacamole")
 	}
@@ -429,6 +452,13 @@ func main() {
 		fmt.Println("keep leafy meat loaf")
 	}
 
+	// LOBSTER BISQUE
+	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Ice") < 1 {
+		fmt.Println("remove leafy meat loaf")
+	} else {
+		fmt.Println("keep leafy meat loaf")
+	}
+
 	// mandrake soup
 	if strings.Count(titles, "Mandrake") < 1 {
 		fmt.Println("remove mandrake soup")
@@ -455,6 +485,13 @@ func main() {
 		fmt.Println("remove melonsicle")
 	} else {
 		fmt.Println("keep melonsicle")
+	}
+
+	// MILKMADE HAT
+	if strings.Count(titles, "Nostrils") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || dairyCount < 1 {
+		fmt.Println("remove MILKMADE HAT")
+	} else {
+		fmt.Println("keep MILKMADE HAT")
 	}
 
 	// monster lasagna
@@ -508,6 +545,13 @@ func main() {
 		fmt.Println("keep Salsa Fresca")
 	}
 
+	// SEAFOOD GUMBO
+	if strings.Count(titles, "Eel") < 1 || fishVal <= 2 {
+		fmt.Println("remove SEAFOOD GUMBO")
+	} else {
+		fmt.Println("keep SEAFOOD GUMBO")
+	}
+
 	//  Soothing tea
 	// look for honey or comb
 	if strings.Count(titles, "Forget-Me-Lots") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Ice") < 1 || monsterCount != 0 || meatCount != 0 || fishCount != 0 || eggCount != 0 || inedibleCount != 0 || dairyCount != 0 {
@@ -538,7 +582,6 @@ func main() {
 	}
 
 	// STUFFED PEPPER POPPERS
-	// SIDNEY: is meatCount == 0 redundant if the meatcount just checks the meatVal? like, if you're checking for enough meatVal, doesn't that mean the meatCount will always not be 0?
 	if strings.Count(titles, "Pepper") < 1 || meatVal > 1.5 || meatCount == 0 || crockPot["Twigs"].NAME != "" {
 		fmt.Println("remove STUFFED PEPPER POPPERS")
 	} else {
@@ -569,26 +612,24 @@ func main() {
 
 	// TURKEY DINNER
 	// checkingg twice for veg or fruit
-	// SIDNEY: why meatval-1 < 0.25? couldnt you just do meatVal < 1.25?, and same as neat 320, why check the exact same thing twice (regarding fruit?)
-	if strings.Count(titles, "Drumstick") < 2 || meatVal-1 < 0.25 || fruitVal < .5 {
-		if strings.Count(titles, "Drumstick") < 2 || meatVal-1 < 0.25 || vegVal < .5 {
-			fmt.Println("remove TURKEY DINNER")
-		} else {
-			fmt.Println("keep TURKEY DINNER")
-		}
+	if strings.Count(titles, "Drumstick") < 2 || meatVal-1 < 0.25 || (fruitVal < .5 || vegVal < .5) {
+		fmt.Println("remove TURKEY DINNER")
 	} else {
 		fmt.Println("keep TURKEY DINNER") //fmt.Println("remove TURKEY DINNER")
 	}
 
 	// unagi
-	if strings.Count(titles, "Eel") < 1 || strings.Count(titles, "Lichen") < 1 {
-		if strings.Count(titles, "Eel") < 1 || strings.Count(titles, "Kelp Fronds") < 1 {
-			fmt.Println("remove unagi")
-		} else {
-			fmt.Println("keep unagi")
-		}
+	if strings.Count(titles, "Eel") < 1 || (strings.Count(titles, "Lichen") < 1 || strings.Count(titles, "Kelp Fronds") < 1) {
+		fmt.Println("remove unagi")
 	} else {
 		fmt.Println("keep unagi")
+	}
+
+	// VEGETABLE STINGER
+	if (strings.Count(titles, "Toma Root") < 1 || strings.Count(titles, "Asparagus") < 1) || strings.Count(titles, "Ice") < 1 || vegVal-1 < 1.5 {
+		fmt.Println("remove VEGETABLE STINGER")
+	} else {
+		fmt.Println("keep VEGETABLE STINGER")
 	}
 
 	// Veggie Burger
@@ -607,8 +648,14 @@ func main() {
 
 	// wet goop
 	// if everything is false
-	//
-	//
+
+	// WOBSTER DINNER
+	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Butter") < 1 || meatCount != 0 || fishCount != 0 || crockPot["Twigs"].NAME != "" {
+		fmt.Println("remove waffles")
+	} else {
+		fmt.Println("keep waffles")
+	}
+
 	// Output goes here
 	// title := fmt.Sprintf("%s + %s + %s + %s:", titles[0], titles[1], titles[2], titles[3])
 

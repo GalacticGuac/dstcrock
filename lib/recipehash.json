@@ -1,6 +1,5 @@
-[
-  {
-    "FOOD": "AMBEROSIA",
+{
+  "AMBEROSIA": {
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
@@ -11,8 +10,7 @@
     "COOK TIME": 40,
     "PRIORITY": 100
   },
-  {
-    "FOOD": "ASPARAGUS SOUP",
+  "ASPARAGUS SOUP": {
     "HEALTH": 20,
     "HUNGER": 18.75,
     "SANITY": 5,
@@ -23,8 +21,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "BACON AND EGGS",
+  "BACON AND EGGS": {
     "HEALTH": 20,
     "HUNGER": 75,
     "SANITY": 5,
@@ -35,8 +32,7 @@
     "COOK TIME": 40,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "BANANA POP",
+  "BANANA POP": {
     "HEALTH": 20,
     "HUNGER": 12.5,
     "SANITY": 33,
@@ -47,8 +43,7 @@
     "COOK TIME": 10,
     "PRIORITY": 20
   },
-  {
-    "FOOD": "BARNACLE LINGUINE",
+  "BARNACLE LINGUINE": {
     "HEALTH": 10,
     "HUNGER": 75,
     "SANITY": 20,
@@ -59,8 +54,7 @@
     "COOK TIME": 40,
     "PRIORITY": 30
   },
-  {
-    "FOOD": "BARNACLE NIGIRI",
+  "BARNACLE NIGIRI": {
     "HEALTH": 40,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -71,8 +65,7 @@
     "COOK TIME": 10,
     "PRIORITY": 30
   },
-  {
-    "FOOD": "BARNACLE PITA",
+  "BARNACLE PITA": {
     "HEALTH": 20,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -83,8 +76,7 @@
     "COOK TIME": 40,
     "PRIORITY": 25
   },
-  {
-    "FOOD": "BEEFY GREENS",
+  "BEEFY GREENS": {
     "HEALTH": 40,
     "HUNGER": 75,
     "SANITY": 5,
@@ -95,8 +87,7 @@
     "COOK TIME": 40,
     "PRIORITY": 25
   },
-  {
-    "FOOD": "BUTTER MUFFIN",
+  "BUTTER MUFFIN": {
     "HEALTH": 20,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -107,8 +98,7 @@
     "COOK TIME": 40,
     "PRIORITY": 1
   },
-  {
-    "FOOD": "CALIFORNIA ROLL",
+  "CALIFORNIA ROLL": {
     "HEALTH": 20,
     "HUNGER": 37.55,
     "SANITY": 10,
@@ -119,8 +109,7 @@
     "COOK TIME": 10,
     "PRIORITY": 20
   },
-  {
-    "FOOD": "CEVICHE",
+  "CEVICHE": {
     "HEALTH": 20,
     "HUNGER": 25,
     "SANITY": 5,
@@ -131,8 +120,7 @@
     "COOK TIME": 10,
     "PRIORITY": 20
   },
-  {
-    "FOOD": "CREAMY POTATO PUR�E",
+  "CREAMY POTATO PUR�E": {
     "HEALTH": 20,
     "HUNGER": 37.5,
     "SANITY": 33,
@@ -143,8 +131,7 @@
     "COOK TIME": 20,
     "PRIORITY": 20
   },
-  {
-    "FOOD": "DRAGONPIE",
+  "DRAGONPIE": {
     "HEALTH": 40,
     "HUNGER": 75,
     "SANITY": 5,
@@ -155,8 +142,7 @@
     "COOK TIME": 40,
     "PRIORITY": 1
   },
-  {
-    "FOOD": "FANCY SPIRALLED TUBERS",
+  "FANCY SPIRALLED TUBERS": {
     "HEALTH": 3,
     "HUNGER": 37.5,
     "SANITY": 15,
@@ -167,8 +153,7 @@
     "COOK TIME": 15,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "FISH TACOS",
+  "FISH TACOS": {
     "HEALTH": 20,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -179,8 +164,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "FISHSTICKS",
+  "FISHSTICKS": {
     "HEALTH": 40,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -191,8 +175,7 @@
     "COOK TIME": 40,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "FIST FULL OF JAM",
+  "FIST FULL OF JAM": {
     "HEALTH": 3,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -203,8 +186,7 @@
     "COOK TIME": 10,
     "PRIORITY": 0
   },
-  {
-    "FOOD": "FLOWER SALAD",
+  "FLOWER SALAD": {
     "HEALTH": 40,
     "HUNGER": 12.5,
     "SANITY": 5,
@@ -215,8 +197,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "FROGGLE BUNWICH",
+  "FROGGLE BUNWICH": {
     "HEALTH": 20,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -227,8 +208,7 @@
     "COOK TIME": 40,
     "PRIORITY": 1
   },
-  {
-    "FOOD": "FRUIT MEDLEY",
+  "FRUIT MEDLEY": {
     "HEALTH": 20,
     "HUNGER": 25,
     "SANITY": 5,
@@ -239,8 +219,7 @@
     "COOK TIME": 10,
     "PRIORITY": 0
   },
-  {
-    "FOOD": "GUACAMOLE",
+  "GUACAMOLE": {
     "HEALTH": 20,
     "HUNGER": 37.5,
     "SANITY": 0,
@@ -251,8 +230,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "HONEY HAM",
+  "HONEY HAM": {
     "HEALTH": 30,
     "HUNGER": 75,
     "SANITY": 5,
@@ -263,8 +241,7 @@
     "COOK TIME": 40,
     "PRIORITY": 2
   },
-  {
-    "FOOD": "HONEY NUGGETS",
+  "HONEY NUGGETS": {
     "HEALTH": 20,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -275,8 +252,7 @@
     "COOK TIME": 40,
     "PRIORITY": 2
   },
-  {
-    "FOOD": "ICE CREAM",
+  "ICE CREAM": {
     "HEALTH": 0,
     "HUNGER": 25,
     "SANITY": 50,
@@ -287,8 +263,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "JELLY SALAD",
+  "JELLY SALAD": {
     "HEALTH": 0,
     "HUNGER": 37.5,
     "SANITY": 50,
@@ -299,8 +274,7 @@
     "COOK TIME": 40,
     "PRIORITY": 50
   },
-  {
-    "FOOD": "JELLYBEANS",
+  "JELLYBEANS": {
     "HEALTH": 2,
     "HUNGER": 0,
     "SANITY": 5,
@@ -311,8 +285,7 @@
     "COOK TIME": 50,
     "PRIORITY": 12
   },
-  {
-    "FOOD": "KABOBS",
+  "KABOBS": {
     "HEALTH": 3,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -323,8 +296,7 @@
     "COOK TIME": 40,
     "PRIORITY": 5
   },
-  {
-    "FOOD": "LEAFY MEATLOAF",
+  "LEAFY MEATLOAF": {
     "HEALTH": 8,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -335,8 +307,7 @@
     "COOK TIME": 40,
     "PRIORITY": 25
   },
-  {
-    "FOOD": "LOBSTER BISQUE",
+  "LOBSTER BISQUE": {
     "HEALTH": 60,
     "HUNGER": 25,
     "SANITY": 10,
@@ -347,8 +318,7 @@
     "COOK TIME": 10,
     "PRIORITY": 30
   },
-  {
-    "FOOD": "MANDRAKE SOUP",
+  "MANDRAKE SOUP": {
     "HEALTH": 100,
     "HUNGER": 150,
     "SANITY": 5,
@@ -359,8 +329,7 @@
     "COOK TIME": 60,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "MEATBALLS",
+  "MEATBALLS": {
     "HEALTH": 3,
     "HUNGER": 62.5,
     "SANITY": 5,
@@ -371,8 +340,7 @@
     "COOK TIME": 15,
     "PRIORITY": -1
   },
-  {
-    "FOOD": "MEATY STEW",
+  "MEATY STEW": {
     "HEALTH": 12,
     "HUNGER": 150,
     "SANITY": 5,
@@ -383,8 +351,7 @@
     "COOK TIME": 15,
     "PRIORITY": 0
   },
-  {
-    "FOOD": "MELONSICLE",
+  "MELONSICLE": {
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": 20,
@@ -395,8 +362,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "MILKMADE HAT",
+  "MILKMADE HAT": {
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
@@ -407,8 +373,7 @@
     "COOK TIME": 40,
     "PRIORITY": 55
   },
-  {
-    "FOOD": "MONSTER LASAGNA",
+  "MONSTER LASAGNA": {
     "HEALTH": -20,
     "HUNGER": 37.5,
     "SANITY": -20,
@@ -419,8 +384,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "MUSHY CAKE",
+  "MUSHY CAKE": {
     "HEALTH": 0,
     "HUNGER": 25,
     "SANITY": 10,
@@ -431,8 +395,7 @@
     "COOK TIME": 20,
     "PRIORITY": 30
   },
-  {
-    "FOOD": "PIEROGI",
+  "PIEROGI": {
     "HEALTH": 40,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -443,8 +406,7 @@
     "COOK TIME": 20,
     "PRIORITY": 5
   },
-  {
-    "FOOD": "POWDERCAKE",
+  "POWDERCAKE": {
     "HEALTH": -3,
     "HUNGER": 0,
     "SANITY": 0,
@@ -455,8 +417,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "PUMPKIN COOKIE",
+  "PUMPKIN COOKIE": {
     "HEALTH": 0,
     "HUNGER": 37.5,
     "SANITY": 15,
@@ -467,8 +428,7 @@
     "COOK TIME": 40,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "RATATOUILLE",
+  "RATATOUILLE": {
     "HEALTH": 3,
     "HUNGER": 25,
     "SANITY": 5,
@@ -479,8 +439,7 @@
     "COOK TIME": 20,
     "PRIORITY": 0
   },
-  {
-    "FOOD": "SALSA FRESCA",
+  "SALSA FRESCA": {
     "HEALTH": 30,
     "HUNGER": 25,
     "SANITY": 33,
@@ -491,8 +450,7 @@
     "COOK TIME": 10,
     "PRIORITY": 20
   },
-  {
-    "FOOD": "SEAFOOD GUMBO",
+  "SEAFOOD GUMBO": {
     "HEALTH": 40,
     "HUNGER": 37.5,
     "SANITY": 20,
@@ -503,8 +461,7 @@
     "COOK TIME": 20,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "SOOTHING TEA",
+  "SOOTHING TEA": {
     "HEALTH": 3,
     "HUNGER": 0,
     "SANITY": 15,
@@ -515,8 +472,7 @@
     "COOK TIME": 20,
     "PRIORITY": 1
   },
-  {
-    "FOOD": "SPICY CHILI",
+  "SPICY CHILI": {
     "HEALTH": 20,
     "HUNGER": 37.5,
     "SANITY": 0,
@@ -527,8 +483,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "STUFFED EGGPLANT",
+  "STUFFED EGGPLANT": {
     "HEALTH": 3,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -539,8 +494,7 @@
     "COOK TIME": 40,
     "PRIORITY": 1
   },
-  {
-    "FOOD": "STUFFED FISH HEADS",
+  "STUFFED FISH HEADS": {
     "HEALTH": 20,
     "HUNGER": 75,
     "SANITY": 0,
@@ -551,8 +505,7 @@
     "COOK TIME": 40,
     "PRIORITY": 25
   },
-  {
-    "FOOD": "STUFFED PEPPER POPPERS",
+  "STUFFED PEPPER POPPERS": {
     "HEALTH": 30,
     "HUNGER": 25,
     "SANITY": -5,
@@ -563,8 +516,7 @@
     "COOK TIME": 40,
     "PRIORITY": 20
   },
-  {
-    "FOOD": "SURF 'N' TURF",
+  "SURF 'N' TURF": {
     "HEALTH": 60,
     "HUNGER": 37.5,
     "SANITY": 33,
@@ -575,8 +527,7 @@
     "COOK TIME": 20,
     "PRIORITY": 30
   },
-  {
-    "FOOD": "TAFFY",
+  "TAFFY": {
     "HEALTH": -3,
     "HUNGER": 25,
     "SANITY": 15,
@@ -587,8 +538,7 @@
     "COOK TIME": 40,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "TRAIL MIX",
+  "TRAIL MIX": {
     "HEALTH": 30,
     "HUNGER": 12.5,
     "SANITY": 5,
@@ -599,8 +549,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "TURKEY DINNER",
+  "TURKEY DINNER": {
     "HEALTH": 20,
     "HUNGER": 75,
     "SANITY": 5,
@@ -611,8 +560,7 @@
     "COOK TIME": 60,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "UNAGI",
+  "UNAGI": {
     "HEALTH": 20,
     "HUNGER": 18.75,
     "SANITY": 5,
@@ -623,8 +571,7 @@
     "COOK TIME": 10,
     "PRIORITY": 20
   },
-  {
-    "FOOD": "VEGETABLE STINGER",
+  "VEGETABLE STINGER": {
     "HEALTH": 3,
     "HUNGER": 25,
     "SANITY": 33,
@@ -635,8 +582,7 @@
     "COOK TIME": 10,
     "PRIORITY": 15
   },
-  {
-    "FOOD": "VEGGIE BURGER",
+  "VEGGIE BURGER": {
     "HEALTH": 30,
     "HUNGER": 37.5,
     "SANITY": 33,
@@ -647,8 +593,7 @@
     "COOK TIME": 40,
     "PRIORITY": 25
   },
-  {
-    "FOOD": "WAFFLES",
+  "WAFFLES": {
     "HEALTH": 60,
     "HUNGER": 37.5,
     "SANITY": 5,
@@ -659,8 +604,7 @@
     "COOK TIME": 10,
     "PRIORITY": 10
   },
-  {
-    "FOOD": "WET GOOP",
+  "WET GOOP": {
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
@@ -671,8 +615,7 @@
     "COOK TIME": 10,
     "PRIORITY": -2
   },
-  {
-    "FOOD": "WOBSTER DINNER",
+  "WOBSTER DINNER": {
     "HEALTH": 60,
     "HUNGER": 37.5,
     "SANITY": 50,
@@ -683,4 +626,4 @@
     "COOK TIME": 20,
     "PRIORITY": 25
   }
-]
+}

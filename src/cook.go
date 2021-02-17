@@ -45,7 +45,7 @@ type RecipeDetails struct {
 func main() {
 
 	// version := DST
-	// Find that file
+	// Find that file ingredients
 	jsonFile, err := os.Open("../lib/ingredients.json")
 	if err != nil {
 		fmt.Println(err)
@@ -143,11 +143,7 @@ func main() {
 	crockSlotsMon := []float64{crockPot[i1].MONSTER, crockPot[i2].MONSTER, crockPot[i3].MONSTER, crockPot[i4].MONSTER}
 	monsterCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsMon {
-		foundMons := false
 		if v > 0 {
-			foundMons = true
-		}
-		if foundMons {
 			monsterCount++
 		}
 	}
@@ -155,11 +151,7 @@ func main() {
 	crockSlotsDai := []float64{crockPot[i1].DAIRY, crockPot[i2].DAIRY, crockPot[i3].DAIRY, crockPot[i4].DAIRY}
 	dairyCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsDai {
-		foundDair := false
 		if v > 0 {
-			foundDair = true
-		}
-		if foundDair {
 			dairyCount++
 		}
 	}
@@ -167,11 +159,7 @@ func main() {
 	crockSlotsBug := []float64{crockPot[i1].BUG, crockPot[i2].BUG, crockPot[i3].BUG, crockPot[i4].BUG}
 	bugCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsBug {
-		foundBug := false
 		if v > 0 {
-			foundBug = true
-		}
-		if foundBug {
 			bugCount++
 		}
 	}
@@ -179,11 +167,7 @@ func main() {
 	crockSlotsIne := []float64{crockPot[i1].INEDIBLE, crockPot[i2].INEDIBLE, crockPot[i3].INEDIBLE, crockPot[i4].INEDIBLE}
 	inedibleCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsIne {
-		foundIned := false
 		if v > 0 {
-			foundIned = true
-		}
-		if foundIned {
 			inedibleCount++
 		}
 	}
@@ -191,11 +175,7 @@ func main() {
 	crockSlotsMis := []float64{crockPot[i1].MISC, crockPot[i2].MISC, crockPot[i3].MISC, crockPot[i4].MISC}
 	miscCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
 	for _, v := range crockSlotsMis {
-		foundMisc := false
 		if v > 0 {
-			foundMisc = true
-		}
-		if foundMisc {
 			miscCount++
 		}
 	}

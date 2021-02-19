@@ -24,12 +24,12 @@ type IngredientDetails struct {
 	HEALTH    float64 `json:"HEALTH"`
 	HUNGER    float64 `json:"HUNGER"`
 	SANITY    float64 `json:"SANITY"`
-	DAYS      float64 `json:"DAYS"`
+	EXPIRE    float64 `json:"EXPIRE"`
 	NOTES     string  `json:"NOTES"`
 }
 
 type RecipeDetails struct {
-	NAME        string  `json:"NAME"`
+	NAME        string  `json:"FOOD"`
 	HEALTH      float64 `json:"HEALTH"`
 	HUNGER      float64 `json:"HUNGER"`
 	SANITY      float64 `json:"SANITY"`
@@ -37,7 +37,7 @@ type RecipeDetails struct {
 	EXCLUDE     string  `json:"EXCLUDE"`
 	NOTES       string  `json:"NOTES"`
 	EXPIRES     float64 `json:"EXPIRES"`
-	COOKTIME    float64 `json:"COOK TIME"`
+	COOKTIME    float64 `json:"COOKTIME"`
 	PRIORITY    float64 `json:"PRIORITY"`
 	// preferences?
 }
@@ -46,7 +46,7 @@ func main() {
 
 	// version := DST
 	// Find that file ingredients
-	jsonFile, err := os.Open("../lib/ingredients.json")
+	jsonFile, err := os.Open("../lib/ingredientsv2.json")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -64,9 +64,28 @@ func main() {
 		fmt.Println(err)
 	}
 
+	// Find that file recipes
+	jsonFile2, err := os.Open("../lib/recipe.json")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Read that file
+	byteValue2, err := ioutil.ReadAll(jsonFile2)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Fit the file
+	recipeData := map[string]RecipeDetails{}
+	err = json.Unmarshal(byteValue2, &recipeData)
+	if err != nil {
+		fmt.Println(err)
+	}
+
 	// Add Ingredients to the pot
-	i1 := "Barnacles"
-	i2 := "Monster Jerky"
+	i1 := "Jerky"
+	i2 := "Jerky"
 	i3 := "Egg"
 	i4 := "Berries"
 	crockPot := map[string]IngredientDetails{}
@@ -88,6 +107,9 @@ func main() {
 	bugVal := crockPot[i1].BUG + crockPot[i2].BUG + crockPot[i3].BUG + crockPot[i4].BUG
 	inedVal := crockPot[i1].INEDIBLE + crockPot[i2].INEDIBLE + crockPot[i3].INEDIBLE + crockPot[i4].INEDIBLE
 	miscVal := crockPot[i1].MISC + crockPot[i2].MISC + crockPot[i3].MISC + crockPot[i4].MISC
+	healVal := crockPot[i1].HEALTH + crockPot[i2].HEALTH + crockPot[i3].HEALTH + crockPot[i4].HEALTH
+	hungVal := crockPot[i1].HUNGER + crockPot[i2].HUNGER + crockPot[i3].HUNGER + crockPot[i4].HUNGER
+	saniVal := crockPot[i1].SANITY + crockPot[i2].SANITY + crockPot[i3].SANITY + crockPot[i4].SANITY
 
 	// counts type of ingredients
 	// count Meat
@@ -205,37 +227,27 @@ func main() {
 
 	// AMBEROSIA
 	if strings.Count(titles, "Collected Dust") < 1 {
-		fmt.Println("remove AMBEROSIA")
-	} else {
-		fmt.Println("keep AMBEROSIA")
+		delete(recipeData, "AMBEROSIA")
 	}
 
 	// ASPARAGUS SOUP
 	if strings.Count(titles, "Asparagus") < 1 || vegVal < 1.5 || meatCount != 0 || inedibleCount != 0 {
-		fmt.Println("remove ASPARAGUS SOUP")
-	} else {
-		fmt.Println("keep ASPARAGUS SOUP")
+		delete(recipeData, "ASPARAGUS SOUP")
 	}
 
 	// Bacon and Eggs
 	if meatVal <= 1 || eggVal <= 1 || vegVal != 0 {
-		fmt.Println("remove bacon and eggs")
-	} else {
-		fmt.Println("keep bacon and eggs")
+		delete(recipeData, "BACON AND EGGS")
 	}
 
 	// BANANA POP
 	if strings.Count(titles, "Banana") < 1 || strings.Count(titles, "twigs") < 1 || meatCount != 0 || fishCount != 0 {
-		fmt.Println("remove BANANA POP")
-	} else {
-		fmt.Println("keep BANANA POP")
+		delete(recipeData, "BANANA POP")
 	}
 
 	// Barnacle Linguine
 	if strings.Count(titles, "Barnacles") != 2 || vegeCount != 2 {
-		fmt.Println("remove barnacle liguine")
-	} else {
-		fmt.Println("keep barnacle liguine")
+		delete(recipeData, "BARNACLE LINGUINE")
 	}
 
 	// Barnacle Nigiri
@@ -643,5 +655,12 @@ func main() {
 	// fmt.Println("bug", bugCount)
 	// fmt.Println("inedible", inedibleCount)
 	// fmt.Println("misc", miscCount)
-	fmt.Println(ingredientsData[i1].MEAT)
+	fmt.Println("Health", healVal)
+	fmt.Println("Hunger", hungVal)
+	fmt.Println("Sanity", saniVal)
+	fmt.Println(i1, "expires in", ingredientsData[i1].EXPIRE, "days")
+	fmt.Println(i2, "expires in", ingredientsData[i2].EXPIRE, "days")
+	fmt.Println(i3, "expires in", ingredientsData[i3].EXPIRE, "days")
+	fmt.Println(i4, "expires in", ingredientsData[i4].EXPIRE, "days")
+	fmt.Println(recipeData)
 }

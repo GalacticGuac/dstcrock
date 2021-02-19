@@ -1,5 +1,5 @@
-[
-  {
+{
+  "AMBEROSIA": {
     "FOOD": "AMBEROSIA",
     "HEALTH": 0,
     "HUNGER": 0,
@@ -8,10 +8,10 @@
     "EXCLUDE": "",
     "NOTES": "FEED TO DUST MOTH",
     "EXPIRES": 0,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 100
   },
-  {
+  "ASPARAGUS SOUP": {
     "FOOD": "ASPARAGUS SOUP",
     "HEALTH": 20,
     "HUNGER": 18.75,
@@ -20,10 +20,10 @@
     "EXCLUDE": "MEAT, INEDIBLES",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "BACON AND EGGS": {
     "FOOD": "BACON AND EGGS",
     "HEALTH": 20,
     "HUNGER": 75,
@@ -32,10 +32,10 @@
     "EXCLUDE": "VEGETABLES",
     "NOTES": "",
     "EXPIRES": 20,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 10
   },
-  {
+  "BANANA POP": {
     "FOOD": "BANANA POP",
     "HEALTH": 20,
     "HUNGER": 12.5,
@@ -44,10 +44,10 @@
     "EXCLUDE": "MEAT, FISH",
     "NOTES": "-10 DEGREES/10s",
     "EXPIRES": 3,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 20
   },
-  {
+  "BARNACLE LINGUINE": {
     "FOOD": "BARNACLE LINGUINE",
     "HEALTH": 10,
     "HUNGER": 75,
@@ -56,10 +56,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 30
   },
-  {
+  "BARNACLE NIGIRI": {
     "FOOD": "BARNACLE NIGIRI",
     "HEALTH": 40,
     "HUNGER": 37.5,
@@ -68,10 +68,10 @@
     "EXCLUDE": "",
     "NOTES": "DRIED KELP WILL MAKE BARNACLE PITA",
     "EXPIRES": 10,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 30
   },
-  {
+  "BARNACLE PITA": {
     "FOOD": "BARNACLE PITA",
     "HEALTH": 20,
     "HUNGER": 37.5,
@@ -80,10 +80,10 @@
     "EXCLUDE": "",
     "NOTES": "IF FISH >= 1 MAY GET STUFFED FISH HEAD",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 25
   },
-  {
+  "BEEFY GREENS": {
     "FOOD": "BEEFY GREENS",
     "HEALTH": 40,
     "HUNGER": 75,
@@ -92,10 +92,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 25
   },
-  {
+  "BUTTER MUFFIN": {
     "FOOD": "BUTTER MUFFIN",
     "HEALTH": 20,
     "HUNGER": 37.5,
@@ -104,10 +104,10 @@
     "EXCLUDE": "MEAT, MANDRAKE",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 1
   },
-  {
+  "CALIFORNIA ROLL": {
     "FOOD": "CALIFORNIA ROLL",
     "HEALTH": 20,
     "HUNGER": 37.55,
@@ -116,10 +116,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 20
   },
-  {
+  "CEVICHE": {
     "FOOD": "CEVICHE",
     "HEALTH": 20,
     "HUNGER": 25,
@@ -128,10 +128,10 @@
     "EXCLUDE": "EGGS, INEDIBLES",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 20
   },
-  {
+  "CREAMY POTATO PUR�E": {
     "FOOD": "CREAMY POTATO PUR�E",
     "HEALTH": 20,
     "HUNGER": 37.5,
@@ -140,10 +140,10 @@
     "EXCLUDE": "TWIGS, MEAT",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 20,
+    "COOKTIME": 20,
     "PRIORITY": 20
   },
-  {
+  "DRAGONPIE": {
     "FOOD": "DRAGONPIE",
     "HEALTH": 40,
     "HUNGER": 75,
@@ -152,10 +152,10 @@
     "EXCLUDE": "MANDRAKE, MEAT",
     "NOTES": "10 DEGREES/10s",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 1
   },
-  {
+  "FANCY SPIRALLED TUBERS": {
     "FOOD": "FANCY SPIRALLED TUBERS",
     "HEALTH": 3,
     "HUNGER": 37.5,
@@ -164,10 +164,10 @@
     "EXCLUDE": "MEAT",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 15,
+    "COOKTIME": 15,
     "PRIORITY": 10
   },
-  {
+  "FISH TACOS": {
     "FOOD": "FISH TACOS",
     "HEALTH": 20,
     "HUNGER": 37.5,
@@ -176,10 +176,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "FISHSTICKS": {
     "FOOD": "FISHSTICKS",
     "HEALTH": 40,
     "HUNGER": 37.5,
@@ -188,10 +188,10 @@
     "EXCLUDE": "MOLEWORM, MORE TWIGS",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 10
   },
-  {
+  "FIST FULL OF JAM": {
     "FOOD": "FIST FULL OF JAM",
     "HEALTH": 3,
     "HUNGER": 37.5,
@@ -200,10 +200,10 @@
     "EXCLUDE": "DRAGON FRUIT, MEAT, VEGETABLES, INEDIBLES",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 0
   },
-  {
+  "FLOWER SALAD": {
     "FOOD": "FLOWER SALAD",
     "HEALTH": 40,
     "HUNGER": 12.5,
@@ -212,10 +212,10 @@
     "EXCLUDE": "FRUIT, MEAT, EGGS, TWIGS, SWEETENER",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "FROGGLE BUNWICH": {
     "FOOD": "FROGGLE BUNWICH",
     "HEALTH": 20,
     "HUNGER": 37.5,
@@ -224,10 +224,10 @@
     "EXCLUDE": "MANDRAKE, EGGS, SWEETENER (IF USING TWIGS MUS USE 2)",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 1
   },
-  {
+  "FRUIT MEDLEY": {
     "FOOD": "FRUIT MEDLEY",
     "HEALTH": 20,
     "HUNGER": 25,
@@ -236,10 +236,10 @@
     "EXCLUDE": "DRAGON FRUIT, MEAT, VEGETABLES",
     "NOTES": "TWIGS IS SAFEST USE",
     "EXPIRES": 6,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 0
   },
-  {
+  "GUACAMOLE": {
     "FOOD": "GUACAMOLE",
     "HEALTH": 20,
     "HUNGER": 37.5,
@@ -248,10 +248,10 @@
     "EXCLUDE": "FRUIT",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "HONEY HAM": {
     "FOOD": "HONEY HAM",
     "HEALTH": 30,
     "HUNGER": 75,
@@ -260,10 +260,10 @@
     "EXCLUDE": "TWIGS, MOLEWORM, MANDRAKE, TALLBIRD EGG",
     "NOTES": "40 DEGREES/10s",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 2
   },
-  {
+  "HONEY NUGGETS": {
     "FOOD": "HONEY NUGGETS",
     "HEALTH": 20,
     "HUNGER": 37.5,
@@ -272,10 +272,10 @@
     "EXCLUDE": "INEDABLES",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 2
   },
-  {
+  "ICE CREAM": {
     "FOOD": "ICE CREAM",
     "HEALTH": 0,
     "HUNGER": 25,
@@ -284,10 +284,10 @@
     "EXCLUDE": "MEAT, VEGETABLES, EGGS, TWIGS",
     "NOTES": "-15 DEGREES/15s",
     "EXPIRES": 3,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "JELLY SALAD": {
     "FOOD": "JELLY SALAD",
     "HEALTH": 0,
     "HUNGER": 37.5,
@@ -296,10 +296,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 50
   },
-  {
+  "JELLYBEANS": {
     "FOOD": "JELLYBEANS",
     "HEALTH": 2,
     "HUNGER": 0,
@@ -308,10 +308,10 @@
     "EXCLUDE": "INEDABLES, MONSTER FOODS",
     "NOTES": "120 HEALTH/2m",
     "EXPIRES": 0,
-    "COOK TIME": 50,
+    "COOKTIME": 50,
     "PRIORITY": 12
   },
-  {
+  "KABOBS": {
     "FOOD": "KABOBS",
     "HEALTH": 3,
     "HUNGER": 37.5,
@@ -320,10 +320,10 @@
     "EXCLUDE": "MOLEWORM, MANDRAKE, FISH, MORE TWIGS",
     "NOTES": "15 DEGREES/10s",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 5
   },
-  {
+  "LEAFY MEATLOAF": {
     "FOOD": "LEAFY MEATLOAF",
     "HEALTH": 8,
     "HUNGER": 37.5,
@@ -332,10 +332,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 20,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 25
   },
-  {
+  "LOBSTER BISQUE": {
     "FOOD": "LOBSTER BISQUE",
     "HEALTH": 60,
     "HUNGER": 25,
@@ -344,10 +344,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 30
   },
-  {
+  "MANDRAKE SOUP": {
     "FOOD": "MANDRAKE SOUP",
     "HEALTH": 100,
     "HUNGER": 150,
@@ -356,10 +356,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 60,
+    "COOKTIME": 60,
     "PRIORITY": 10
   },
-  {
+  "MEATBALLS": {
     "FOOD": "MEATBALLS",
     "HEALTH": 3,
     "HUNGER": 62.5,
@@ -368,10 +368,10 @@
     "EXCLUDE": "TWIGS",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 15,
+    "COOKTIME": 15,
     "PRIORITY": -1
   },
-  {
+  "MEATY STEW": {
     "FOOD": "MEATY STEW",
     "HEALTH": 12,
     "HUNGER": 150,
@@ -380,10 +380,10 @@
     "EXCLUDE": "TWIGS, MOLEWORM, HONEY, MANDRAKE, TALLBIRD EGG",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 15,
+    "COOKTIME": 15,
     "PRIORITY": 0
   },
-  {
+  "MELONSICLE": {
     "FOOD": "MELONSICLE",
     "HEALTH": 3,
     "HUNGER": 12.5,
@@ -392,10 +392,10 @@
     "EXCLUDE": "MEATS, VEGETABLES, EGGS",
     "NOTES": "-10 DEGREES/10s",
     "EXPIRES": 3,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "MILKMADE HAT": {
     "FOOD": "MILKMADE HAT",
     "HEALTH": 0,
     "HUNGER": 0,
@@ -404,10 +404,10 @@
     "EXCLUDE": "",
     "NOTES": "-.133 SANITY/1m, 187.5 HUNGER/4m",
     "EXPIRES": 0,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 55
   },
-  {
+  "MONSTER LASAGNA": {
     "FOOD": "MONSTER LASAGNA",
     "HEALTH": -20,
     "HUNGER": 37.5,
@@ -416,10 +416,10 @@
     "EXCLUDE": "TWIGS",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "MUSHY CAKE": {
     "FOOD": "MUSHY CAKE",
     "HEALTH": 0,
     "HUNGER": 25,
@@ -428,10 +428,10 @@
     "EXCLUDE": "",
     "NOTES": "+SLEEP RES 23.3 FOR 1 DAY",
     "EXPIRES": 15,
-    "COOK TIME": 20,
+    "COOKTIME": 20,
     "PRIORITY": 30
   },
-  {
+  "PIEROGI": {
     "FOOD": "PIEROGI",
     "HEALTH": 40,
     "HUNGER": 37.5,
@@ -440,10 +440,10 @@
     "EXCLUDE": "TWIGS, MANDRAKE",
     "NOTES": "",
     "EXPIRES": 20,
-    "COOK TIME": 20,
+    "COOKTIME": 20,
     "PRIORITY": 5
   },
-  {
+  "POWDERCAKE": {
     "FOOD": "POWDERCAKE",
     "HEALTH": -3,
     "HUNGER": 0,
@@ -452,10 +452,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 18750,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "PUMPKIN COOKIE": {
     "FOOD": "PUMPKIN COOKIE",
     "HEALTH": 0,
     "HUNGER": 37.5,
@@ -464,10 +464,10 @@
     "EXCLUDE": "",
     "NOTES": "3 HONEY/COMB CAN MAKE TAFFY",
     "EXPIRES": 10,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 10
   },
-  {
+  "RATATOUILLE": {
     "FOOD": "RATATOUILLE",
     "HEALTH": 3,
     "HUNGER": 25,
@@ -476,10 +476,10 @@
     "EXCLUDE": "DRAGON FRUIT, TWIGS, MANDRAKE, BUTTERFLY WINGS",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 20,
+    "COOKTIME": 20,
     "PRIORITY": 0
   },
-  {
+  "SALSA FRESCA": {
     "FOOD": "SALSA FRESCA",
     "HEALTH": 30,
     "HUNGER": 25,
@@ -488,10 +488,10 @@
     "EXCLUDE": "MEATS, INEDIBLES, EGGS",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 20
   },
-  {
+  "SEAFOOD GUMBO": {
     "FOOD": "SEAFOOD GUMBO",
     "HEALTH": 40,
     "HUNGER": 37.5,
@@ -500,10 +500,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 20,
+    "COOKTIME": 20,
     "PRIORITY": 10
   },
-  {
+  "SOOTHING TEA": {
     "FOOD": "SOOTHING TEA",
     "HEALTH": 3,
     "HUNGER": 0,
@@ -512,10 +512,10 @@
     "EXCLUDE": "MONSTER FOOD, MEATS, FISH, EGGS, DAIRY, INEDIBLES, VEGETABLES",
     "NOTES": "30 SANITY/1m",
     "EXPIRES": 3,
-    "COOK TIME": 20,
+    "COOKTIME": 20,
     "PRIORITY": 1
   },
-  {
+  "SPICY CHILI": {
     "FOOD": "SPICY CHILI",
     "HEALTH": 20,
     "HUNGER": 37.5,
@@ -524,10 +524,10 @@
     "EXCLUDE": "",
     "NOTES": "15 DEGREES/15s",
     "EXPIRES": 10,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "STUFFED EGGPLANT": {
     "FOOD": "STUFFED EGGPLANT",
     "HEALTH": 3,
     "HUNGER": 37.5,
@@ -536,10 +536,10 @@
     "EXCLUDE": "",
     "NOTES": "40 DEGREES/5s",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 1
   },
-  {
+  "STUFFED FISH HEADS": {
     "FOOD": "STUFFED FISH HEADS",
     "HEALTH": 20,
     "HUNGER": 75,
@@ -548,10 +548,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 3,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 25
   },
-  {
+  "STUFFED PEPPER POPPERS": {
     "FOOD": "STUFFED PEPPER POPPERS",
     "HEALTH": 30,
     "HUNGER": 25,
@@ -560,10 +560,10 @@
     "EXCLUDE": "TWIGS",
     "NOTES": "15 DEGREES/15s",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 20
   },
-  {
+  "SURF 'N' TURF": {
     "FOOD": "SURF 'N' TURF",
     "HEALTH": 60,
     "HUNGER": 37.5,
@@ -572,10 +572,10 @@
     "EXCLUDE": "ICE",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 20,
+    "COOKTIME": 20,
     "PRIORITY": 30
   },
-  {
+  "TAFFY": {
     "FOOD": "TAFFY",
     "HEALTH": -3,
     "HUNGER": 25,
@@ -584,10 +584,10 @@
     "EXCLUDE": "MEAT",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 10
   },
-  {
+  "TRAIL MIX": {
     "FOOD": "TRAIL MIX",
     "HEALTH": 30,
     "HUNGER": 12.5,
@@ -596,10 +596,10 @@
     "EXCLUDE": "MEAT, FISH, VEGATBLES, EGGS, DAIRY",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "TURKEY DINNER": {
     "FOOD": "TURKEY DINNER",
     "HEALTH": 20,
     "HUNGER": 75,
@@ -608,10 +608,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 60,
+    "COOKTIME": 60,
     "PRIORITY": 10
   },
-  {
+  "UNAGI": {
     "FOOD": "UNAGI",
     "HEALTH": 20,
     "HUNGER": 18.75,
@@ -620,10 +620,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 10,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 20
   },
-  {
+  "VEGETABLE STINGER": {
     "FOOD": "VEGETABLE STINGER",
     "HEALTH": 3,
     "HUNGER": 25,
@@ -632,10 +632,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 15
   },
-  {
+  "VEGGIE BURGER": {
     "FOOD": "VEGGIE BURGER",
     "HEALTH": 30,
     "HUNGER": 37.5,
@@ -644,10 +644,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 40,
+    "COOKTIME": 40,
     "PRIORITY": 25
   },
-  {
+  "WAFFLES": {
     "FOOD": "WAFFLES",
     "HEALTH": 60,
     "HUNGER": 37.5,
@@ -656,10 +656,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": 10
   },
-  {
+  "WET GOOP": {
     "FOOD": "WET GOOP",
     "HEALTH": 0,
     "HUNGER": 0,
@@ -668,10 +668,10 @@
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,
-    "COOK TIME": 10,
+    "COOKTIME": 10,
     "PRIORITY": -2
   },
-  {
+  "WOBSTER DINNER": {
     "FOOD": "WOBSTER DINNER",
     "HEALTH": 60,
     "HUNGER": 37.5,
@@ -680,7 +680,7 @@
     "EXCLUDE": "MEAT, FISH, ICE",
     "NOTES": "",
     "EXPIRES": 15,
-    "COOK TIME": 20,
+    "COOKTIME": 20,
     "PRIORITY": 25
   }
-]
+}

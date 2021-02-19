@@ -1,5 +1,5 @@
-[
-  {
+{
+  "Banana": {
     "INGREDIENT": "Banana",
     "MEAT": 0,
     "FISH": 0,
@@ -15,10 +15,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Cooked Banana"
   },
-  {
+  "Barnacles": {
     "INGREDIENT": "Barnacles",
     "MEAT": 0.25,
     "FISH": 0.25,
@@ -34,10 +34,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Cooked Barnacles"
   },
-  {
+  "Batilisk Wing": {
     "INGREDIENT": "Batilisk Wing",
     "MEAT": 0.5,
     "FISH": 0,
@@ -53,10 +53,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "dry in 2 days, cook: Cooked Batilisk Wing"
   },
-  {
+  "Berries": {
     "INGREDIENT": "Berries",
     "MEAT": 0,
     "FISH": 0,
@@ -72,10 +72,10 @@
     "HEALTH": 0,
     "HUNGER": 9.375,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Roasted Berries"
   },
-  {
+  "Birchnut": {
     "INGREDIENT": "Birchnut",
     "MEAT": 0,
     "FISH": 0,
@@ -91,10 +91,10 @@
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 20,
+    "EXPIRE": 20,
     "NOTES": "cook: Roasted Birchnut, cannot be added to crock pot"
   },
-  {
+  "Bitty Baitfish": {
     "INGREDIENT": "Bitty Baitfish",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -110,10 +110,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Fish Morsel, cook: Cooked Fish Morsel"
   },
-  {
+  "Black Catfish": {
     "INGREDIENT": "Black Catfish",
     "MEAT": 1,
     "FISH": 1,
@@ -129,10 +129,10 @@
     "HEALTH": 8,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Raw Fish, cook: Fish Steak"
   },
-  {
+  "Bloomfin Tuna": {
     "INGREDIENT": "Bloomfin Tuna",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -148,10 +148,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Leafy Meat, cook: Cooked Leafy Meat"
   },
-  {
+  "Blue Cap": {
     "INGREDIENT": "Blue Cap",
     "MEAT": 0,
     "FISH": 0,
@@ -167,10 +167,10 @@
     "HEALTH": 20,
     "HUNGER": 12.5,
     "SANITY": -15,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Cooked Blue Cap"
   },
-  {
+  "Bone Shards": {
     "INGREDIENT": "Bone Shards",
     "MEAT": 0,
     "FISH": 0,
@@ -186,10 +186,10 @@
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": ""
   },
-  {
+  "Braised Eggplant": {
     "INGREDIENT": "Braised Eggplant",
     "MEAT": 0,
     "FISH": 0,
@@ -205,10 +205,10 @@
     "HEALTH": 20,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Butter": {
     "INGREDIENT": "Butter",
     "MEAT": 0,
     "FISH": 0,
@@ -224,10 +224,10 @@
     "HEALTH": 40,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 40,
+    "EXPIRE": 40,
     "NOTES": ""
   },
-  {
+  "Butterfly Wings": {
     "INGREDIENT": "Butterfly Wings",
     "MEAT": 0,
     "FISH": 0,
@@ -243,10 +243,10 @@
     "HEALTH": 8,
     "HUNGER": 9.375,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Cactus Flesh": {
     "INGREDIENT": "Cactus Flesh",
     "MEAT": 0,
     "FISH": 0,
@@ -262,10 +262,10 @@
     "HEALTH": -3,
     "HUNGER": 12.5,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Cooked Cactus Flesh"
   },
-  {
+  "Cactus Flower": {
     "INGREDIENT": "Cactus Flower",
     "MEAT": 0,
     "FISH": 0,
@@ -281,10 +281,10 @@
     "HEALTH": 8,
     "HUNGER": 12.5,
     "SANITY": 5,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": ""
   },
-  {
+  "Carrot": {
     "INGREDIENT": "Carrot",
     "MEAT": 0,
     "FISH": 0,
@@ -300,10 +300,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Roasted Carrot"
   },
-  {
+  "Cooked Banana": {
     "INGREDIENT": "Cooked Banana",
     "MEAT": 0,
     "FISH": 0,
@@ -319,10 +319,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Cooked Barnacles": {
     "INGREDIENT": "Cooked Barnacles",
     "MEAT": 0.25,
     "FISH": 0.25,
@@ -338,10 +338,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 15,
+    "EXPIRE": 15,
     "NOTES": ""
   },
-  {
+  "Cooked Batilisk Wing": {
     "INGREDIENT": "Cooked Batilisk Wing",
     "MEAT": 0.5,
     "FISH": 0,
@@ -357,10 +357,10 @@
     "HEALTH": 8,
     "HUNGER": 18.75,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Cooked Blue Cap": {
     "INGREDIENT": "Cooked Blue Cap",
     "MEAT": 0,
     "FISH": 0,
@@ -376,10 +376,10 @@
     "HEALTH": -3,
     "HUNGER": 0,
     "SANITY": 10,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Cactus Flesh": {
     "INGREDIENT": "Cooked Cactus Flesh",
     "MEAT": 0,
     "FISH": 0,
@@ -395,10 +395,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 15,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Eel": {
     "INGREDIENT": "Cooked Eel",
     "MEAT": 0.5,
     "FISH": 1,
@@ -414,10 +414,10 @@
     "HEALTH": 8,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Egg": {
     "INGREDIENT": "Cooked Egg",
     "MEAT": 0,
     "FISH": 0,
@@ -433,10 +433,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Cooked Fish Morsel": {
     "INGREDIENT": "Cooked Fish Morsel",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -452,10 +452,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Cooked Frog Legs": {
     "INGREDIENT": "Cooked Frog Legs",
     "MEAT": 0.5,
     "FISH": 0,
@@ -471,10 +471,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Green Cap": {
     "INGREDIENT": "Cooked Green Cap",
     "MEAT": 0,
     "FISH": 0,
@@ -490,10 +490,10 @@
     "HEALTH": -1,
     "HUNGER": 0,
     "SANITY": 15,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Kelp Fronds": {
     "INGREDIENT": "Cooked Kelp Fronds",
     "MEAT": 0,
     "FISH": 0,
@@ -509,10 +509,10 @@
     "HEALTH": 0,
     "HUNGER": 9.375,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Leafy Meat": {
     "INGREDIENT": "Cooked Leafy Meat",
     "MEAT": 1,
     "FISH": 0,
@@ -528,10 +528,10 @@
     "HEALTH": 1,
     "HUNGER": 18.75,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Mandrake": {
     "INGREDIENT": "Cooked Mandrake",
     "MEAT": 0,
     "FISH": 0,
@@ -547,10 +547,10 @@
     "HEALTH": 100,
     "HUNGER": 150,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Cooked Meat": {
     "INGREDIENT": "Cooked Meat",
     "MEAT": 1,
     "FISH": 0,
@@ -566,10 +566,10 @@
     "HEALTH": 3,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Monster Meat": {
     "INGREDIENT": "Cooked Monster Meat",
     "MEAT": 1,
     "FISH": 0,
@@ -585,10 +585,10 @@
     "HEALTH": -3,
     "HUNGER": 18.75,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 15,
+    "EXPIRE": 15,
     "NOTES": ""
   },
-  {
+  "Cooked Moon Shroom": {
     "INGREDIENT": "Cooked Moon Shroom",
     "MEAT": 0,
     "FISH": 0,
@@ -604,10 +604,10 @@
     "HEALTH": 0,
     "HUNGER": -12.5,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "removes grogginess effect"
   },
-  {
+  "Cooked Morsel": {
     "INGREDIENT": "Cooked Morsel",
     "MEAT": 0.5,
     "FISH": 0,
@@ -623,10 +623,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Red Cap": {
     "INGREDIENT": "Cooked Red Cap",
     "MEAT": 0,
     "FISH": 0,
@@ -642,10 +642,10 @@
     "HEALTH": 1,
     "HUNGER": 0,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Cooked Stone Fruit": {
     "INGREDIENT": "Cooked Stone Fruit",
     "MEAT": 0,
     "FISH": 0,
@@ -661,10 +661,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 2,
+    "EXPIRE": 2,
     "NOTES": ""
   },
-  {
+  "Corn": {
     "INGREDIENT": "Corn",
     "MEAT": 0,
     "FISH": 0,
@@ -680,10 +680,10 @@
     "HEALTH": 3,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Popcorn"
   },
-  {
+  "Corn Cod": {
     "INGREDIENT": "Corn Cod",
     "MEAT": 0,
     "FISH": 0,
@@ -699,10 +699,10 @@
     "HEALTH": 3,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Corn, cook: Popcorn"
   },
-  {
+  "Dandy Lionfish": {
     "INGREDIENT": "Dandy Lionfish",
     "MEAT": 1,
     "FISH": 1,
@@ -718,10 +718,10 @@
     "HEALTH": 8,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Raw Fish, cook: Fish Steak"
   },
-  {
+  "Dark Petals": {
     "INGREDIENT": "Dark Petals",
     "MEAT": 0,
     "FISH": 0,
@@ -737,10 +737,10 @@
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Deep Bass": {
     "INGREDIENT": "Deep Bass",
     "MEAT": 1,
     "FISH": 1,
@@ -756,10 +756,10 @@
     "HEALTH": 8,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Raw Fish, cook: Fish Steak"
   },
-  {
+  "Deerclops Eyeball": {
     "INGREDIENT": "Deerclops Eyeball",
     "MEAT": 0,
     "FISH": 0,
@@ -775,10 +775,10 @@
     "HEALTH": 60,
     "HUNGER": 75,
     "SANITY": -15,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Dragon Fruit": {
     "INGREDIENT": "Dragon Fruit",
     "MEAT": 0,
     "FISH": 0,
@@ -794,10 +794,10 @@
     "HEALTH": 3,
     "HUNGER": 9.375,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Prepared Dragon Fruit"
   },
-  {
+  "Dried Kelp Fronds": {
     "INGREDIENT": "Dried Kelp Fronds",
     "MEAT": 0,
     "FISH": 0,
@@ -813,10 +813,10 @@
     "HEALTH": 1,
     "HUNGER": 9.375,
     "SANITY": 10,
-    "DAYS TO EXPIRE": 20,
+    "EXPIRE": 20,
     "NOTES": ""
   },
-  {
+  "Drumstick": {
     "INGREDIENT": "Drumstick",
     "MEAT": 0.5,
     "FISH": 0,
@@ -832,10 +832,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Fried Drumstick"
   },
-  {
+  "Durian": {
     "INGREDIENT": "Durian",
     "MEAT": 0,
     "FISH": 0,
@@ -851,10 +851,10 @@
     "HEALTH": -3,
     "HUNGER": 25,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Extra Smelly Durian"
   },
-  {
+  "Eel": {
     "INGREDIENT": "Eel",
     "MEAT": 0.5,
     "FISH": 1,
@@ -870,10 +870,10 @@
     "HEALTH": 3,
     "HUNGER": 9.375,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": "cook: Cooked Eel"
   },
-  {
+  "Egg": {
     "INGREDIENT": "Egg",
     "MEAT": 0,
     "FISH": 0,
@@ -889,10 +889,10 @@
     "HEALTH": 0,
     "HUNGER": 9.375,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Cooked Egg"
   },
-  {
+  "Eggplant": {
     "INGREDIENT": "Eggplant",
     "MEAT": 0,
     "FISH": 0,
@@ -908,10 +908,10 @@
     "HEALTH": 8,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Braised Eggplant"
   },
-  {
+  "Electric Milk": {
     "INGREDIENT": "Electric Milk",
     "MEAT": 0,
     "FISH": 0,
@@ -927,10 +927,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": 10,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Extra Smelly Durian": {
     "INGREDIENT": "Extra Smelly Durian",
     "MEAT": 0,
     "FISH": 0,
@@ -946,10 +946,10 @@
     "HEALTH": 0,
     "HUNGER": 25,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Fallounder": {
     "INGREDIENT": "Fallounder",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -965,10 +965,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Leafy Meat, cook: Cooked Leafy Meat"
   },
-  {
+  "Fish": {
     "INGREDIENT": "Fish",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -984,10 +984,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": "murder: Fish Morsel, cook: Cooked Fish Morsel"
   },
-  {
+  "Fish Morsel": {
     "INGREDIENT": "Fish Morsel",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -1003,10 +1003,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Cooked Fish Morsel"
   },
-  {
+  "Fish Steak": {
     "INGREDIENT": "Fish Steak",
     "MEAT": 1,
     "FISH": 1,
@@ -1022,10 +1022,10 @@
     "HEALTH": 8,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Forget-Me-Lots": {
     "INGREDIENT": "Forget-Me-Lots",
     "MEAT": 0,
     "FISH": 0,
@@ -1041,10 +1041,10 @@
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 1,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": ""
   },
-  {
+  "Fried Drumstick": {
     "INGREDIENT": "Fried Drumstick",
     "MEAT": 0.5,
     "FISH": 0,
@@ -1060,10 +1060,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Fried Tallbird Egg": {
     "INGREDIENT": "Fried Tallbird Egg",
     "MEAT": 0,
     "FISH": 0,
@@ -1079,10 +1079,10 @@
     "HEALTH": 0,
     "HUNGER": 37.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Frog Legs": {
     "INGREDIENT": "Frog Legs",
     "MEAT": 0.5,
     "FISH": 0,
@@ -1098,10 +1098,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Cooked Frog Legs"
   },
-  {
+  "Garlic": {
     "INGREDIENT": "Garlic",
     "MEAT": 0,
     "FISH": 0,
@@ -1117,10 +1117,10 @@
     "HEALTH": 0,
     "HUNGER": 9.375,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 15,
+    "EXPIRE": 15,
     "NOTES": "cook: Roasted Garlic"
   },
-  {
+  "Glommer's Goop": {
     "INGREDIENT": "Glommer's Goop",
     "MEAT": 0,
     "FISH": 0,
@@ -1136,10 +1136,10 @@
     "HEALTH": 40,
     "HUNGER": 9.375,
     "SANITY": -50,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Glow Berry": {
     "INGREDIENT": "Glow Berry",
     "MEAT": 0,
     "FISH": 0,
@@ -1155,10 +1155,10 @@
     "HEALTH": 11,
     "HUNGER": 18.75,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "Gives 90 seconds of light, cannot be added to crock pot"
   },
-  {
+  "Green Cap": {
     "INGREDIENT": "Green Cap",
     "MEAT": 0,
     "FISH": 0,
@@ -1174,10 +1174,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": -50,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Cooked Green Cap"
   },
-  {
+  "Grilled Watermelon": {
     "INGREDIENT": "Grilled Watermelon",
     "MEAT": 0,
     "FISH": 0,
@@ -1193,10 +1193,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 7.5,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": ""
   },
-  {
+  "Guardian's Horn": {
     "INGREDIENT": "Guardian's Horn",
     "MEAT": 0,
     "FISH": 0,
@@ -1212,10 +1212,10 @@
     "HEALTH": 60,
     "HUNGER": 75,
     "SANITY": -15,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Honey": {
     "INGREDIENT": "Honey",
     "MEAT": 0,
     "FISH": 0,
@@ -1231,10 +1231,10 @@
     "HEALTH": 3,
     "HUNGER": 9.375,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 40,
+    "EXPIRE": 40,
     "NOTES": ""
   },
-  {
+  "Honeycomb": {
     "INGREDIENT": "Honeycomb",
     "MEAT": 0,
     "FISH": 0,
@@ -1250,10 +1250,10 @@
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": ""
   },
-  {
+  "Hot Pumpkin": {
     "INGREDIENT": "Hot Pumpkin",
     "MEAT": 0,
     "FISH": 0,
@@ -1269,10 +1269,10 @@
     "HEALTH": 8,
     "HUNGER": 37.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Ice": {
     "INGREDIENT": "Ice",
     "MEAT": 0,
     "FISH": 0,
@@ -1288,10 +1288,10 @@
     "HEALTH": 0.5,
     "HUNGER": 2.3438,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": "lowers temp 40 degrees for 7.5 seconds"
   },
-  {
+  "Ice Bream": {
     "INGREDIENT": "Ice Bream",
     "MEAT": 1,
     "FISH": 1,
@@ -1307,10 +1307,10 @@
     "HEALTH": 8,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Raw Fish, cook: Fish Steak"
   },
-  {
+  "Jerky": {
     "INGREDIENT": "Jerky",
     "MEAT": 1,
     "FISH": 0,
@@ -1326,10 +1326,10 @@
     "HEALTH": 20,
     "HUNGER": 25,
     "SANITY": 15,
-    "DAYS TO EXPIRE": 20,
+    "EXPIRE": 20,
     "NOTES": ""
   },
-  {
+  "Juicy Berries": {
     "INGREDIENT": "Juicy Berries",
     "MEAT": 0,
     "FISH": 0,
@@ -1345,10 +1345,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 2,
+    "EXPIRE": 2,
     "NOTES": "cook: Roasted Juicy Berries"
   },
-  {
+  "Kelp Fronds": {
     "INGREDIENT": "Kelp Fronds",
     "MEAT": 0,
     "FISH": 0,
@@ -1364,10 +1364,10 @@
     "HEALTH": -1,
     "HUNGER": 9.375,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Cooked Kelp Fronds"
   },
-  {
+  "Koalefant Trunk": {
     "INGREDIENT": "Koalefant Trunk",
     "MEAT": 0,
     "FISH": 0,
@@ -1383,10 +1383,10 @@
     "HEALTH": 30,
     "HUNGER": 37.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Koalefant Trunk Steak, cannot be added to crock pot"
   },
-  {
+  "Koalefant Trunk Steak": {
     "INGREDIENT": "Koalefant Trunk Steak",
     "MEAT": 0,
     "FISH": 0,
@@ -1402,10 +1402,10 @@
     "HEALTH": 40,
     "HUNGER": 75,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 15,
+    "EXPIRE": 15,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Leafy Meat": {
     "INGREDIENT": "Leafy Meat",
     "MEAT": 1,
     "FISH": 0,
@@ -1421,10 +1421,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Cooked Leafy Meat"
   },
-  {
+  "Lesser Glow Berry": {
     "INGREDIENT": "Lesser Glow Berry",
     "MEAT": 0,
     "FISH": 0,
@@ -1440,10 +1440,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Lichen": {
     "INGREDIENT": "Lichen",
     "MEAT": 0,
     "FISH": 0,
@@ -1459,10 +1459,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 2,
+    "EXPIRE": 2,
     "NOTES": ""
   },
-  {
+  "Light Bulb": {
     "INGREDIENT": "Light Bulb",
     "MEAT": 0,
     "FISH": 0,
@@ -1478,10 +1478,10 @@
     "HEALTH": 1,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Lune Tree Blossom": {
     "INGREDIENT": "Lune Tree Blossom",
     "MEAT": 0,
     "FISH": 0,
@@ -1497,10 +1497,10 @@
     "HEALTH": 1,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Mandrake": {
     "INGREDIENT": "Mandrake",
     "MEAT": 0,
     "FISH": 0,
@@ -1516,10 +1516,10 @@
     "HEALTH": 60,
     "HUNGER": 75,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": "cook: Cooked Mandrake"
   },
-  {
+  "Meat": {
     "INGREDIENT": "Meat",
     "MEAT": 1,
     "FISH": 0,
@@ -1535,10 +1535,10 @@
     "HEALTH": 1,
     "HUNGER": 25,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Cooked Meat"
   },
-  {
+  "Moleworm": {
     "INGREDIENT": "Moleworm",
     "MEAT": 0,
     "FISH": 0,
@@ -1554,10 +1554,10 @@
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 2,
+    "EXPIRE": 2,
     "NOTES": "murder: Morsel"
   },
-  {
+  "Monster Jerky": {
     "INGREDIENT": "Monster Jerky",
     "MEAT": 1,
     "FISH": 0,
@@ -1573,10 +1573,10 @@
     "HEALTH": -3,
     "HUNGER": 18.75,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 20,
+    "EXPIRE": 20,
     "NOTES": ""
   },
-  {
+  "Monster Meat": {
     "INGREDIENT": "Monster Meat",
     "MEAT": 1,
     "FISH": 0,
@@ -1592,10 +1592,10 @@
     "HEALTH": -20,
     "HUNGER": 18.75,
     "SANITY": -15,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Cooked Monster Meat"
   },
-  {
+  "Moon Moth Wings": {
     "INGREDIENT": "Moon Moth Wings",
     "MEAT": 0,
     "FISH": 0,
@@ -1611,10 +1611,10 @@
     "HEALTH": 8,
     "HUNGER": 9.375,
     "SANITY": 15,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Moon Shroom": {
     "INGREDIENT": "Moon Shroom",
     "MEAT": 0,
     "FISH": 0,
@@ -1630,10 +1630,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": 10,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Cooked Moon Shroom, puts to sleep"
   },
-  {
+  "Morsel": {
     "INGREDIENT": "Morsel",
     "MEAT": 0.5,
     "FISH": 0,
@@ -1649,10 +1649,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Cooked Morsel"
   },
-  {
+  "Mudfish": {
     "INGREDIENT": "Mudfish",
     "MEAT": 1,
     "FISH": 1,
@@ -1668,10 +1668,10 @@
     "HEALTH": 8,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Raw Fish, cook: Fish Steak"
   },
-  {
+  "Needlenosed Squirt": {
     "INGREDIENT": "Needlenosed Squirt",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -1687,10 +1687,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Fish Morsel, cook: Cooked Fish Morsel"
   },
-  {
+  "Nightmare Fuel": {
     "INGREDIENT": "Nightmare Fuel",
     "MEAT": 0,
     "FISH": 0,
@@ -1706,10 +1706,10 @@
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": ""
   },
-  {
+  "Onion": {
     "INGREDIENT": "Onion",
     "MEAT": 0,
     "FISH": 0,
@@ -1725,10 +1725,10 @@
     "HEALTH": 0,
     "HUNGER": 9.375,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 15,
+    "EXPIRE": 15,
     "NOTES": "cook: Roasted Onion"
   },
-  {
+  "Pepper": {
     "INGREDIENT": "Pepper",
     "MEAT": 0,
     "FISH": 0,
@@ -1744,10 +1744,10 @@
     "HEALTH": -20,
     "HUNGER": 9.375,
     "SANITY": -15,
-    "DAYS TO EXPIRE": 15,
+    "EXPIRE": 15,
     "NOTES": "cook: Roasted Pepper"
   },
-  {
+  "Petals": {
     "INGREDIENT": "Petals",
     "MEAT": 0,
     "FISH": 0,
@@ -1763,10 +1763,10 @@
     "HEALTH": 1,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Phlegm": {
     "INGREDIENT": "Phlegm",
     "MEAT": 0,
     "FISH": 0,
@@ -1782,10 +1782,10 @@
     "HEALTH": 0,
     "HUNGER": 12.5,
     "SANITY": -15,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Pomegranate": {
     "INGREDIENT": "Pomegranate",
     "MEAT": 0,
     "FISH": 0,
@@ -1801,10 +1801,10 @@
     "HEALTH": 3,
     "HUNGER": 9.375,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Sliced Pomegranate"
   },
-  {
+  "Popcorn": {
     "INGREDIENT": "Popcorn",
     "MEAT": 0,
     "FISH": 0,
@@ -1820,10 +1820,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 15,
+    "EXPIRE": 15,
     "NOTES": ""
   },
-  {
+  "Popperfish": {
     "INGREDIENT": "Popperfish",
     "MEAT": 0,
     "FISH": 0,
@@ -1839,10 +1839,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Popcorn, cook: Popcorn"
   },
-  {
+  "Potato": {
     "INGREDIENT": "Potato",
     "MEAT": 0,
     "FISH": 0,
@@ -1858,10 +1858,10 @@
     "HEALTH": -3,
     "HUNGER": 12.5,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Roasted Potato"
   },
-  {
+  "Prepared Dragon Fruit": {
     "INGREDIENT": "Prepared Dragon Fruit",
     "MEAT": 0,
     "FISH": 0,
@@ -1877,10 +1877,10 @@
     "HEALTH": 20,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": ""
   },
-  {
+  "Pumpkin": {
     "INGREDIENT": "Pumpkin",
     "MEAT": 0,
     "FISH": 0,
@@ -1896,10 +1896,10 @@
     "HEALTH": 3,
     "HUNGER": 37.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Hot Pumpkin"
   },
-  {
+  "Raw Fish": {
     "INGREDIENT": "Raw Fish",
     "MEAT": 1,
     "FISH": 1,
@@ -1915,10 +1915,10 @@
     "HEALTH": 8,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": "cook: Fish Steak"
   },
-  {
+  "Red Cap": {
     "INGREDIENT": "Red Cap",
     "MEAT": 0,
     "FISH": 0,
@@ -1934,10 +1934,10 @@
     "HEALTH": -20,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cook: Cooked Red Cap"
   },
-  {
+  "Ripe Stone Fruit": {
     "INGREDIENT": "Ripe Stone Fruit",
     "MEAT": 0,
     "FISH": 0,
@@ -1953,10 +1953,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": "cook: Cooked Stone Fruit"
   },
-  {
+  "Roasted Berries": {
     "INGREDIENT": "Roasted Berries",
     "MEAT": 0,
     "FISH": 0,
@@ -1972,10 +1972,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": ""
   },
-  {
+  "Roasted Birchnut": {
     "INGREDIENT": "Roasted Birchnut",
     "MEAT": 0,
     "FISH": 0,
@@ -1991,10 +1991,10 @@
     "HEALTH": 1,
     "HUNGER": 9.375,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Roasted Carrot": {
     "INGREDIENT": "Roasted Carrot",
     "MEAT": 0,
     "FISH": 0,
@@ -2010,10 +2010,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Roasted Garlic": {
     "INGREDIENT": "Roasted Garlic",
     "MEAT": 0,
     "FISH": 0,
@@ -2029,10 +2029,10 @@
     "HEALTH": 1,
     "HUNGER": 9.375,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Roasted Juicy Berries": {
     "INGREDIENT": "Roasted Juicy Berries",
     "MEAT": 0,
     "FISH": 0,
@@ -2048,10 +2048,10 @@
     "HEALTH": 3,
     "HUNGER": 18.75,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": ""
   },
-  {
+  "Roasted Onion": {
     "INGREDIENT": "Roasted Onion",
     "MEAT": 0,
     "FISH": 0,
@@ -2067,10 +2067,10 @@
     "HEALTH": 1,
     "HUNGER": 9.375,
     "SANITY": -5,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Roasted Pepper": {
     "INGREDIENT": "Roasted Pepper",
     "MEAT": 0,
     "FISH": 0,
@@ -2086,10 +2086,10 @@
     "HEALTH": -3,
     "HUNGER": 9.375,
     "SANITY": -10,
-    "DAYS TO EXPIRE": 15,
+    "EXPIRE": 15,
     "NOTES": ""
   },
-  {
+  "Roasted Potato": {
     "INGREDIENT": "Roasted Potato",
     "MEAT": 0,
     "FISH": 0,
@@ -2105,10 +2105,10 @@
     "HEALTH": 20,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Roasted Toma Root": {
     "INGREDIENT": "Roasted Toma Root",
     "MEAT": 0,
     "FISH": 0,
@@ -2124,10 +2124,10 @@
     "HEALTH": 20,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Rot": {
     "INGREDIENT": "Rot",
     "MEAT": 0,
     "FISH": 0,
@@ -2143,10 +2143,10 @@
     "HEALTH": -1,
     "HUNGER": -10,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Rotten Egg": {
     "INGREDIENT": "Rotten Egg",
     "MEAT": 0,
     "FISH": 0,
@@ -2162,10 +2162,10 @@
     "HEALTH": -1,
     "HUNGER": -10,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Royal Jelly": {
     "INGREDIENT": "Royal Jelly",
     "MEAT": 0,
     "FISH": 0,
@@ -2181,10 +2181,10 @@
     "HEALTH": 40,
     "HUNGER": 12.5,
     "SANITY": 15,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": ""
   },
-  {
+  "Runty Guppy": {
     "INGREDIENT": "Runty Guppy",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -2200,10 +2200,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Fish Morsel, cook: Cooked Fish Morsel"
   },
-  {
+  "Scorching Sunfish": {
     "INGREDIENT": "Scorching Sunfish",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -2219,10 +2219,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Cooked Fish Morsel, cook: Cooked Fish Morsel"
   },
-  {
+  "Seeds": {
     "INGREDIENT": "Seeds",
     "MEAT": 0,
     "FISH": 0,
@@ -2238,10 +2238,10 @@
     "HEALTH": 0,
     "HUNGER": 4.6875,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 40,
+    "EXPIRE": 40,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Sliced Pomegranate": {
     "INGREDIENT": "Sliced Pomegranate",
     "MEAT": 0,
     "FISH": 0,
@@ -2257,10 +2257,10 @@
     "HEALTH": 20,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 3,
+    "EXPIRE": 3,
     "NOTES": ""
   },
-  {
+  "Small Jerky": {
     "INGREDIENT": "Small Jerky",
     "MEAT": 0.5,
     "FISH": 0,
@@ -2276,10 +2276,10 @@
     "HEALTH": 8,
     "HUNGER": 12.5,
     "SANITY": 10,
-    "DAYS TO EXPIRE": 20,
+    "EXPIRE": 20,
     "NOTES": ""
   },
-  {
+  "Smolt Fry": {
     "INGREDIENT": "Smolt Fry",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -2295,10 +2295,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Fish Morsel, cook: Cooked Fish Morsel"
   },
-  {
+  "Spittlefish": {
     "INGREDIENT": "Spittlefish",
     "MEAT": 0.5,
     "FISH": 0.5,
@@ -2314,10 +2314,10 @@
     "HEALTH": 1,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 1,
+    "EXPIRE": 1,
     "NOTES": "murder: Cooked Fish Morsel, cook: Cooked Fish Morsel"
   },
-  {
+  "Succulent": {
     "INGREDIENT": "Succulent",
     "MEAT": 0,
     "FISH": 0,
@@ -2333,10 +2333,10 @@
     "HEALTH": 1,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": ""
   },
-  {
+  "Tallbird Egg": {
     "INGREDIENT": "Tallbird Egg",
     "MEAT": 0,
     "FISH": 0,
@@ -2352,10 +2352,10 @@
     "HEALTH": 3,
     "HUNGER": 25,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": "cook: Fried Tallbird Egg"
   },
-  {
+  "Toasted Seeds": {
     "INGREDIENT": "Toasted Seeds",
     "MEAT": 0,
     "FISH": 0,
@@ -2371,10 +2371,10 @@
     "HEALTH": 1,
     "HUNGER": 4.6875,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 10,
+    "EXPIRE": 10,
     "NOTES": "cannot be added to crock pot"
   },
-  {
+  "Toma Root": {
     "INGREDIENT": "Toma Root",
     "MEAT": 0,
     "FISH": 0,
@@ -2390,10 +2390,10 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 6,
+    "EXPIRE": 6,
     "NOTES": "cook: Roasted Toma Root"
   },
-  {
+  "Twigs": {
     "INGREDIENT": "Twigs",
     "MEAT": 0,
     "FISH": 0,
@@ -2409,10 +2409,10 @@
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": ""
   },
-  {
+  "Volt Goat Horn": {
     "INGREDIENT": "Volt Goat Horn",
     "MEAT": 0,
     "FISH": 0,
@@ -2428,10 +2428,10 @@
     "HEALTH": 0,
     "HUNGER": 0,
     "SANITY": 0,
-    "DAYS TO EXPIRE": 0,
+    "EXPIRE": 0,
     "NOTES": ""
   },
-  {
+  "Watermelon": {
     "INGREDIENT": "Watermelon",
     "MEAT": 0,
     "FISH": 0,
@@ -2447,7 +2447,7 @@
     "HEALTH": 3,
     "HUNGER": 12.5,
     "SANITY": 5,
-    "DAYS TO EXPIRE": 8,
+    "EXPIRE": 8,
     "NOTES": "cook: Grilled Watermelon"
   }
-]
+}

@@ -643,4 +643,5 @@ func main() {
 	// fmt.Println("bug", bugCount)
 	// fmt.Println("inedible", inedibleCount)
 	// fmt.Println("misc", miscCount)
+	fmt.Println(ingredientsData[i1].MEAT)
 }

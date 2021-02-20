@@ -85,9 +85,9 @@ func main() {
 
 	// Add Ingredients to the pot
 	i1 := "Jerky"
-	i2 := "Egg"
-	i3 := "Jerky"
-	i4 := "Egg"
+	i2 := "Blue Cap"
+	i3 := "Berries"
+	i4 := "Berries"
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
 	crockPot[i2] = ingredientsData[i2]
@@ -533,10 +533,14 @@ func main() {
 	//  this output only shows the vals that are greater than 0
 	outVal := map[string]float64{"Meat:": meatVal, "Fish:": fishVal, "Egg:": eggVal, "Fruit:": fruitVal, "Vegetable:": vegVal, "Sweetener:": sweetVal, "Monster:": monVal, "Dairy:": dairyVal, "Bug:": bugVal, "Inedible:": inedVal, "Misc:": miscVal}
 	// outVal := []float64{meatVal, fishVal, eggVal, fruitVal, vegVal, sweetVal, monVal, dairyVal, bugVal, inedVal, miscVal}
-	for x, existVal := range outVal {
+	for inName, existVal := range outVal {
 		if existVal > 0 {
-			fmt.Println(x, existVal)
+			fmt.Println(inName, existVal)
 		}
+	}
+
+	for t, existRec := range recipeData {
+		fmt.Println(t, "Priority", existRec.PRIORITY)
 	}
 
 	fmt.Println("Total Health", healVal)
@@ -572,6 +576,6 @@ func main() {
 	fmt.Println(i2, "expires in", ingredientsData[i2].EXPIRE, "days")
 	fmt.Println(i3, "expires in", ingredientsData[i3].EXPIRE, "days")
 	fmt.Println(i4, "expires in", ingredientsData[i4].EXPIRE, "days")
-	fmt.Println(recipeData)
+	// fmt.Println(recipeData)
 
 }

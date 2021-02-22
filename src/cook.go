@@ -539,10 +539,26 @@ func main() {
 		}
 	}
 
+	// testing
+
 	for t, existRec := range recipeData {
-		fmt.Println(t, "Priority", existRec.PRIORITY)
+		fmt.Println("\n")
+		fmt.Println(t, ":")
+		fmt.Println("Health:", existRec.HEALTH)
+		fmt.Println("Hunger:", existRec.HUNGER)
+		fmt.Println("Sanity:", existRec.SANITY)
+		fmt.Println("Ingredients:", existRec.INGREDIENTS)
+		fmt.Println("Exclude:", existRec.EXCLUDE)
+		fmt.Println("Notes:", existRec.NOTES)
+		fmt.Println("Expires:", existRec.EXPIRES)
+		fmt.Println("Cooktime:", existRec.COOKTIME)
+		fmt.Println("Priority:", existRec.PRIORITY)
 	}
 
+	// legibility?
+
+	fmt.Println("\n")
+	fmt.Println("Ingredients")
 	fmt.Println("Total Health", healVal)
 	fmt.Println("Total Hunger", hungVal)
 	fmt.Println("Total Sanity", saniVal)

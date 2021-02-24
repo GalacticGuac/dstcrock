@@ -84,10 +84,10 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Jerky"
-	i2 := "Blue Cap"
-	i3 := "Berries"
-	i4 := "Berries"
+	i1 := "Banana"
+	i2 := "Banana"
+	i3 := "Banana"
+	i4 := "Banana"
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
 	crockPot[i2] = ingredientsData[i2]
@@ -532,36 +532,94 @@ func main() {
 
 	//  this output only shows the vals that are greater than 0
 	outVal := map[string]float64{"Meat:": meatVal, "Fish:": fishVal, "Egg:": eggVal, "Fruit:": fruitVal, "Vegetable:": vegVal, "Sweetener:": sweetVal, "Monster:": monVal, "Dairy:": dairyVal, "Bug:": bugVal, "Inedible:": inedVal, "Misc:": miscVal}
-	// outVal := []float64{meatVal, fishVal, eggVal, fruitVal, vegVal, sweetVal, monVal, dairyVal, bugVal, inedVal, miscVal}
 	for inName, existVal := range outVal {
 		if existVal > 0 {
 			fmt.Println(inName, existVal)
 		}
 	}
-
-	// testing
-
-	for t, existRec := range recipeData {
-		fmt.Println("\n")
-		fmt.Println(t, ":")
-		fmt.Println("Health:", existRec.HEALTH)
-		fmt.Println("Hunger:", existRec.HUNGER)
-		fmt.Println("Sanity:", existRec.SANITY)
-		fmt.Println("Ingredients:", existRec.INGREDIENTS)
-		fmt.Println("Exclude:", existRec.EXCLUDE)
-		fmt.Println("Notes:", existRec.NOTES)
-		fmt.Println("Expires:", existRec.EXPIRES)
-		fmt.Println("Cooktime:", existRec.COOKTIME)
-		fmt.Println("Priority:", existRec.PRIORITY)
-	}
-
-	// legibility?
-
-	fmt.Println("\n")
+	// if eaten raw
+	// fmt.Println("\n")
 	fmt.Println("Ingredients")
 	fmt.Println("Total Health", healVal)
 	fmt.Println("Total Hunger", hungVal)
 	fmt.Println("Total Sanity", saniVal)
+	// prints raw exp
+	fmt.Println(i1, "expires in", ingredientsData[i1].EXPIRE, "days")
+	fmt.Println(i2, "expires in", ingredientsData[i2].EXPIRE, "days")
+	fmt.Println(i3, "expires in", ingredientsData[i3].EXPIRE, "days")
+	fmt.Println(i4, "expires in", ingredientsData[i4].EXPIRE, "days")
+
+	// printed not organized
+	// for t, existRec := range recipeData {
+	// 	fmt.Println("\n")
+	// 	fmt.Println(t, ":")
+	// 	fmt.Println("Health:", existRec.HEALTH)
+	// 	fmt.Println("Hunger:", existRec.HUNGER)
+	// 	fmt.Println("Sanity:", existRec.SANITY)
+	// 	fmt.Println("Ingredients:", existRec.INGREDIENTS)
+	// 	fmt.Println("Exclude:", existRec.EXCLUDE)
+	// 	fmt.Println("Notes:", existRec.NOTES)
+	// 	fmt.Println("Expires:", existRec.EXPIRES)
+	// 	fmt.Println("Cooktime:", existRec.COOKTIME)
+	// 	fmt.Println("Priority:", existRec.PRIORITY)
+	// }
+
+	// creating new map so remove recipes to keep integrity of original map recipeData
+	fRecipeData := map[string]RecipeDetails{}
+	for key, value := range recipeData {
+		fRecipeData[key] = value
+	}
+
+	//  part of percentage printing
+	var bigPval float64 = -100
+	for _, existRec := range fRecipeData {
+		if existRec.PRIORITY > bigPval {
+			bigPval = existRec.PRIORITY
+		}
+	}
+	// using new map to order priority by printing highest priority then removing and then continuing
+	rdatacount := len(fRecipeData) /*this is the amount of items in the new map*/
+	for rdatacount > 0 {           /*beginning of loop. the loop will occur how ever many items are in the map*/
+		var pval float64 = -100 /*setting priority value to -100 (no priorty is that low) to find and set highest pvalue in list*/
+		for _, existRec := range fRecipeData {
+			if existRec.PRIORITY > pval {
+				pval = existRec.PRIORITY
+			}
+		}
+		var pcount float64 = 0 /* counts how many have same priority */
+		for _, existRec := range fRecipeData {
+			if existRec.PRIORITY == pval {
+				pcount++
+			}
+		}
+
+		// output
+		/*then whatever priority matches pval then gets printed then is removed from list (will do multiple if more than one) */
+		for t, existRec := range fRecipeData {
+			if existRec.PRIORITY == pval {
+				fmt.Println("\n")
+				if bigPval == existRec.PRIORITY && pcount == 1 {
+					fmt.Println("%", 100) /*highest priorty*/
+				} else if bigPval == existRec.PRIORITY && pcount != 1 {
+					fmt.Println("%", 100/pcount) /*splits percentage if muli*/
+				} else {
+					fmt.Println("%", 0/pcount) /*0% for everything else*/
+				}
+				fmt.Println(t, ":")
+				fmt.Println("Health:", existRec.HEALTH)
+				fmt.Println("Hunger:", existRec.HUNGER)
+				fmt.Println("Sanity:", existRec.SANITY)
+				fmt.Println("Ingredients:", existRec.INGREDIENTS)
+				fmt.Println("Exclude:", existRec.EXCLUDE)
+				fmt.Println("Notes:", existRec.NOTES)
+				fmt.Println("Expires:", existRec.EXPIRES)
+				fmt.Println("Cooktime:", existRec.COOKTIME)
+				fmt.Println("Priority:", existRec.PRIORITY)
+				delete(fRecipeData, t)
+			}
+		}
+		rdatacount-- /*record/s that match pval then are rremoved*/
+	} /*end of for loop */
 
 	// ****standard output****
 	// fmt.Println("Meat: ", meatVal)
@@ -587,11 +645,5 @@ func main() {
 	// fmt.Println("bug", bugCount)
 	// fmt.Println("inedible", inedibleCount)
 	// fmt.Println("misc", miscCount)
-
-	fmt.Println(i1, "expires in", ingredientsData[i1].EXPIRE, "days")
-	fmt.Println(i2, "expires in", ingredientsData[i2].EXPIRE, "days")
-	fmt.Println(i3, "expires in", ingredientsData[i3].EXPIRE, "days")
-	fmt.Println(i4, "expires in", ingredientsData[i4].EXPIRE, "days")
-	// fmt.Println(recipeData)
 
 }

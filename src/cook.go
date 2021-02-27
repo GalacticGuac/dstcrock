@@ -84,17 +84,17 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Banana"
-	i2 := "Banana"
-	i3 := "Banana"
-	i4 := "Banana"
+	i1 := "Jerky"
+	i2 := "Jerky"
+	i3 := "Egg"
+	i4 := ""
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
 	crockPot[i2] = ingredientsData[i2]
 	crockPot[i3] = ingredientsData[i3]
 	crockPot[i4] = ingredientsData[i4]
 
-	// Initialize the baseline values *brian these were 0.0 before im messing with it to see if it works right
+	// Initialize the baseline values
 	titles := "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
 	meatVal := crockPot[i1].MEAT + crockPot[i2].MEAT + crockPot[i3].MEAT + crockPot[i4].MEAT
 	fishVal := crockPot[i1].FISH + crockPot[i2].FISH + crockPot[i3].FISH + crockPot[i4].FISH
@@ -330,7 +330,6 @@ func main() {
 
 	// fruit medley
 	// twigs is safest anything else 50% of fist full of jam
-	// SIDNEY: We will definitely need to think about suggestions for the "best" version of the recipes
 	if fruitVal < 3 || meatVal != 0 || vegVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
 		delete(recipeData, "FRUIT MEDLEY")
 	}
@@ -592,7 +591,6 @@ func main() {
 				pcount++
 			}
 		}
-
 		// output
 		/*then whatever priority matches pval then gets printed then is removed from list (will do multiple if more than one) */
 		for t, existRec := range fRecipeData {
@@ -618,32 +616,178 @@ func main() {
 				delete(fRecipeData, t)
 			}
 		}
-		rdatacount-- /*record/s that match pval then are rremoved*/
+		rdatacount-- /*record/s that match pval then are removed*/
 	} /*end of for loop */
 
+	// *********************finding alternative values for cooked/murdered items*************************
+	// is json, if ingredients are added, murder must be first, then  cook
+	/*cdex := strings.Index(ingredientsData[i1].NOTES, "cook:")
+	mdex := strings.Index(ingredientsData[i1].NOTES, "murder:")
+
+	if mdex > -1 {
+		fmt.Println(string(ingredientsData[i1].NOTES[mdex+8 : cdex-2]))
+	}
+	if cdex > -1 {
+		fmt.Println(string(ingredientsData[i1].NOTES[cdex+6:]))
+	}
+	fmt.Println(mdex)
+	fmt.Println(cdex)*/
+	// *********************************************************************************************************************************************************
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	for trueIn, trueInName := range ingredientsData {
+		crockPot := map[string]IngredientDetails{}
+		i1 := "Jerky"
+		i2 := "Jerky"
+		i3 := "Egg"
+		i4 := trueIn
+		crockPot[i1] = ingredientsData[i1]
+		crockPot[i2] = ingredientsData[i2]
+		crockPot[i3] = ingredientsData[i3]
+		crockPot[i4] = ingredientsData[i4]
+
+		// Initialize the baseline values
+		titles := "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
+		meatVal := crockPot[i1].MEAT + crockPot[i2].MEAT + crockPot[i3].MEAT + crockPot[i4].MEAT
+		// fishVal := crockPot[i1].FISH + crockPot[i2].FISH + crockPot[i3].FISH + crockPot[i4].FISH
+		eggVal := crockPot[i1].EGG + crockPot[i2].EGG + crockPot[i3].EGG + crockPot[i4].EGG
+		// fruitVal := crockPot[i1].FRUIT + crockPot[i2].FRUIT + crockPot[i3].FRUIT + crockPot[i4].FRUIT
+		vegVal := crockPot[i1].VEGETABLE + crockPot[i2].VEGETABLE + crockPot[i3].VEGETABLE + crockPot[i4].VEGETABLE
+		// sweetVal := crockPot[i1].SWEETENER + crockPot[i2].SWEETENER + crockPot[i3].SWEETENER + crockPot[i4].SWEETENER
+		// monVal := crockPot[i1].MONSTER + crockPot[i2].MONSTER + crockPot[i3].MONSTER + crockPot[i4].MONSTER
+		// dairyVal := crockPot[i1].DAIRY + crockPot[i2].DAIRY + crockPot[i3].DAIRY + crockPot[i4].DAIRY
+		// bugVal := crockPot[i1].BUG + crockPot[i2].BUG + crockPot[i3].BUG + crockPot[i4].BUG
+		// inedVal := crockPot[i1].INEDIBLE + crockPot[i2].INEDIBLE + crockPot[i3].INEDIBLE + crockPot[i4].INEDIBLE
+		// miscVal := crockPot[i1].MISC + crockPot[i2].MISC + crockPot[i3].MISC + crockPot[i4].MISC
+		// healVal := crockPot[i1].HEALTH + crockPot[i2].HEALTH + crockPot[i3].HEALTH + crockPot[i4].HEALTH
+		// hungVal := crockPot[i1].HUNGER + crockPot[i2].HUNGER + crockPot[i3].HUNGER + crockPot[i4].HUNGER
+		// saniVal := crockPot[i1].SANITY + crockPot[i2].SANITY + crockPot[i3].SANITY + crockPot[i4].SANITY
+
+		// counts type of ingredients
+		// count Meat
+		crockSlotsMea := []float64{crockPot[i1].MEAT, crockPot[i2].MEAT, crockPot[i3].MEAT, crockPot[i4].MEAT}
+		meatCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsMea {
+			if v > 0 {
+				meatCount++
+			}
+		}
+
+		// count Fish
+		crockSlotsFis := []float64{crockPot[i1].FISH, crockPot[i2].FISH, crockPot[i3].FISH, crockPot[i4].FISH}
+		fishCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsFis {
+			if v > 0 {
+				fishCount++
+			}
+		}
+		// count egg
+		crockSlotsEgg := []float64{crockPot[i1].EGG, crockPot[i2].EGG, crockPot[i3].EGG, crockPot[i4].EGG}
+		eggCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsEgg {
+			if v > 0 {
+				eggCount++
+			}
+		}
+		// count fruit
+		crockSlotsFru := []float64{crockPot[i1].FRUIT, crockPot[i2].FRUIT, crockPot[i3].FRUIT, crockPot[i4].FRUIT}
+		fruitCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsFru {
+			if v > 0 {
+				fruitCount++
+			}
+		}
+		// count vegetables
+		crockSlotsVeg := []float64{crockPot[i1].VEGETABLE, crockPot[i2].VEGETABLE, crockPot[i3].VEGETABLE, crockPot[i4].VEGETABLE}
+		vegeCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsVeg {
+			if v > 0 {
+				vegeCount++
+			}
+		}
+		// count sweetener
+		crockSlotsSwe := []float64{crockPot[i1].SWEETENER, crockPot[i2].SWEETENER, crockPot[i3].SWEETENER, crockPot[i4].SWEETENER}
+		sweetenerCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsSwe {
+			if v > 0 {
+				sweetenerCount++
+			}
+		}
+		// count monster food
+		crockSlotsMon := []float64{crockPot[i1].MONSTER, crockPot[i2].MONSTER, crockPot[i3].MONSTER, crockPot[i4].MONSTER}
+		monsterCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsMon {
+			if v > 0 {
+				monsterCount++
+			}
+		}
+		// count monster food
+		crockSlotsDai := []float64{crockPot[i1].DAIRY, crockPot[i2].DAIRY, crockPot[i3].DAIRY, crockPot[i4].DAIRY}
+		dairyCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsDai {
+			if v > 0 {
+				dairyCount++
+			}
+		}
+		// count bug
+		crockSlotsBug := []float64{crockPot[i1].BUG, crockPot[i2].BUG, crockPot[i3].BUG, crockPot[i4].BUG}
+		bugCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsBug {
+			if v > 0 {
+				bugCount++
+			}
+		}
+		// count inedable
+		crockSlotsIne := []float64{crockPot[i1].INEDIBLE, crockPot[i2].INEDIBLE, crockPot[i3].INEDIBLE, crockPot[i4].INEDIBLE}
+		inedibleCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsIne {
+			if v > 0 {
+				inedibleCount++
+			}
+		}
+		// count misc (moleworm, butterfly, etc.)
+		crockSlotsMis := []float64{crockPot[i1].MISC, crockPot[i2].MISC, crockPot[i3].MISC, crockPot[i4].MISC}
+		miscCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
+		for _, v := range crockSlotsMis {
+			if v > 0 {
+				miscCount++
+			}
+		}
+
+		// Bacon and Eggs
+		if meatVal <= 1 || eggVal <= 1 || vegVal != 0 {
+		} else {
+			fmt.Println(titles)
+			fmt.Println(trueInName.NAME)
+			fmt.Println("true")
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// end of gigantic for loop
+	// potential to call second ffunction one for tru one for false
+
 	// ****standard output****
-	// fmt.Println("Meat: ", meatVal)
-	// fmt.Println("Fish: ", fishVal)
-	// fmt.Println("Egg: ", eggVal)
-	// fmt.Println("Fruit: ", fruitVal)
-	// fmt.Println("Vegetable: ", vegVal)
-	// fmt.Println("Sweetener: ", sweetVal)
-	// fmt.Println("Monster: ", monVal)
-	// fmt.Println("Dairy: ", dairyVal)
-	// fmt.Println("Bug: ", bugVal)
-	// fmt.Println("Inedible: ", inedVal)
-	// fmt.Println("Misc: ", miscVal)
+	// fmt.Println("FOR TESTINGS Meat: ", meatVal)
+	// fmt.Println("FOR TESTINGS Fish: ", fishVal)
+	// fmt.Println("FOR TESTINGS Egg: ", eggVal)
+	// fmt.Println("FOR TESTINGS Fruit: ", fruitVal)
+	// fmt.Println("FOR TESTINGS Vegetable: ", vegVal)
+	// fmt.Println("FOR TESTINGS Sweetener: ", sweetVal)
+	// fmt.Println("FOR TESTINGS Monster: ", monVal)
+	// fmt.Println("FOR TESTINGS Dairy: ", dairyVal)
+	// fmt.Println("FOR TESTINGS Bug: ", bugVal)
+	// fmt.Println("FOR TESTINGS Inedible: ", inedVal)
+	// fmt.Println("FOR TESTINGS Misc: ", miscVal)
 	// ****count found types****
-	// fmt.Println("meat", meatCount)
-	// fmt.Println("fish", fishCount)
-	// fmt.Println("egg", eggCount)
-	// fmt.Println("fruit", fruitCount)
-	// fmt.Println("vege", vegeCount)
-	// fmt.Println("sweetener", sweetenerCount)
-	// fmt.Println("monster", monsterCount)
-	// fmt.Println("dairy", dairyCount)
-	// fmt.Println("bug", bugCount)
-	// fmt.Println("inedible", inedibleCount)
-	// fmt.Println("misc", miscCount)
+	// fmt.Println("FOR TESTINGS meat", meatCount)
+	// fmt.Println("FOR TESTINGS fish", fishCount)
+	// fmt.Println("FOR TESTINGS egg", eggCount)
+	// fmt.Println("FOR TESTINGS fruit", fruitCount)
+	// fmt.Println("FOR TESTINGS vege", vegeCount)
+	// fmt.Println("FOR TESTINGS sweetener", sweetenerCount)
+	// fmt.Println("FOR TESTINGS monster", monsterCount)
+	// fmt.Println("FOR TESTINGS dairy", dairyCount)
+	// fmt.Println("FOR TESTINGS bug", bugCount)
+	// fmt.Println("FOR TESTINGS inedible", inedibleCount)
+	// fmt.Println("FOR TESTINGS misc", miscCount)
 
 }

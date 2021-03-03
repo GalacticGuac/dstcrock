@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"sort"
 	"strings"
 )
 
@@ -70,6 +71,10 @@ type AttributeVals struct {
 	healVal  float64 `json:"HEALTH"`
 	hungVal  float64 `json:"HUNGER"`
 	saniVal  float64 `json:"SANITY"`
+}
+
+type IngreOutput struct {
+	ingredient string
 }
 
 // func deleteFalseReipe(recipeData map[string]RecipeDetails, masterCounts AttributeCounts, masterVals AttributeVals, titles string) map[string]RecipeDetails
@@ -508,6 +513,253 @@ func deleteRecipes(recipeData map[string]RecipeDetails, attributeCounts Attribut
 	return recipeData
 }
 
+func blankRec(recipeData map[string]RecipeDetails, attributeCounts AttributeCounts, attributeVals AttributeVals, titles string, crockPot map[string]IngredientDetails) map[string]RecipeDetails {
+
+	// AMBEROSIA
+	if strings.Count(titles, "Collected Dust") < 1 {
+	}
+
+	// ASPARAGUS SOUP
+	if strings.Count(titles, "Asparagus") < 1 || attributeVals.vegVal < 1.5 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 {
+	}
+
+	// Bacon and Eggs
+	if attributeVals.meatVal <= 1 || attributeVals.eggVal <= 1 || attributeVals.vegVal != 0 {
+	}
+
+	// BANANA POP
+	if strings.Count(titles, "Banana") < 1 || strings.Count(titles, "twigs") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 {
+	}
+
+	// Barnacle Linguine
+	if strings.Count(titles, "Barnacles") != 2 || attributeCounts.vegeCount != 2 {
+	}
+
+	// Barnacle Nigiri
+	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
+	}
+
+	// BARNACLE PITA
+	// attributeVals.fishval over 1 can cause stuffed fish head but idk the percentage
+	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
+	}
+
+	// BEEFY GREENS
+	if strings.Count(titles, "Leafy Meat") < 1 || attributeVals.vegVal < 3 {
+	}
+
+	// butter muffin
+	if strings.Count(titles, "Butterfly Wings") < 1 || attributeCounts.vegeCount < 1 || crockPot["Mandrake"].NAME != "" || attributeCounts.meatCount != 0 {
+	}
+
+	// CALIFORNIA ROLL
+	if strings.Count(titles, "Kelp Fronds") < 2 || attributeVals.fishVal < 1 {
+	}
+
+	// ceviche
+	if strings.Count(titles, "Ice") < 2 || attributeVals.fishVal < 2 || attributeCounts.eggCount != 0 || attributeCounts.inedibleCount != 0 {
+	}
+
+	// CREAMY POTATO PURÉE**
+	// need to look at potato or roasted potato
+	if strings.Count(titles, "Potato") < 2 || strings.Count(titles, "Garlic") < 1 || crockPot["Twigs"].NAME != "" || attributeCounts.meatCount != 0 {
+	}
+
+	// dragonpie
+	// need to look at dragon fruit or prepared dragon fruit
+	if strings.Count(titles, "Dragon Fruit") < 1 || crockPot["Mandrake"].NAME != "" || attributeCounts.meatCount != 0 {
+	}
+
+	// FANCY SPIRALLED TUBERS
+	// need to look at potato or roasted potato
+	if strings.Count(titles, "Potato") < 1 || strings.Count(titles, "Twigs") < 1 || attributeCounts.inedibleCount-1 > 1 || attributeCounts.meatCount != 0 {
+	}
+
+	// fish tacos
+	// twig value - 1 twig 50% chance of  fish sticks
+	// need to look at corn or popcorn
+	if attributeVals.fishVal < 0.5 || (strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Popcorn") < 1) {
+	}
+
+	// fishsticks
+	if attributeVals.fishVal < 0.25 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" {
+	}
+
+	// fist full of jam
+	if attributeVals.fruitVal < 0.5 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.inedVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
+	}
+
+	// flower salad
+	if strings.Count(titles, "Cactus Flower") < 1 || attributeVals.vegVal-.5 < 1.5 || attributeVals.meatVal != 0 || attributeVals.fruitVal != 0 || attributeVals.eggVal != 0 || attributeVals.sweetVal != 0 || crockPot["Twigs"].NAME != "" {
+	}
+
+	// froggle bunwich
+	// need to look at frog legs or cooked frog legs
+	// makes kabob if only one stick
+	if strings.Count(titles, "Frog Legs") < 1 || attributeCounts.vegeCount < 1 || attributeVals.eggVal != 0 || attributeVals.sweetVal != 0 || crockPot["Mandrake"].NAME != "" {
+	}
+
+	// fruit medley
+	// twigs is safest anything else 50% of fist full of jam
+	if attributeVals.fruitVal < 3 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
+	}
+
+	// guacamole
+	// need to look at cactus flesh or stone fruit
+	if strings.Count(titles, "Moleworm") < 1 || (strings.Count(titles, "Cactus Flesh") < 1 || strings.Count(titles, "Ripe Stone Fruit") < 1) || attributeVals.fruitVal != 0 {
+	}
+
+	// Honey Ham
+	if strings.Count(titles, "Honey") < 1 || attributeVals.meatVal <= 1.5 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
+	}
+
+	// Honey Nuggets
+	if strings.Count(titles, "Honey") < 1 || attributeVals.meatVal > 1.5 || attributeVals.inedVal != 0 {
+	}
+
+	// ice cream
+	if strings.Count(titles, "Ice") < 1 || attributeCounts.dairyCount < 1 || attributeCounts.sweetenerCount < 1 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.eggVal != 0 || crockPot["Twigs"].NAME != "" {
+	}
+
+	// jelly salad
+	// look for cooked version
+	if strings.Count(titles, "Leafy Meat") < 2 || attributeVals.sweetVal < 2 {
+	}
+
+	// jellybeans
+	if strings.Count(titles, "Royal Jelly") < 1 || attributeVals.monVal != 0 || attributeVals.inedVal != 0 {
+	}
+
+	// kabobs
+	if attributeCounts.meatCount < 1 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || attributeVals.fishVal != 0 {
+	}
+
+	// leafy meatloaf
+	if strings.Count(titles, "Leafy Meat") < 2 {
+	}
+
+	// LOBSTER BISQUE
+	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Ice") < 1 {
+	}
+
+	// mandrake soup
+	if strings.Count(titles, "Mandrake") < 1 {
+	}
+
+	// Meatballs
+	if attributeVals.meatVal >= 3 || attributeVals.meatVal == 0 || crockPot["Twigs"].NAME != "" {
+	}
+
+	// meaty stew
+	if attributeVals.meatVal < 3 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Honey"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
+	}
+
+	// melonsicle
+	if strings.Count(titles, "Watermelon") < 1 || strings.Count(titles, "Ice") < 1 || strings.Count(titles, "Twigs") < 1 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.eggVal != 0 {
+	}
+
+	// MILKMADE HAT
+	if strings.Count(titles, "Nostrils") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.dairyCount < 1 {
+	}
+
+	// monster lasagna
+	if attributeCounts.monsterCount < 2 || crockPot["Twigs"].NAME != "" {
+	}
+
+	// Mushy Cake
+	if strings.Count(titles, "Moon Shroom") != 1 || strings.Count(titles, "Red Cap") != 1 || strings.Count(titles, "Blue Cap") != 1 || strings.Count(titles, "Green Cap") != 1 {
+	}
+
+	// Pierogi
+	if attributeCounts.meatCount < 1 || attributeCounts.eggCount < 1 || attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
+	}
+
+	//powdercake
+	if strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Twigs") < 1 {
+	}
+
+	//Pumkin cookie
+	// 3 honey or comb 50% chance of making taffy
+	if strings.Count(titles, "Pumpkin") < 1 || strings.Count(titles, "Honey") <= 1 {
+	}
+
+	// RATATOUILLE
+	if attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Butterfly Wings"].NAME != "" || crockPot["Dragon Fruit"].NAME != "" {
+	}
+
+	// SALSA FRESCA
+	// look for cooked versions
+	if strings.Count(titles, "Toma Root") < 1 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 || attributeCounts.eggCount != 0 {
+	}
+
+	// SEAFOOD GUMBO
+	if strings.Count(titles, "Eel") < 1 || attributeVals.fishVal <= 2 {
+	}
+
+	//  Soothing tea
+	// look for honey or comb
+	if strings.Count(titles, "Forget-Me-Lots") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Ice") < 1 || attributeCounts.monsterCount != 0 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || attributeCounts.eggCount != 0 || attributeCounts.inedibleCount != 0 || attributeCounts.dairyCount != 0 {
+	}
+
+	//  Spicy Chili
+	if attributeCounts.meatCount != 2 || attributeCounts.vegeCount != 2 || attributeVals.meatVal < 1.5 || attributeVals.vegVal < 1.5 {
+	}
+
+	// STUFFED EGGPLANT
+	if strings.Count(titles, "Eggplant") < 1 || attributeCounts.vegeCount < 1 {
+	}
+
+	// stuffed fish heads
+	if strings.Count(titles, "Barnacles") < 1 || attributeVals.fishVal-0.5 < 1 {
+	}
+
+	// STUFFED PEPPER POPPERS
+	if strings.Count(titles, "Pepper") < 1 || attributeVals.meatVal > 1.5 || attributeCounts.meatCount == 0 || crockPot["Twigs"].NAME != "" {
+	}
+
+	// SURF 'N' TURF
+	if attributeVals.meatVal < 2.5 || attributeVals.fishVal < 1.5 || crockPot["Ice"].NAME != "" {
+	}
+
+	// Taffy
+	if attributeVals.sweetVal < 3 || attributeCounts.meatCount != 0 {
+	}
+
+	// trail mix
+	// required berries must be uncooked
+	if strings.Count(titles, "Roasted Birchnut") < 1 || strings.Count(titles, "Berries") < 1 || strings.Count(titles, "Roasted") > 3 || attributeCounts.fruitCount-1 < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || attributeCounts.eggCount != 0 || attributeCounts.vegeCount != 0 || attributeCounts.dairyCount != 0 {
+	}
+
+	// TURKEY DINNER
+	// checkingg twice for veg or fruit
+	if strings.Count(titles, "Drumstick") < 2 || attributeVals.meatVal-1 < 0.25 || (attributeVals.fruitVal < .5 || attributeVals.vegVal < .5) {
+	}
+
+	// unagi
+	if strings.Count(titles, "Eel") < 1 || (strings.Count(titles, "Lichen") < 1 || strings.Count(titles, "Kelp Fronds") < 1) {
+	}
+
+	// VEGETABLE STINGER
+	if (strings.Count(titles, "Toma Root") < 1 || strings.Count(titles, "Asparagus") < 1) || strings.Count(titles, "Ice") < 1 || attributeVals.vegVal-1 < 1.5 {
+	}
+
+	// Veggie Burger
+	if strings.Count(titles, "Leafy Meat") < 1 || strings.Count(titles, "Onion") < 1 || attributeVals.vegVal-1 < 1 {
+	}
+
+	// waffles
+	if strings.Count(titles, "Butter") < 1 || strings.Count(titles, "Berries") < 1 || attributeCounts.eggCount < 1 {
+	}
+
+	// wet goop
+	// if everything is false
+
+	// WOBSTER DINNER
+	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Butter") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || crockPot["Twigs"].NAME != "" {
+	}
+	return recipeData
+}
+
 // for printing valid recipes
 func orgValidRec(recipeData map[string]RecipeDetails) {
 	// creating new map so remove recipes to keep integrity of original map recipeData
@@ -569,7 +821,72 @@ func orgValidRec(recipeData map[string]RecipeDetails) {
 
 func main() {
 
-	// version := DST
+	// baconAndEggs := []string{}
+	// baconAndEggs = append(baconAndEggs, "poop")
+	// baconAndEggs = append(baconAndEggs, "poopy")
+	// baconAndEggs = append(baconAndEggs, "pooper")
+	// for _, str := range baconAndEggs {
+	// 	fmt.Println(str)
+	// }
+
+	// "amberosia":            0,
+	// "asparagusSoup":        0,
+	// "baconAndEggs":         0,
+	// "bananaPop":            0,
+	// "barnacleLinguine":     0,
+	// "barnacleNigiri":       0,
+	// "barnaclePita":         0,
+	// "beefyGreens":          0,
+	// "butterMuffin":         0,
+	// "californiaRoll":       0,
+	// "ceviche":              0,
+	// "creamyPotatoPurée":    0,
+	// "dragonpie":            0,
+	// "fancySpiralledTubers": 0,
+	// "fishTacos":            0,
+	// "fishsticks":           0,
+	// "fistFullOfJam":        0,
+	// "flowerSalad":          0,
+	// "froggleBunwich":       0,
+	// "fruitMedley":          0,
+	// "guacamole":            0,
+	// "honeyHam":             0,
+	// "honeyNuggets":         0,
+	// "iceCream":             0,
+	// "jellySalad":           0,
+	// "jellybeans":           0,
+	// "kabobs":               0,
+	// "leafyMeatloaf":        0,
+	// "lobsterBisque":        0,
+	// "mandrakeSoup":         0,
+	// "meatballs":            0,
+	// "meatyStew":            0,
+	// "melonsicle":           0,
+	// "milkmadeHat":          0,
+	// "monsterLasagna":       0,
+	// "mushyCake":            0,
+	// "pierogi":              0,
+	// "powdercake":           0,
+	// "pumpkinCookie":        0,
+	// "ratatouille":          0,
+	// "salsaFresca":          0,
+	// "seafoodGumbo":         0,
+	// "soothingTea":          0,
+	// "spicyChili":           0,
+	// "stuffedEggplant":      0,
+	// "stuffedFishHeads":     0,
+	// "stuffedPepperPoppers": 0,
+	// "surfNturf":            0,
+	// "taffy":                0,
+	// "trailMix":             0,
+	// "turkeyDinner":         0,
+	// "unagi":                0,
+	// "vegetableStinger":     0,
+	// "veggieBurger":         0,
+	// "waffles":              0,
+	// "wetGoop":              0,
+	// "wobsterDinner":        0,
+
 	// Find that file ingredients
 	jsonFile, err := os.Open("../lib/ingredientsv2.json")
 	if err != nil {
@@ -608,10 +925,22 @@ func main() {
 		fmt.Println(err)
 	}
 
+	// crockpot = 0
+	// ingsearch = 1
+	// recsearch = 2
+	// mode = 0
+
 	// Add Ingredients to the pot
-	i1 := "Jerky"
-	i2 := "Jerky"
-	i3 := "Egg"
+	// deleting all ingredients that cant be added to crockpot
+	for X, ingredata := range ingredientsData {
+		if ingredata.NOTES == "cannot be added to crock pot" {
+			delete(ingredientsData, X)
+		}
+	}
+
+	i1 := "Egg"
+	i2 := "Egg"
+	i3 := "Kelp Fronds"
 	i4 := ""
 	crockPot := map[string]IngredientDetails{}
 	crockPot[i1] = ingredientsData[i1]
@@ -627,10 +956,8 @@ func main() {
 	// Count Ingredient types
 	attributeCounts := masterCounts(ingredientsData, i1, i2, i3, i4)
 
-	//	Create an map with all possible recipes
-
-	//	function that deletes false recipes
 	if i4 != "" {
+		//	function that deletes false recipes
 		deleteRecipes(recipeData, attributeCounts, attributeVals, titles, crockPot)
 
 		// Output goes here
@@ -658,222 +985,86 @@ func main() {
 
 		// creating new map so remove recipes to keep integrity of original map recipeData
 		orgValidRec(recipeData)
-	} else {
-		for trueInName := range ingredientsData {
-			i4 = trueInName
-			titles := "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
+	} else { //////////////////////////////// START OF FIRST LOOP
+		// BARNACLE NIGIRI
+		barnacleNigiri := []string{}
+		for ingreTrue := range ingredientsData {
+			i4 := ingreTrue
+			titles = "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
 			// Look through each ingredient and sets values
 			// count Ingredient Valus
 			attributeVals := masterVals(ingredientsData, i1, i2, i3, i4)
 			// Count Ingredient types
 			attributeCounts := masterCounts(ingredientsData, i1, i2, i3, i4)
-			deleteRecipes(recipeData, attributeCounts, attributeVals, titles, crockPot)
 
-			// creating new map so remove recipes to keep integrity of original map recipeData
+			blankRec(recipeData, attributeCounts, attributeVals, titles, crockPot)
+			// test
+			if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
+			} else {
+				barnacleNigiri = append(barnacleNigiri, ingreTrue)
+			}
+		}
+		if len(barnacleNigiri) != 0 {
+			sort.Strings(barnacleNigiri)
+			fmt.Println("BARNACLE NIGIRI")
+			for _, ingre := range barnacleNigiri {
+				fmt.Println(ingre)
+			}
+			fmt.Println()
+		} // end of first loop
 
-			// Bacon and Eggs
+		baconAndEggs := []string{}
+		for ingreTrue := range ingredientsData {
+			i4 := ingreTrue
+			titles = "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
+			// Look through each ingredient and sets values
+			// count Ingredient Valus
+			attributeVals := masterVals(ingredientsData, i1, i2, i3, i4)
+			// Count Ingredient types
+			attributeCounts := masterCounts(ingredientsData, i1, i2, i3, i4)
+
+			blankRec(recipeData, attributeCounts, attributeVals, titles, crockPot)
+			// test
 			if attributeVals.meatVal <= 1 || attributeVals.eggVal <= 1 || attributeVals.vegVal != 0 {
 			} else {
-				fmt.Println()
-				fmt.Println("BACON AND EGGS")
-				fmt.Println(titles)
-				fmt.Println(trueInName)
-				// if eaten raw
-				fmt.Println("Ingredients")
-				fmt.Println("Total Health", attributeVals.healVal)
-				fmt.Println("Total Hunger", attributeVals.hungVal)
-				fmt.Println("Total Sanity", attributeVals.saniVal)
-				// prints raw exp
-				fmt.Println(i1, "expires in", ingredientsData[i1].EXPIRE, "days")
-				fmt.Println(i2, "expires in", ingredientsData[i2].EXPIRE, "days")
-				fmt.Println(i3, "expires in", ingredientsData[i3].EXPIRE, "days")
-				fmt.Println(i4, "expires in", ingredientsData[i4].EXPIRE, "days")
+				baconAndEggs = append(baconAndEggs, ingreTrue)
 			}
-			// BARNACLE LINGUINE
-			if strings.Count(titles, "Barnacles") != 2 || attributeCounts.vegeCount != 2 {
-			} else {
-				fmt.Println()
-				fmt.Println("BARNACLE LINGUINE")
-				fmt.Println(titles)
-				fmt.Println(trueInName)
-				// if eaten raw
-				fmt.Println("Ingredients")
-				fmt.Println("Total Health", attributeVals.healVal)
-				fmt.Println("Total Hunger", attributeVals.hungVal)
-				fmt.Println("Total Sanity", attributeVals.saniVal)
-				// prints raw exp
-				fmt.Println(i1, "expires in", ingredientsData[i1].EXPIRE, "days")
-				fmt.Println(i2, "expires in", ingredientsData[i2].EXPIRE, "days")
-				fmt.Println(i3, "expires in", ingredientsData[i3].EXPIRE, "days")
-				fmt.Println(i4, "expires in", ingredientsData[i4].EXPIRE, "days")
+		}
+		if len(baconAndEggs) != 0 {
+			sort.Strings(baconAndEggs)
+			fmt.Println("BACON AND EGGS")
+			for _, ingre := range baconAndEggs {
+				fmt.Println(ingre)
 			}
-			// PIEROGI
+			fmt.Println()
+		} // end of first loop
+
+		pierogi := []string{}
+		for ingreTrue := range ingredientsData {
+			i4 := ingreTrue
+			titles = "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
+			// Look through each ingredient and sets values
+			// count Ingredient Valus
+			attributeVals := masterVals(ingredientsData, i1, i2, i3, i4)
+			// Count Ingredient types
+			attributeCounts := masterCounts(ingredientsData, i1, i2, i3, i4)
+
+			blankRec(recipeData, attributeCounts, attributeVals, titles, crockPot)
+			// test
 			if attributeCounts.meatCount < 1 || attributeCounts.eggCount < 1 || attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
 			} else {
-				fmt.Println()
-				fmt.Println("PIEROGI")
-				fmt.Println(titles)
-				fmt.Println(trueInName)
-				// if eaten raw
-				fmt.Println("Ingredients")
-				fmt.Println("Total Health", attributeVals.healVal)
-				fmt.Println("Total Hunger", attributeVals.hungVal)
-				fmt.Println("Total Sanity", attributeVals.saniVal)
-				// prints raw exp
-				fmt.Println(i1, "expires in", ingredientsData[i1].EXPIRE, "days")
-				fmt.Println(i2, "expires in", ingredientsData[i2].EXPIRE, "days")
-				fmt.Println(i3, "expires in", ingredientsData[i3].EXPIRE, "days")
-				fmt.Println(i4, "expires in", ingredientsData[i4].EXPIRE, "days")
+				pierogi = append(pierogi, ingreTrue)
 			}
 		}
+		if len(pierogi) != 0 {
+			sort.Strings(pierogi)
+			fmt.Println("PIEROGI")
+			for _, ingre := range pierogi {
+				fmt.Println(ingre)
+			}
+			fmt.Println()
+		} // end of first loop
 	}
-
-	// *********************finding alternative values for cooked/murdered items*************************
-	// is json, if ingredients are added, murder must be first, then  cook
-	/*cdex := strings.Index(ingredientsData[i1].NOTES, "cook:")
-	mdex := strings.Index(ingredientsData[i1].NOTES, "murder:")
-
-	if mdex > -1 {
-		fmt.Println(string(ingredientsData[i1].NOTES[mdex+8 : cdex-2]))
-	}
-	if cdex > -1 {
-		fmt.Println(string(ingredientsData[i1].NOTES[cdex+6:]))
-	}
-	fmt.Println(mdex)
-	fmt.Println(cdex)*/
-	// *********************************************************************************************************************************************************
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/*for trueIn, trueInName := range ingredientsData {
-		crockPot := map[string]IngredientDetails{}
-		i1 := "Jerky"
-		i2 := "Jerky"
-		i3 := "Egg"
-		i4 := trueIn
-		crockPot[i1] = ingredientsData[i1]
-		crockPot[i2] = ingredientsData[i2]
-		crockPot[i3] = ingredientsData[i3]
-		crockPot[i4] = ingredientsData[i4]
-
-		// Initialize the baseline values
-		titles := "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
-		meatVal := crockPot[i1].MEAT + crockPot[i2].MEAT + crockPot[i3].MEAT + crockPot[i4].MEAT
-		// attributeVals.fishVal := crockPot[i1].FISH + crockPot[i2].FISH + crockPot[i3].FISH + crockPot[i4].FISH
-		eggVal := crockPot[i1].EGG + crockPot[i2].EGG + crockPot[i3].EGG + crockPot[i4].EGG
-		// attributeVals.fruitVal := crockPot[i1].FRUIT + crockPot[i2].FRUIT + crockPot[i3].FRUIT + crockPot[i4].FRUIT
-		vegVal := crockPot[i1].VEGETABLE + crockPot[i2].VEGETABLE + crockPot[i3].VEGETABLE + crockPot[i4].VEGETABLE
-		// attributeVals.sweetVal := crockPot[i1].SWEETENER + crockPot[i2].SWEETENER + crockPot[i3].SWEETENER + crockPot[i4].SWEETENER
-		// attributeVals.monVal := crockPot[i1].MONSTER + crockPot[i2].MONSTER + crockPot[i3].MONSTER + crockPot[i4].MONSTER
-		// attributeVals.dairyVal := crockPot[i1].DAIRY + crockPot[i2].DAIRY + crockPot[i3].DAIRY + crockPot[i4].DAIRY
-		// attributeVals.bugVal := crockPot[i1].BUG + crockPot[i2].BUG + crockPot[i3].BUG + crockPot[i4].BUG
-		// attributeVals.inedVal := crockPot[i1].INEDIBLE + crockPot[i2].INEDIBLE + crockPot[i3].INEDIBLE + crockPot[i4].INEDIBLE
-		// attributeVals.miscVal := crockPot[i1].MISC + crockPot[i2].MISC + crockPot[i3].MISC + crockPot[i4].MISC
-		// attributeVals.healVal := crockPot[i1].HEALTH + crockPot[i2].HEALTH + crockPot[i3].HEALTH + crockPot[i4].HEALTH
-		// attributeVals.hungVal := crockPot[i1].HUNGER + crockPot[i2].HUNGER + crockPot[i3].HUNGER + crockPot[i4].HUNGER
-		//attributeVals.saniVal := crockPot[i1].SANITY + crockPot[i2].SANITY + crockPot[i3].SANITY + crockPot[i4].SANITY
-
-		// counts type of ingredients
-		// count Meat
-		crockSlotsMea := []float64{crockPot[i1].MEAT, crockPot[i2].MEAT, crockPot[i3].MEAT, crockPot[i4].MEAT}
-		meatCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsMea {
-			if v > 0 {
-				meatCount++
-			}
-		}
-
-		// count Fish
-		crockSlotsFis := []float64{crockPot[i1].FISH, crockPot[i2].FISH, crockPot[i3].FISH, crockPot[i4].FISH}
-		attributeCounts.fishCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsFis {
-			if v > 0 {
-				fishCount++
-			}
-		}
-		// count egg
-		crockSlotsEgg := []float64{crockPot[i1].EGG, crockPot[i2].EGG, crockPot[i3].EGG, crockPot[i4].EGG}
-		attributeCounts.eggCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsEgg {
-			if v > 0 {
-				eggCount++
-			}
-		}
-		// count fruit
-		crockSlotsFru := []float64{crockPot[i1].FRUIT, crockPot[i2].FRUIT, crockPot[i3].FRUIT, crockPot[i4].FRUIT}
-		attributeCounts.fruitCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsFru {
-			if v > 0 {
-				fruitCount++
-			}
-		}
-		// count vegetables
-		crockSlotsVeg := []float64{crockPot[i1].VEGETABLE, crockPot[i2].VEGETABLE, crockPot[i3].VEGETABLE, crockPot[i4].VEGETABLE}
-		attributeCounts.vegeCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsVeg {
-			if v > 0 {
-				vegeCount++
-			}
-		}
-		// count sweetener
-		crockSlotsSwe := []float64{crockPot[i1].SWEETENER, crockPot[i2].SWEETENER, crockPot[i3].SWEETENER, crockPot[i4].SWEETENER}
-		attributeCounts.sweetenerCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsSwe {
-			if v > 0 {
-				sweetenerCount++
-			}
-		}
-		// count monster food
-		crockSlotsMon := []float64{crockPot[i1].MONSTER, crockPot[i2].MONSTER, crockPot[i3].MONSTER, crockPot[i4].MONSTER}
-		attributeCounts.monsterCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsMon {
-			if v > 0 {
-				monsterCount++
-			}
-		}
-		// count monster food
-		crockSlotsDai := []float64{crockPot[i1].DAIRY, crockPot[i2].DAIRY, crockPot[i3].DAIRY, crockPot[i4].DAIRY}
-		attributeCounts.dairyCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsDai {
-			if v > 0 {
-				dairyCount++
-			}
-		}
-		// count bug
-		crockSlotsBug := []float64{crockPot[i1].BUG, crockPot[i2].BUG, crockPot[i3].BUG, crockPot[i4].BUG}
-		bugCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsBug {
-			if v > 0 {
-				bugCount++
-			}
-		}
-		// count inedable
-		crockSlotsIne := []float64{crockPot[i1].INEDIBLE, crockPot[i2].INEDIBLE, crockPot[i3].INEDIBLE, crockPot[i4].INEDIBLE}
-		inedibleCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsIne {
-			if v > 0 {
-				inedibleCount++
-			}
-		}
-		// count misc (moleworm, butterfly, etc.)
-		crockSlotsMis := []float64{crockPot[i1].MISC, crockPot[i2].MISC, crockPot[i3].MISC, crockPot[i4].MISC}
-		miscCount := 0 // initializing an int outside of the loop so we can see it inside and outside of the "for"
-		for _, v := range crockSlotsMis {
-			if v > 0 {
-				miscCount++
-			}
-		}
-
-		// Bacon and Eggs
-		if attributeVals.meatVal <= 1 || attributeVals.eggVal <= 1 || attributeVals.vegVal != 0 {
-		} else {
-			fmt.Println(titles)
-			fmt.Println(trueInName.NAME)
-			fmt.Println("true")
-		}
-	}
-	*/
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// end of gigantic for loop
-
 	// ****standard output****
 	// fmt.Println("FOR TESTINGS Meat: ", attributeVals.meatVal)
 	// fmt.Println("FOR TESTINGS Fish: ", attributeVals.fishVal)

@@ -73,139 +73,159 @@ type AttributeVals struct {
 	saniVal  float64 `json:"SANITY"`
 }
 
-type IngreOutput struct {
-	ingredient string
+type CrockPot struct {
+	i1 IngredientDetails
+	i2 IngredientDetails
+	i3 IngredientDetails
+	i4 IngredientDetails
 }
 
 // func deleteFalseReipe(recipeData map[string]RecipeDetails, masterCounts AttributeCounts, masterVals AttributeVals, titles string) map[string]RecipeDetails
 
-func masterCounts(crockPot map[string]IngredientDetails, i1 string, i2 string, i3 string, i4 string) AttributeCounts {
+func masterCounts(crockPot []IngredientDetails) AttributeCounts {
 
 	attributeCounts := AttributeCounts{}
 
-	crockSlotsMea := []float64{crockPot[i1].MEAT, crockPot[i2].MEAT, crockPot[i3].MEAT, crockPot[i4].MEAT}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsMea {
-		if v > 0 {
+	// count meat
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].MEAT > 0 {
 			attributeCounts.meatCount++
 		}
 	}
 
 	// count Fish
-	crockSlotsFis := []float64{crockPot[i1].FISH, crockPot[i2].FISH, crockPot[i3].FISH, crockPot[i4].FISH}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsFis {
-		if v > 0 {
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].FISH > 0 {
 			attributeCounts.fishCount++
 		}
 	}
+
 	// count egg
-	crockSlotsEgg := []float64{crockPot[i1].EGG, crockPot[i2].EGG, crockPot[i3].EGG, crockPot[i4].EGG}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsEgg {
-		if v > 0 {
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].EGG > 0 {
 			attributeCounts.eggCount++
 		}
 	}
+
 	// count fruit
-	crockSlotsFru := []float64{crockPot[i1].FRUIT, crockPot[i2].FRUIT, crockPot[i3].FRUIT, crockPot[i4].FRUIT}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsFru {
-		if v > 0 {
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].FRUIT > 0 {
 			attributeCounts.fruitCount++
 		}
 	}
+
 	// count vegetables
-	crockSlotsVeg := []float64{crockPot[i1].VEGETABLE, crockPot[i2].VEGETABLE, crockPot[i3].VEGETABLE, crockPot[i4].VEGETABLE}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsVeg {
-		if v > 0 {
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].VEGETABLE > 0 {
 			attributeCounts.vegeCount++
 		}
 	}
-	// count sweetener
-	crockSlotsSwe := []float64{crockPot[i1].SWEETENER, crockPot[i2].SWEETENER, crockPot[i3].SWEETENER, crockPot[i4].SWEETENER}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsSwe {
-		if v > 0 {
+
+	// count sweetner
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].SWEETENER > 0 {
 			attributeCounts.sweetenerCount++
 		}
 	}
-	// count monster food
-	crockSlotsMon := []float64{crockPot[i1].MONSTER, crockPot[i2].MONSTER, crockPot[i3].MONSTER, crockPot[i4].MONSTER}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsMon {
-		if v > 0 {
+
+	// count monster
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].MONSTER > 0 {
 			attributeCounts.monsterCount++
 		}
 	}
-	// count monster food
-	crockSlotsDai := []float64{crockPot[i1].DAIRY, crockPot[i2].DAIRY, crockPot[i3].DAIRY, crockPot[i4].DAIRY}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsDai {
-		if v > 0 {
+
+	// count dairy
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].DAIRY > 0 {
 			attributeCounts.dairyCount++
 		}
 	}
+
 	// count bug
-	crockSlotsBug := []float64{crockPot[i1].BUG, crockPot[i2].BUG, crockPot[i3].BUG, crockPot[i4].BUG}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsBug {
-		if v > 0 {
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].BUG > 0 {
 			attributeCounts.bugCount++
 		}
 	}
+
 	// count inedable
-	crockSlotsIne := []float64{crockPot[i1].INEDIBLE, crockPot[i2].INEDIBLE, crockPot[i3].INEDIBLE, crockPot[i4].INEDIBLE}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsIne {
-		if v > 0 {
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].INEDIBLE > 0 {
 			attributeCounts.inedibleCount++
 		}
 	}
+
 	// count misc (moleworm, butterfly, etc.)
-	crockSlotsMis := []float64{crockPot[i1].MISC, crockPot[i2].MISC, crockPot[i3].MISC, crockPot[i4].MISC}
-	// initializing an int outside of the loop so we can see it inside and outside of the "for"
-	for _, v := range crockSlotsMis {
-		if v > 0 {
+	for i := 0; i < len(crockPot); i++ {
+		if crockPot[i].MISC > 0 {
 			attributeCounts.miscCount++
 		}
 	}
+
 	return attributeCounts
 }
 
-func masterVals(crockPot map[string]IngredientDetails, i1 string, i2 string, i3 string, i4 string) AttributeVals {
+func masterVals(crockPot []IngredientDetails) AttributeVals {
 
 	attributeVals := AttributeVals{}
 
-	meatVal := crockPot[i1].MEAT + crockPot[i2].MEAT + crockPot[i3].MEAT + crockPot[i4].MEAT
-	fishVal := crockPot[i1].FISH + crockPot[i2].FISH + crockPot[i3].FISH + crockPot[i4].FISH
-	eggVal := crockPot[i1].EGG + crockPot[i2].EGG + crockPot[i3].EGG + crockPot[i4].EGG
-	fruitVal := crockPot[i1].FRUIT + crockPot[i2].FRUIT + crockPot[i3].FRUIT + crockPot[i4].FRUIT
-	vegVal := crockPot[i1].VEGETABLE + crockPot[i2].VEGETABLE + crockPot[i3].VEGETABLE + crockPot[i4].VEGETABLE
-	sweetVal := crockPot[i1].SWEETENER + crockPot[i2].SWEETENER + crockPot[i3].SWEETENER + crockPot[i4].SWEETENER
-	monVal := crockPot[i1].MONSTER + crockPot[i2].MONSTER + crockPot[i3].MONSTER + crockPot[i4].MONSTER
-	dairyVal := crockPot[i1].DAIRY + crockPot[i2].DAIRY + crockPot[i3].DAIRY + crockPot[i4].DAIRY
-	bugVal := crockPot[i1].BUG + crockPot[i2].BUG + crockPot[i3].BUG + crockPot[i4].BUG
-	inedVal := crockPot[i1].INEDIBLE + crockPot[i2].INEDIBLE + crockPot[i3].INEDIBLE + crockPot[i4].INEDIBLE
-	miscVal := crockPot[i1].MISC + crockPot[i2].MISC + crockPot[i3].MISC + crockPot[i4].MISC
-	healVal := crockPot[i1].HEALTH + crockPot[i2].HEALTH + crockPot[i3].HEALTH + crockPot[i4].HEALTH
-	hungVal := crockPot[i1].HUNGER + crockPot[i2].HUNGER + crockPot[i3].HUNGER + crockPot[i4].HUNGER
-	saniVal := crockPot[i1].SANITY + crockPot[i2].SANITY + crockPot[i3].SANITY + crockPot[i4].SANITY
-	attributeVals.meatVal = meatVal
-	attributeVals.fishVal = fishVal
-	attributeVals.eggVal = eggVal
-	attributeVals.fruitVal = fruitVal
-	attributeVals.vegVal = vegVal
-	attributeVals.sweetVal = sweetVal
-	attributeVals.monVal = monVal
-	attributeVals.dairyVal = dairyVal
-	attributeVals.bugVal = bugVal
-	attributeVals.inedVal = inedVal
-	attributeVals.miscVal = miscVal
-	attributeVals.healVal = healVal
-	attributeVals.hungVal = hungVal
-	attributeVals.saniVal = saniVal
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.meatVal += crockPot[i].MEAT
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.fishVal += crockPot[i].FISH
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.eggVal += crockPot[i].EGG
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.fruitVal += crockPot[i].FRUIT
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.vegVal += crockPot[i].VEGETABLE
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.sweetVal += crockPot[i].SWEETENER
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.monVal += crockPot[i].MONSTER
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.dairyVal += crockPot[i].DAIRY
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.bugVal += crockPot[i].BUG
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.inedVal += crockPot[i].INEDIBLE
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.miscVal += crockPot[i].MISC
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.healVal += crockPot[i].HEALTH
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.hungVal += crockPot[i].HUNGER
+	}
+
+	for i := 0; i < len(crockPot); i++ {
+		attributeVals.saniVal += crockPot[i].SANITY
+	}
+
 	return attributeVals
 }
 
@@ -513,6 +533,26 @@ func deleteRecipes(recipeData map[string]RecipeDetails, attributeCounts Attribut
 	return recipeData
 }
 
+// required ingredient
+func stringInSlice(a string, x []IngredientDetails) bool {
+	for _, x := range x {
+		if x.NAME == a {
+			return true
+		}
+	}
+	return false
+}
+
+// excluded ingredient
+func stringNotInSlice(a string, x []IngredientDetails) bool {
+	for _, x := range x {
+		if x.NAME == a {
+			return false
+		}
+	}
+	return true
+}
+
 func blankRec(recipeData map[string]RecipeDetails, attributeCounts AttributeCounts, attributeVals AttributeVals, titles string, crockPot map[string]IngredientDetails) map[string]RecipeDetails {
 
 	// AMBEROSIA
@@ -760,6 +800,26 @@ func blankRec(recipeData map[string]RecipeDetails, attributeCounts AttributeCoun
 	return recipeData
 }
 
+func testerRec(recipeData map[string]RecipeDetails, attributeCounts AttributeCounts, attributeVals AttributeVals, titles string, crockPot map[string]IngredientDetails) map[string]RecipeDetails {
+
+	// Bacon and Eggs
+	if attributeVals.meatVal <= 1 || attributeVals.eggVal <= 1 || attributeVals.vegVal != 0 {
+	}
+
+	// Barnacle Nigiri
+	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
+	}
+
+	// Pierogi
+	if attributeCounts.meatCount < 1 || attributeCounts.eggCount < 1 || attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
+	}
+
+	// WOBSTER DINNER
+	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Butter") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || crockPot["Twigs"].NAME != "" {
+	}
+	return recipeData
+}
+
 // for printing valid recipes
 func orgValidRec(recipeData map[string]RecipeDetails) {
 	// creating new map so remove recipes to keep integrity of original map recipeData
@@ -925,66 +985,116 @@ func main() {
 		fmt.Println(err)
 	}
 
+	possibleRecipeData := map[string]RecipeDetails{}
+
 	// crockpot = 0
 	// ingsearch = 1
 	// recsearch = 2
 	// mode = 0
 
-	// Add Ingredients to the pot
 	// deleting all ingredients that cant be added to crockpot
-	for X, ingredata := range ingredientsData {
+	for x, ingredata := range ingredientsData {
 		if ingredata.NOTES == "cannot be added to crock pot" {
-			delete(ingredientsData, X)
+			delete(ingredientsData, x)
 		}
 	}
 
+	// Add Ingredients to the pot
 	i1 := "Egg"
-	i2 := "Egg"
-	i3 := "Kelp Fronds"
-	i4 := ""
-	crockPot := map[string]IngredientDetails{}
-	crockPot[i1] = ingredientsData[i1]
-	crockPot[i2] = ingredientsData[i2]
-	crockPot[i3] = ingredientsData[i3]
-	crockPot[i4] = ingredientsData[i4]
+	i2 := "Barnacles"
+	i3 := "Egg"
+	i4 := "Jerky"
+	// Jerky
+	// Egg
+	crockPot := make([]IngredientDetails, 0)
+	crockSlots := []string{i1, i2, i3, i4}
+	for _, slot := range crockSlots {
+		if slot != "" {
+			crockPot = append(crockPot, ingredientsData[slot])
+		}
+	}
+
+	// sorts crockpot by name
+	sort.Slice(crockPot[:], func(i, j int) bool {
+		return crockPot[i].NAME < crockPot[j].NAME
+	})
+
+	for _, crockPot := range crockPot {
+		fmt.Print(crockPot.NAME, ", ")
+	}
+	fmt.Println()
+
+	// i1 := "Egg"
+	// i2 := "Egg"
+	// i3 := "Jerky"
+	// i4 := "Jerky"
+	// crockPot := map[string]IngredientDetails{}
+	// crockPot[i1] = ingredientsData[i1]
+	// crockPot[i2] = ingredientsData[i2]
+	// crockPot[i3] = ingredientsData[i3]
+	// crockPot[i4] = ingredientsData[i4]
 
 	// titles is sting of ingredients
-	titles := "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
+	// titles := "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
 	// Look through each ingredient and sets values
 	// count Ingredient Valus
-	attributeVals := masterVals(ingredientsData, i1, i2, i3, i4)
+
+	attributeVals := masterVals(crockPot)
+
 	// Count Ingredient types
-	attributeCounts := masterCounts(ingredientsData, i1, i2, i3, i4)
+	attributeCounts := masterCounts(crockPot)
 
-	if i4 != "" {
-		//	function that deletes false recipes
-		deleteRecipes(recipeData, attributeCounts, attributeVals, titles, crockPot)
+	// if i4 != "" { star hurrr
+	// function that deletes false recipes
+	// deleteRecipes(recipeData, attributeCounts, attributeVals, titles, crockPot) ------------------------------------------------------
 
-		// Output goes here
+	// bacon eggs
+	if attributeVals.meatVal > 1 && attributeVals.eggVal > 1 && attributeVals.vegVal == 0 {
+		fmt.Println("ok bacon eggs")
+	}
 
-		fmt.Println(titles)
+	// Pierogi
+	if attributeCounts.meatCount >= 1 && attributeCounts.eggCount >= 1 && attributeCounts.vegeCount >= 1 && stringNotInSlice("Twigs", crockPot) && stringNotInSlice("Mandrake", crockPot) {
+		fmt.Println("ok pierogi")
+	}
+	// // -----------------------------------------------------------------------------------------------------------------------------------
 
-		//  this output only shows the vals that are greater than 0
-		outVal := map[string]float64{"Meat:": attributeVals.meatVal, "Fish:": attributeVals.fishVal, "Egg:": attributeVals.eggVal, "Fruit:": attributeVals.fruitVal, "Vegetable:": attributeVals.vegVal, "Sweetener:": attributeVals.sweetVal, "Monster:": attributeVals.monVal, "Dairy:": attributeVals.dairyVal, "Bug:": attributeVals.bugVal, "Inedible:": attributeVals.inedVal, "Misc:": attributeVals.miscVal}
-		for inName, existVal := range outVal {
-			if existVal > 0 {
-				fmt.Println(inName, existVal)
-			}
+	// Output goes here
+
+	//  this output only shows the vals that are greater than 0
+	outVal := map[string]float64{"Meat:": attributeVals.meatVal, "Fish:": attributeVals.fishVal, "Egg:": attributeVals.eggVal, "Fruit:": attributeVals.fruitVal, "Vegetable:": attributeVals.vegVal, "Sweetener:": attributeVals.sweetVal, "Monster:": attributeVals.monVal, "Dairy:": attributeVals.dairyVal, "Bug:": attributeVals.bugVal, "Inedible:": attributeVals.inedVal, "Misc:": attributeVals.miscVal}
+	for inName, existVal := range outVal {
+		if existVal > 0 {
+			fmt.Println(inName, "val", existVal)
 		}
-		// if eaten raw
-		fmt.Println()
-		fmt.Println("Ingredients")
-		fmt.Println("Total Health", attributeVals.healVal)
-		fmt.Println("Total Hunger", attributeVals.hungVal)
-		fmt.Println("Total Sanity", attributeVals.saniVal)
-		// prints raw exp
-		fmt.Println(i1, "expires in", ingredientsData[i1].EXPIRE, "days")
-		fmt.Println(i2, "expires in", ingredientsData[i2].EXPIRE, "days")
-		fmt.Println(i3, "expires in", ingredientsData[i3].EXPIRE, "days")
-		fmt.Println(i4, "expires in", ingredientsData[i4].EXPIRE, "days")
+		// fmt.Println(inName, existVal)
+	}
 
-		// creating new map so remove recipes to keep integrity of original map recipeData
-		orgValidRec(recipeData)
+	//  this output only shows the counts that are greater than 0
+	outCount := map[string]float64{"Meat:": attributeCounts.meatCount, "Fish:": attributeCounts.fishCount, "Egg:": attributeCounts.eggCount, "Fruit:": attributeCounts.fruitCount, "Vegetable:": attributeCounts.vegeCount, "Sweetener:": attributeCounts.sweetenerCount, "Monster:": attributeCounts.monsterCount, "Dairy:": attributeCounts.dairyCount, "Bug:": attributeCounts.bugCount, "Inedible:": attributeCounts.inedibleCount, "Misc:": attributeCounts.miscCount}
+	for inName, existcount := range outCount {
+		if existcount > 0 {
+			fmt.Println(inName, "count", existcount)
+		}
+		// fmt.Println(inName, existcount)
+	}
+
+	// if eaten raw
+	fmt.Println()
+	fmt.Println("Ingredients")
+	fmt.Println("Total Health", attributeVals.healVal)
+	fmt.Println("Total Hunger", attributeVals.hungVal)
+	fmt.Println("Total Sanity", attributeVals.saniVal)
+
+	// prints raw exp
+	for i := 0; i < len(crockPot); i++ {
+		fmt.Println(crockPot[i].NAME, "expires in", crockPot[i].EXPIRE, "days")
+	}
+
+	// creating new map so remove recipes to keep integrity of original map recipeData
+	// orgValidRec(recipeData)
+	/**************************************************************************************************************start heerrrr
+
 	} else { //////////////////////////////// START OF FIRST LOOP
 		// BARNACLE NIGIRI
 		barnacleNigiri := []string{}
@@ -1102,4 +1212,5 @@ func main() {
 	// 	fmt.Println("FOR TESTING Expires:", existRec.EXPIRES)
 	// 	fmt.Println("FOR TESTING Cooktime:", existRec.COOKTIME)
 	// 	fmt.Println("FOR TESTING Priority:", existRec.PRIORITY)
+	*/ //end herrr******************************************************************************************
 }

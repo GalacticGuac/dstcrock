@@ -73,13 +73,6 @@ type AttributeVals struct {
 	saniVal  float64 `json:"SANITY"`
 }
 
-type CrockPot struct {
-	i1 IngredientDetails
-	i2 IngredientDetails
-	i3 IngredientDetails
-	i4 IngredientDetails
-}
-
 // func deleteFalseReipe(recipeData map[string]RecipeDetails, masterCounts AttributeCounts, masterVals AttributeVals, titles string) map[string]RecipeDetails
 
 func masterCounts(crockPot []IngredientDetails) AttributeCounts {
@@ -553,6 +546,167 @@ func stringNotInSlice(a string, x []IngredientDetails) bool {
 	return true
 }
 
+func processPossible(x string) {
+	// MEATS = m
+	// FISHES= h
+	// EGGS= e
+	// FRUITS= f
+	// VEGETABLES= g
+	// SWEETENERS= s
+	// MONSTER FOODS= t
+	// DAIRY= d
+	// BUGS= b
+	// INEDIBLE= i
+	// MISC.= l
+	// INCLUDE= o
+	// EXCLUDE= x
+	// TOO MUCH VAL = V
+	// NOTE ENOUGH VAL = v
+	// TOO MUCH COUNT = C
+	// NOTE ENOUGH COUNT = v
+
+	if strings.Contains(x, "mV") {
+		fmt.Println("Meat value too high")
+	}
+	if strings.Contains(x, "mv") {
+		fmt.Println("Meat value too low")
+	}
+	if strings.Contains(x, "mC") {
+		fmt.Println("Meat count too high")
+	}
+	if strings.Contains(x, "mc") {
+		fmt.Println("Meat count to low")
+	}
+	if strings.Contains(x, "hV") {
+		fmt.Println("Fish value too high")
+	}
+	if strings.Contains(x, "hv") {
+		fmt.Println("Fish value too low")
+	}
+	if strings.Contains(x, "hC") {
+		fmt.Println("Fish count too high")
+	}
+	if strings.Contains(x, "hc") {
+		fmt.Println("Fish count to low")
+	}
+	if strings.Contains(x, "eV") {
+		fmt.Println("Egg value too high")
+	}
+	if strings.Contains(x, "ev") {
+		fmt.Println("Egg value too low")
+	}
+	if strings.Contains(x, "eC") {
+		fmt.Println("Egg count too high")
+	}
+	if strings.Contains(x, "ec") {
+		fmt.Println("Egg count to low")
+	}
+	if strings.Contains(x, "fV") {
+		fmt.Println("Fruit value too high")
+	}
+	if strings.Contains(x, "fv") {
+		fmt.Println("Fruit value too low")
+	}
+	if strings.Contains(x, "fC") {
+		fmt.Println("Fruit count too high")
+	}
+	if strings.Contains(x, "fc") {
+		fmt.Println("Fruit count to low")
+	}
+	if strings.Contains(x, "gV") {
+		fmt.Println("Vegetable value too high")
+	}
+	if strings.Contains(x, "gv") {
+		fmt.Println("Vegetable value too low")
+	}
+	if strings.Contains(x, "gC") {
+		fmt.Println("Vegetable count too high")
+	}
+	if strings.Contains(x, "gc") {
+		fmt.Println("Vegetable count to low")
+	}
+	if strings.Contains(x, "sV") {
+		fmt.Println("Sweetener value too high")
+	}
+	if strings.Contains(x, "sv") {
+		fmt.Println("Sweetener value too low")
+	}
+	if strings.Contains(x, "sC") {
+		fmt.Println("Sweetener count too high")
+	}
+	if strings.Contains(x, "sc") {
+		fmt.Println("Sweetener count to low")
+	}
+	if strings.Contains(x, "tV") {
+		fmt.Println("Monster value too high")
+	}
+	if strings.Contains(x, "tv") {
+		fmt.Println("Monster value too low")
+	}
+	if strings.Contains(x, "tC") {
+		fmt.Println("Monster count too high")
+	}
+	if strings.Contains(x, "tc") {
+		fmt.Println("Monster count to low")
+	}
+	if strings.Contains(x, "dV") {
+		fmt.Println("Dairy value too high")
+	}
+	if strings.Contains(x, "dv") {
+		fmt.Println("Dairy value too low")
+	}
+	if strings.Contains(x, "dC") {
+		fmt.Println("Dairy count too high")
+	}
+	if strings.Contains(x, "dc") {
+		fmt.Println("Dairy count to low")
+	}
+	if strings.Contains(x, "bV") {
+		fmt.Println("Bug value too high")
+	}
+	if strings.Contains(x, "bv") {
+		fmt.Println("Bug value too low")
+	}
+	if strings.Contains(x, "bC") {
+		fmt.Println("Bug count too high")
+	}
+	if strings.Contains(x, "bc") {
+		fmt.Println("Bug count to low")
+	}
+	if strings.Contains(x, "iV") {
+		fmt.Println("Inedible value too high")
+	}
+	if strings.Contains(x, "iv") {
+		fmt.Println("Inedible value too low")
+	}
+	if strings.Contains(x, "iC") {
+		fmt.Println("Inedible count too high")
+	}
+	if strings.Contains(x, "ic") {
+		fmt.Println("Inedible count to low")
+	}
+	if strings.Contains(x, "lV") {
+		fmt.Println("Misc value too high")
+	}
+	if strings.Contains(x, "lv") {
+		fmt.Println("Misc value too low")
+	}
+	if strings.Contains(x, "lC") {
+		fmt.Println("Misc count too high")
+	}
+	if strings.Contains(x, "lc") {
+		fmt.Println("Misc count to low")
+	}
+	if strings.Contains(x, "oC") {
+		fmt.Println("Required Ingredient count too high")
+	}
+	if strings.Contains(x, "oc") {
+		fmt.Println("Required Ingredient count too low")
+	}
+	if strings.Contains(x, "x") {
+		fmt.Println("Crock Has Exclusion")
+	}
+}
 func blankRec(recipeData map[string]RecipeDetails, attributeCounts AttributeCounts, attributeVals AttributeVals, titles string, crockPot map[string]IngredientDetails) map[string]RecipeDetails {
 
 	// AMBEROSIA
@@ -985,7 +1139,8 @@ func main() {
 		fmt.Println(err)
 	}
 
-	possibleRecipeData := map[string]RecipeDetails{}
+	// possibleRecipeData := map[string]RecipeDetails{}
+	// notPossibleRecipeData := map[string]RecipeDetails{}
 
 	// crockpot = 0
 	// ingsearch = 1
@@ -1000,12 +1155,14 @@ func main() {
 	}
 
 	// Add Ingredients to the pot
-	i1 := "Egg"
-	i2 := "Barnacles"
+	i1 := "Jerky"
+	i2 := "Jerky"
 	i3 := "Egg"
-	i4 := "Jerky"
+	i4 := "Egg"
 	// Jerky
 	// Egg
+	// Barnacles
+	// Blue Cap
 	crockPot := make([]IngredientDetails, 0)
 	crockSlots := []string{i1, i2, i3, i4}
 	for _, slot := range crockSlots {
@@ -1048,11 +1205,29 @@ func main() {
 	// function that deletes false recipes
 	// deleteRecipes(recipeData, attributeCounts, attributeVals, titles, crockPot) ------------------------------------------------------
 
-	// bacon eggs
-	if attributeVals.meatVal > 1 && attributeVals.eggVal > 1 && attributeVals.vegVal == 0 {
-		fmt.Println("ok bacon eggs")
-	}
+	//
+	baconAndEggs := ""
+	// if attributeVals.meatVal > 1 && attributeVals.eggVal > 1 && attributeVals.vegVal == 0 {
+	// 	fmt.Println("ok bacon eggs")
+	// }
 
+	{
+		if attributeVals.meatVal > 1 {
+		} else {
+			baconAndEggs += "mv"
+		}
+		if attributeVals.eggVal > 1 {
+		} else {
+			baconAndEggs += "ev"
+		}
+		if attributeVals.vegVal == 0 {
+		} else {
+			baconAndEggs += "x"
+		}
+	}
+	fmt.Println(baconAndEggs)
+	processPossible(baconAndEggs)
+	// *****
 	// Pierogi
 	if attributeCounts.meatCount >= 1 && attributeCounts.eggCount >= 1 && attributeCounts.vegeCount >= 1 && stringNotInSlice("Twigs", crockPot) && stringNotInSlice("Mandrake", crockPot) {
 		fmt.Println("ok pierogi")
@@ -1062,19 +1237,19 @@ func main() {
 	// Output goes here
 
 	//  this output only shows the vals that are greater than 0
-	outVal := map[string]float64{"Meat:": attributeVals.meatVal, "Fish:": attributeVals.fishVal, "Egg:": attributeVals.eggVal, "Fruit:": attributeVals.fruitVal, "Vegetable:": attributeVals.vegVal, "Sweetener:": attributeVals.sweetVal, "Monster:": attributeVals.monVal, "Dairy:": attributeVals.dairyVal, "Bug:": attributeVals.bugVal, "Inedible:": attributeVals.inedVal, "Misc:": attributeVals.miscVal}
+	outVal := map[string]float64{"Meat value:": attributeVals.meatVal, "Fish value:": attributeVals.fishVal, "Egg value:": attributeVals.eggVal, "Fruit value:": attributeVals.fruitVal, "Vegetable value:": attributeVals.vegVal, "Sweetener value:": attributeVals.sweetVal, "Monster value:": attributeVals.monVal, "Dairy value:": attributeVals.dairyVal, "Bug value:": attributeVals.bugVal, "Inedible value:": attributeVals.inedVal, "Misc value:": attributeVals.miscVal}
 	for inName, existVal := range outVal {
 		if existVal > 0 {
-			fmt.Println(inName, "val", existVal)
+			fmt.Println(inName, "value", existVal)
 		}
 		// fmt.Println(inName, existVal)
 	}
 
 	//  this output only shows the counts that are greater than 0
-	outCount := map[string]float64{"Meat:": attributeCounts.meatCount, "Fish:": attributeCounts.fishCount, "Egg:": attributeCounts.eggCount, "Fruit:": attributeCounts.fruitCount, "Vegetable:": attributeCounts.vegeCount, "Sweetener:": attributeCounts.sweetenerCount, "Monster:": attributeCounts.monsterCount, "Dairy:": attributeCounts.dairyCount, "Bug:": attributeCounts.bugCount, "Inedible:": attributeCounts.inedibleCount, "Misc:": attributeCounts.miscCount}
+	outCount := map[string]float64{"Meat count:": attributeCounts.meatCount, "Fish count:": attributeCounts.fishCount, "Egg count:": attributeCounts.eggCount, "Fruit count:": attributeCounts.fruitCount, "Vegetable count:": attributeCounts.vegeCount, "Sweetener count:": attributeCounts.sweetenerCount, "Monster count:": attributeCounts.monsterCount, "Dairy count:": attributeCounts.dairyCount, "Bug count:": attributeCounts.bugCount, "Inedible count:": attributeCounts.inedibleCount, "Misc count:": attributeCounts.miscCount}
 	for inName, existcount := range outCount {
 		if existcount > 0 {
-			fmt.Println(inName, "count", existcount)
+			fmt.Println(inName, existcount)
 		}
 		// fmt.Println(inName, existcount)
 	}

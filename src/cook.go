@@ -30,16 +30,17 @@ type IngredientDetails struct {
 }
 
 type RecipeDetails struct {
-	NAME        string  `json:"FOOD"`
-	HEALTH      float64 `json:"HEALTH"`
-	HUNGER      float64 `json:"HUNGER"`
-	SANITY      float64 `json:"SANITY"`
-	INGREDIENTS string  `json:"INGREDIENTS"`
-	EXCLUDE     string  `json:"EXCLUDE"`
-	NOTES       string  `json:"NOTES"`
-	EXPIRES     float64 `json:"EXPIRES"`
-	COOKTIME    float64 `json:"COOKTIME"`
-	PRIORITY    float64 `json:"PRIORITY"`
+	NAME            string   `json:"FOOD"`
+	HEALTH          float64  `json:"HEALTH"`
+	HUNGER          float64  `json:"HUNGER"`
+	SANITY          float64  `json:"SANITY"`
+	INGREDIENTS     string   `json:"INGREDIENTS"`
+	EXCLUDE         string   `json:"EXCLUDE"`
+	NOTES           string   `json:"NOTES"`
+	EXPIRES         float64  `json:"EXPIRES"`
+	COOKTIME        float64  `json:"COOKTIME"`
+	PRIORITY        float64  `json:"PRIORITY"`
+	UNMETCONDITIONS []string `json:"UNMETCONDITIONS"`
 	// preferences?
 }
 type AttributeCounts struct {
@@ -536,26 +537,6 @@ func deleteRecipes(recipeData map[string]RecipeDetails, attributeCounts Attribut
 	return recipeData
 }
 
-// required ingredient
-func stringInSlice(a string, x []IngredientDetails) bool {
-	for _, x := range x {
-		if x.NAME == a {
-			return true
-		}
-	}
-	return false
-}
-
-// excluded ingredient
-func stringNotInSlice(a string, x []IngredientDetails) bool {
-	for _, x := range x {
-		if x.NAME == a {
-			return false
-		}
-	}
-	return true
-}
-
 func processPossible(x string) {
 	// MEATS = m
 	// FISHES= h
@@ -574,6 +555,27 @@ func processPossible(x string) {
 	// NOTE ENOUGH VAL = v
 	// TOO MUCH COUNT = C
 	// NOTE ENOUGH COUNT = v
+
+	conditions := []string{
+		"mV",
+		"mC",
+		"twigs",
+	}
+	// for each possible recipe {
+	for _, condition := range conditions {
+		switch condition {
+		case "mV":
+			fmt.Println("Meat value too high")
+
+		case "mv":
+			fmt.Println("Meat value too low")
+
+		default:
+			fmt.Printf("Missing %s", condition)
+
+		}
+	}
+	// }
 
 	if strings.Contains(x, "mV") {
 		fmt.Println("Meat value too high")
@@ -1312,6 +1314,31 @@ func orgValidRec(recipeData map[string]RecipeDetails) {
 	} /*end of for loop */
 }
 
+func readRecipeData() map[string]RecipeDetails {
+	// Find that file recipes
+	jsonFile2, err := os.Open("../lib/recipe.json")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Read that file
+	byteValue2, err := ioutil.ReadAll(jsonFile2)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Fit the file
+	innerRecipeData := map[string]RecipeDetails{}
+	err = json.Unmarshal(byteValue2, &innerRecipeData)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return innerRecipeData
+}
+
+var recipeData = readRecipeData()
+
 func main() {
 
 	// "amberosia":            0,
@@ -1391,25 +1418,6 @@ func main() {
 		fmt.Println(err)
 	}
 
-	// Find that file recipes
-	jsonFile2, err := os.Open("../lib/recipe.json")
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	// Read that file
-	byteValue2, err := ioutil.ReadAll(jsonFile2)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	// Fit the file
-	recipeData := map[string]RecipeDetails{}
-	err = json.Unmarshal(byteValue2, &recipeData)
-	if err != nil {
-		fmt.Println(err)
-	}
-
 	// possibleRecipeData := map[string]RecipeDetails{}
 	// notPossibleRecipeData := map[string]RecipeDetails{}
 
@@ -1461,50 +1469,12 @@ func main() {
 	deleteRecipes(recipeData, attributeCounts, attributeVals, crockPot)
 	// ------------------------------------------------------
 
-	//
-	baconAndEggs := ""
-	// if attributeVals.meatVal > 1 && attributeVals.eggVal > 1 && attributeVals.vegVal == 0 {
-	// 	fmt.Println("ok bacon eggs")
-	// }
-	{
-		if attributeVals.meatVal > 1 {
-		} else {
-			baconAndEggs += "mv"
-		}
-		if attributeVals.eggVal > 1 {
-		} else {
-			baconAndEggs += "ev"
-		}
-		if attributeVals.vegVal == 0 {
-		} else {
-			baconAndEggs += "x"
-		}
-	}
-
-	// poop := ""
-	// // if attributeVals.meatVal > 1 && attributeVals.eggVal > 1 && attributeVals.vegVal == 0 {
-	// // 	fmt.Println("ok bacon eggs")
-	// // }
-	// {
-	// 	if attributeVals.meatVal == 0 {
-	// 	} else {
-	// 		poop += "mV"
-	// 	}
-	// 	if attributeCounts.meatCount == 0 {
-	// 	} else {
-	// 		poop += "mC"
-	// 	}
-	// 	if attributeVals.vegVal == 0 {
-	// 	} else {
-	// 		poop += "x"
-	// 	}
-	// }
-
-	fmt.Println(baconAndEggs)
-	processPossible(baconAndEggs)
-
-	// fmt.Println(poop)
-	// processPossible(poop)
+	//possibleRecipes
+	_ = compilePossibleRecipes(crockPot, attributeVals, attributeCounts)
+	// TO PRINT:
+	// Loop over possibleRecipes
+	// Print recipe.Name
+	// run processPossible(recipe)
 
 	// *****
 	// Pierogi

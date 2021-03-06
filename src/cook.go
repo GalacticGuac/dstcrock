@@ -74,6 +74,16 @@ type AttributeVals struct {
 }
 
 // func deleteFalseReipe(recipeData map[string]RecipeDetails, masterCounts AttributeCounts, masterVals AttributeVals, titles string) map[string]RecipeDetails
+// count strings in cropost array
+func countIngName(x string, crockPot []IngredientDetails) int {
+	count := 0
+	for _, cp := range crockPot {
+		if cp.NAME == x {
+			count++
+		}
+	}
+	return count
+}
 
 func masterCounts(crockPot []IngredientDetails) AttributeCounts {
 
@@ -223,308 +233,308 @@ func masterVals(crockPot []IngredientDetails) AttributeVals {
 }
 
 //	function that deletes false recipes (if any of the formulas are true, item is deleted, false=keep)
-func deleteRecipes(recipeData map[string]RecipeDetails, attributeCounts AttributeCounts, attributeVals AttributeVals, titles string, crockPot map[string]IngredientDetails) map[string]RecipeDetails {
+// func deleteRecipes(recipeData map[string]RecipeDetails, attributeCounts AttributeCounts, attributeVals AttributeVals, titles string, crockPot []IngredientDetails) map[string]RecipeDetails {
 
-	// AMBEROSIA
-	if strings.Count(titles, "Collected Dust") < 1 {
-		delete(recipeData, "AMBEROSIA")
-	}
+// 	// AMBEROSIA
+// 	if strings.Count(titles, "Collected Dust") < 1 {
+// 		delete(recipeData, "AMBEROSIA")
+// 	}
 
-	// ASPARAGUS SOUP
-	if strings.Count(titles, "Asparagus") < 1 || attributeVals.vegVal < 1.5 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 {
-		delete(recipeData, "ASPARAGUS SOUP")
-	}
+// 	// ASPARAGUS SOUP
+// 	if strings.Count(titles, "Asparagus") < 1 || attributeVals.vegVal < 1.5 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 {
+// 		delete(recipeData, "ASPARAGUS SOUP")
+// 	}
 
-	// Bacon and Eggs
-	if attributeVals.meatVal <= 1 || attributeVals.eggVal <= 1 || attributeVals.vegVal != 0 {
-		delete(recipeData, "BACON AND EGGS")
-	}
+// 	// Bacon and Eggs
+// 	if attributeVals.meatVal <= 1 || attributeVals.eggVal <= 1 || attributeVals.vegVal != 0 {
+// 		delete(recipeData, "BACON AND EGGS")
+// 	}
 
-	// BANANA POP
-	if strings.Count(titles, "Banana") < 1 || strings.Count(titles, "twigs") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 {
-		delete(recipeData, "BANANA POP")
-	}
+// 	// BANANA POP
+// 	if strings.Count(titles, "Banana") < 1 || strings.Count(titles, "Twigs") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 {
+// 		delete(recipeData, "BANANA POP")
+// 	}
 
-	// Barnacle Linguine
-	if strings.Count(titles, "Barnacles") != 2 || attributeCounts.vegeCount != 2 {
-		delete(recipeData, "BARNACLE LINGUINE")
-	}
+// 	// Barnacle Linguine
+// 	if strings.Count(titles, "Barnacles") != 2 || attributeCounts.vegeCount != 2 {
+// 		delete(recipeData, "BARNACLE LINGUINE")
+// 	}
 
-	// Barnacle Nigiri
-	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
-		delete(recipeData, "BARNACLE NIGIRI")
-	}
+// 	// Barnacle Nigiri
+// 	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
+// 		delete(recipeData, "BARNACLE NIGIRI")
+// 	}
 
-	// BARNACLE PITA
-	// attributeVals.fishval over 1 can cause stuffed fish head but idk the percentage
-	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
-		delete(recipeData, "BARNACLE PITA")
-	}
+// 	// BARNACLE PITA
+// 	// attributeVals.fishval over 1 can cause stuffed fish head but idk the percentage
+// 	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
+// 		delete(recipeData, "BARNACLE PITA")
+// 	}
 
-	// BEEFY GREENS
-	if strings.Count(titles, "Leafy Meat") < 1 || attributeVals.vegVal < 3 {
-		delete(recipeData, "BEEFY GREENS")
-	}
+// 	// BEEFY GREENS
+// 	if strings.Count(titles, "Leafy Meat") < 1 || attributeVals.vegVal < 3 {
+// 		delete(recipeData, "BEEFY GREENS")
+// 	}
 
-	// butter muffin
-	if strings.Count(titles, "Butterfly Wings") < 1 || attributeCounts.vegeCount < 1 || crockPot["Mandrake"].NAME != "" || attributeCounts.meatCount != 0 {
-		delete(recipeData, "BUTTER MUFFIN")
-	}
+// 	// butter muffin
+// 	if strings.Count(titles, "Butterfly Wings") < 1 || attributeCounts.vegeCount < 1 || crockPot["Mandrake"].NAME != "" || attributeCounts.meatCount != 0 {
+// 		delete(recipeData, "BUTTER MUFFIN")
+// 	}
 
-	// CALIFORNIA ROLL
-	if strings.Count(titles, "Kelp Fronds") < 2 || attributeVals.fishVal < 1 {
-		delete(recipeData, "CALIFORNIA ROLL")
-	}
+// 	// CALIFORNIA ROLL
+// 	if strings.Count(titles, "Kelp Fronds") < 2 || attributeVals.fishVal < 1 {
+// 		delete(recipeData, "CALIFORNIA ROLL")
+// 	}
 
-	// ceviche
-	if strings.Count(titles, "Ice") < 2 || attributeVals.fishVal < 2 || attributeCounts.eggCount != 0 || attributeCounts.inedibleCount != 0 {
-		delete(recipeData, "CEVICHE")
-	}
+// 	// ceviche
+// 	if strings.Count(titles, "Ice") < 2 || attributeVals.fishVal < 2 || attributeCounts.eggCount != 0 || attributeCounts.inedibleCount != 0 {
+// 		delete(recipeData, "CEVICHE")
+// 	}
 
-	// CREAMY POTATO PURÉE**
-	// need to look at potato or roasted potato
-	if strings.Count(titles, "Potato") < 2 || strings.Count(titles, "Garlic") < 1 || crockPot["Twigs"].NAME != "" || attributeCounts.meatCount != 0 {
-		delete(recipeData, "CREAMY POTATO PURÉE")
-	}
+// 	// CREAMY POTATO PURÉE**
+// 	// need to look at potato or roasted potato
+// 	if strings.Count(titles, "Potato") < 2 || strings.Count(titles, "Garlic") < 1 || crockPot["Twigs"].NAME != "" || attributeCounts.meatCount != 0 {
+// 		delete(recipeData, "CREAMY POTATO PURÉE")
+// 	}
 
-	// dragonpie
-	// need to look at dragon fruit or prepared dragon fruit
-	if strings.Count(titles, "Dragon Fruit") < 1 || crockPot["Mandrake"].NAME != "" || attributeCounts.meatCount != 0 {
-		delete(recipeData, "DRAGONPIE")
-	}
+// 	// dragonpie
+// 	// need to look at dragon fruit or prepared dragon fruit
+// 	if strings.Count(titles, "Dragon Fruit") < 1 || crockPot["Mandrake"].NAME != "" || attributeCounts.meatCount != 0 {
+// 		delete(recipeData, "DRAGONPIE")
+// 	}
 
-	// FANCY SPIRALLED TUBERS
-	// need to look at potato or roasted potato
-	if strings.Count(titles, "Potato") < 1 || strings.Count(titles, "Twigs") < 1 || attributeCounts.inedibleCount-1 > 1 || attributeCounts.meatCount != 0 {
-		delete(recipeData, "FANCY SPIRALLED TUBERS")
-	}
+// 	// FANCY SPIRALLED TUBERS
+// 	// need to look at potato or roasted potato
+// 	if strings.Count(titles, "Potato") < 1 || strings.Count(titles, "Twigs") < 1 || attributeCounts.inedibleCount-1 > 1 || attributeCounts.meatCount != 0 {
+// 		delete(recipeData, "FANCY SPIRALLED TUBERS")
+// 	}
 
-	// fish tacos
-	// twig value - 1 twig 50% chance of  fish sticks
-	// need to look at corn or popcorn
-	if attributeVals.fishVal < 0.5 || (strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Popcorn") < 1) {
-		delete(recipeData, "FISH TACOS")
-	}
+// 	// fish tacos
+// 	// twig value - 1 twig 50% chance of  fish sticks
+// 	// need to look at corn or popcorn
+// 	if attributeVals.fishVal < 0.5 || (strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Popcorn") < 1) {
+// 		delete(recipeData, "FISH TACOS")
+// 	}
 
-	// fishsticks
-	if attributeVals.fishVal < 0.25 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" {
-		delete(recipeData, "FISHSTICKS")
-	}
+// 	// fishsticks
+// 	if attributeVals.fishVal < 0.25 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" {
+// 		delete(recipeData, "FISHSTICKS")
+// 	}
 
-	// fist full of jam
-	if attributeVals.fruitVal < 0.5 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.inedVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
-		delete(recipeData, "FIST FULL OF JAM")
-	}
+// 	// fist full of jam
+// 	if attributeVals.fruitVal < 0.5 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.inedVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
+// 		delete(recipeData, "FIST FULL OF JAM")
+// 	}
 
-	// flower salad
-	if strings.Count(titles, "Cactus Flower") < 1 || attributeVals.vegVal-.5 < 1.5 || attributeVals.meatVal != 0 || attributeVals.fruitVal != 0 || attributeVals.eggVal != 0 || attributeVals.sweetVal != 0 || crockPot["Twigs"].NAME != "" {
-		delete(recipeData, "FLOWER SALAD")
-	}
+// 	// flower salad
+// 	if strings.Count(titles, "Cactus Flower") < 1 || attributeVals.vegVal-.5 < 1.5 || attributeVals.meatVal != 0 || attributeVals.fruitVal != 0 || attributeVals.eggVal != 0 || attributeVals.sweetVal != 0 || crockPot["Twigs"].NAME != "" {
+// 		delete(recipeData, "FLOWER SALAD")
+// 	}
 
-	// froggle bunwich
-	// need to look at frog legs or cooked frog legs
-	// makes kabob if only one stick
-	if strings.Count(titles, "Frog Legs") < 1 || attributeCounts.vegeCount < 1 || attributeVals.eggVal != 0 || attributeVals.sweetVal != 0 || crockPot["Mandrake"].NAME != "" {
-		delete(recipeData, "FROGGLE BUNWICH")
-	}
+// 	// froggle bunwich
+// 	// need to look at frog legs or cooked frog legs
+// 	// makes kabob if only one stick
+// 	if strings.Count(titles, "Frog Legs") < 1 || attributeCounts.vegeCount < 1 || attributeVals.eggVal != 0 || attributeVals.sweetVal != 0 || crockPot["Mandrake"].NAME != "" {
+// 		delete(recipeData, "FROGGLE BUNWICH")
+// 	}
 
-	// fruit medley
-	// twigs is safest anything else 50% of fist full of jam
-	if attributeVals.fruitVal < 3 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
-		delete(recipeData, "FRUIT MEDLEY")
-	}
+// 	// fruit medley
+// 	// twigs is safest anything else 50% of fist full of jam
+// 	if attributeVals.fruitVal < 3 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
+// 		delete(recipeData, "FRUIT MEDLEY")
+// 	}
 
-	// guacamole
-	// need to look at cactus flesh or stone fruit
-	if strings.Count(titles, "Moleworm") < 1 || (strings.Count(titles, "Cactus Flesh") < 1 || strings.Count(titles, "Ripe Stone Fruit") < 1) || attributeVals.fruitVal != 0 {
-		delete(recipeData, "GUACAMOLE")
-	}
+// 	// guacamole
+// 	// need to look at cactus flesh or stone fruit
+// 	if strings.Count(titles, "Moleworm") < 1 || (strings.Count(titles, "Cactus Flesh") < 1 || strings.Count(titles, "Ripe Stone Fruit") < 1) || attributeVals.fruitVal != 0 {
+// 		delete(recipeData, "GUACAMOLE")
+// 	}
 
-	// Honey Ham
-	if strings.Count(titles, "Honey") < 1 || attributeVals.meatVal <= 1.5 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
-		delete(recipeData, "HONEY HAM")
-	}
+// 	// Honey Ham
+// 	if strings.Count(titles, "Honey") < 1 || attributeVals.meatVal <= 1.5 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
+// 		delete(recipeData, "HONEY HAM")
+// 	}
 
-	// Honey Nuggets
-	if strings.Count(titles, "Honey") < 1 || attributeVals.meatVal > 1.5 || attributeVals.inedVal != 0 {
-		delete(recipeData, "HONEY NUGGETS")
-	}
+// 	// Honey Nuggets
+// 	if strings.Count(titles, "Honey") < 1 || attributeVals.meatVal > 1.5 || attributeVals.inedVal != 0 {
+// 		delete(recipeData, "HONEY NUGGETS")
+// 	}
 
-	// ice cream
-	if strings.Count(titles, "Ice") < 1 || attributeCounts.dairyCount < 1 || attributeCounts.sweetenerCount < 1 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.eggVal != 0 || crockPot["Twigs"].NAME != "" {
-		delete(recipeData, "ICE CREAM")
-	}
+// 	// ice cream
+// 	if strings.Count(titles, "Ice") < 1 || attributeCounts.dairyCount < 1 || attributeCounts.sweetenerCount < 1 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.eggVal != 0 || crockPot["Twigs"].NAME != "" {
+// 		delete(recipeData, "ICE CREAM")
+// 	}
 
-	// jelly salad
-	// look for cooked version
-	if strings.Count(titles, "Leafy Meat") < 2 || attributeVals.sweetVal < 2 {
-		delete(recipeData, "JELLY SALAD")
-	}
+// 	// jelly salad
+// 	// look for cooked version
+// 	if strings.Count(titles, "Leafy Meat") < 2 || attributeVals.sweetVal < 2 {
+// 		delete(recipeData, "JELLY SALAD")
+// 	}
 
-	// jellybeans
-	if strings.Count(titles, "Royal Jelly") < 1 || attributeVals.monVal != 0 || attributeVals.inedVal != 0 {
-		delete(recipeData, "JELLYBEANS")
-	}
+// 	// jellybeans
+// 	if strings.Count(titles, "Royal Jelly") < 1 || attributeVals.monVal != 0 || attributeVals.inedVal != 0 {
+// 		delete(recipeData, "JELLYBEANS")
+// 	}
 
-	// kabobs
-	if attributeCounts.meatCount < 1 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || attributeVals.fishVal != 0 {
-		delete(recipeData, "KABOBS")
-	}
+// 	// kabobs
+// 	if attributeCounts.meatCount < 1 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || attributeVals.fishVal != 0 {
+// 		delete(recipeData, "KABOBS")
+// 	}
 
-	// leafy meatloaf
-	if strings.Count(titles, "Leafy Meat") < 2 {
-		delete(recipeData, "LEAFY MEATLOAF")
-	}
+// 	// leafy meatloaf
+// 	if strings.Count(titles, "Leafy Meat") < 2 {
+// 		delete(recipeData, "LEAFY MEATLOAF")
+// 	}
 
-	// LOBSTER BISQUE
-	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Ice") < 1 {
-		delete(recipeData, "LOBSTER BISQUE")
-	}
+// 	// LOBSTER BISQUE
+// 	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Ice") < 1 {
+// 		delete(recipeData, "LOBSTER BISQUE")
+// 	}
 
-	// mandrake soup
-	if strings.Count(titles, "Mandrake") < 1 {
-		delete(recipeData, "MANDRAKE SOUP")
-	}
+// 	// mandrake soup
+// 	if strings.Count(titles, "Mandrake") < 1 {
+// 		delete(recipeData, "MANDRAKE SOUP")
+// 	}
 
-	// Meatballs
-	if attributeVals.meatVal >= 3 || attributeVals.meatVal == 0 || crockPot["Twigs"].NAME != "" {
-		delete(recipeData, "MEATBALLS")
-	}
+// 	// Meatballs
+// 	if attributeVals.meatVal >= 3 || attributeVals.meatVal == 0 || crockPot["Twigs"].NAME != "" {
+// 		delete(recipeData, "MEATBALLS")
+// 	}
 
-	// meaty stew
-	if attributeVals.meatVal < 3 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Honey"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
-		delete(recipeData, "MEATY STEW")
-	}
+// 	// meaty stew
+// 	if attributeVals.meatVal < 3 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Honey"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
+// 		delete(recipeData, "MEATY STEW")
+// 	}
 
-	// melonsicle
-	if strings.Count(titles, "Watermelon") < 1 || strings.Count(titles, "Ice") < 1 || strings.Count(titles, "Twigs") < 1 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.eggVal != 0 {
-		delete(recipeData, "MELONSICLE")
-	}
+// 	// melonsicle
+// 	if strings.Count(titles, "Watermelon") < 1 || strings.Count(titles, "Ice") < 1 || strings.Count(titles, "Twigs") < 1 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.eggVal != 0 {
+// 		delete(recipeData, "MELONSICLE")
+// 	}
 
-	// MILKMADE HAT
-	if strings.Count(titles, "Nostrils") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.dairyCount < 1 {
-		delete(recipeData, "MILKMADE HAT")
-	}
+// 	// MILKMADE HAT
+// 	if strings.Count(titles, "Nostrils") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.dairyCount < 1 {
+// 		delete(recipeData, "MILKMADE HAT")
+// 	}
 
-	// monster lasagna
-	if attributeCounts.monsterCount < 2 || crockPot["Twigs"].NAME != "" {
-		delete(recipeData, "MONSTER LASAGNA")
-	}
+// 	// monster lasagna
+// 	if attributeCounts.monsterCount < 2 || crockPot["Twigs"].NAME != "" {
+// 		delete(recipeData, "MONSTER LASAGNA")
+// 	}
 
-	// Mushy Cake
-	if strings.Count(titles, "Moon Shroom") != 1 || strings.Count(titles, "Red Cap") != 1 || strings.Count(titles, "Blue Cap") != 1 || strings.Count(titles, "Green Cap") != 1 {
-		delete(recipeData, "MUSHY CAKE")
-	}
+// 	// Mushy Cake
+// 	if strings.Count(titles, "Moon Shroom") != 1 || strings.Count(titles, "Red Cap") != 1 || strings.Count(titles, "Blue Cap") != 1 || strings.Count(titles, "Green Cap") != 1 {
+// 		delete(recipeData, "MUSHY CAKE")
+// 	}
 
-	// Pierogi
-	if attributeCounts.meatCount < 1 || attributeCounts.eggCount < 1 || attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
-		delete(recipeData, "PIEROGI")
-	}
+// 	// Pierogi
+// 	if attributeCounts.meatCount < 1 || attributeCounts.eggCount < 1 || attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
+// 		delete(recipeData, "PIEROGI")
+// 	}
 
-	//powdercake
-	if strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Twigs") < 1 {
-		delete(recipeData, "POWDERCAKE")
-	}
+// 	//powdercake
+// 	if strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Twigs") < 1 {
+// 		delete(recipeData, "POWDERCAKE")
+// 	}
 
-	//Pumkin cookie
-	// 3 honey or comb 50% chance of making taffy
-	if strings.Count(titles, "Pumpkin") < 1 || strings.Count(titles, "Honey") <= 1 {
-		delete(recipeData, "PUMPKIN COOKIE")
-	}
+// 	//Pumkin cookie
+// 	// 3 honey or comb 50% chance of making taffy
+// 	if strings.Count(titles, "Pumpkin") < 1 || strings.Count(titles, "Honey") <= 1 {
+// 		delete(recipeData, "PUMPKIN COOKIE")
+// 	}
 
-	// RATATOUILLE
-	if attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Butterfly Wings"].NAME != "" || crockPot["Dragon Fruit"].NAME != "" {
-		delete(recipeData, "RATATOUILLE")
-	}
+// 	// RATATOUILLE
+// 	if attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Butterfly Wings"].NAME != "" || crockPot["Dragon Fruit"].NAME != "" {
+// 		delete(recipeData, "RATATOUILLE")
+// 	}
 
-	// SALSA FRESCA
-	// look for cooked versions
-	if strings.Count(titles, "Toma Root") < 1 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 || attributeCounts.eggCount != 0 {
-		delete(recipeData, "SALSA FRESCA")
-	}
+// 	// SALSA FRESCA
+// 	// look for cooked versions
+// 	if strings.Count(titles, "Toma Root") < 1 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 || attributeCounts.eggCount != 0 {
+// 		delete(recipeData, "SALSA FRESCA")
+// 	}
 
-	// SEAFOOD GUMBO
-	if strings.Count(titles, "Eel") < 1 || attributeVals.fishVal <= 2 {
-		delete(recipeData, "SEAFOOD GUMBO")
-	}
+// 	// SEAFOOD GUMBO
+// 	if strings.Count(titles, "Eel") < 1 || attributeVals.fishVal <= 2 {
+// 		delete(recipeData, "SEAFOOD GUMBO")
+// 	}
 
-	//  Soothing tea
-	// look for honey or comb
-	if strings.Count(titles, "Forget-Me-Lots") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Ice") < 1 || attributeCounts.monsterCount != 0 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || attributeCounts.eggCount != 0 || attributeCounts.inedibleCount != 0 || attributeCounts.dairyCount != 0 {
-		delete(recipeData, "SOOTHING TEA")
-	}
+// 	//  Soothing tea
+// 	// look for honey or comb
+// 	if strings.Count(titles, "Forget-Me-Lots") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Ice") < 1 || attributeCounts.monsterCount != 0 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || attributeCounts.eggCount != 0 || attributeCounts.inedibleCount != 0 || attributeCounts.dairyCount != 0 {
+// 		delete(recipeData, "SOOTHING TEA")
+// 	}
 
-	//  Spicy Chili
-	if attributeCounts.meatCount != 2 || attributeCounts.vegeCount != 2 || attributeVals.meatVal < 1.5 || attributeVals.vegVal < 1.5 {
-		delete(recipeData, "SPICY CHILI")
-	}
+// 	//  Spicy Chili
+// 	if attributeCounts.meatCount != 2 || attributeCounts.vegeCount != 2 || attributeVals.meatVal < 1.5 || attributeVals.vegVal < 1.5 {
+// 		delete(recipeData, "SPICY CHILI")
+// 	}
 
-	// STUFFED EGGPLANT
-	if strings.Count(titles, "Eggplant") < 1 || attributeCounts.vegeCount < 1 {
-		delete(recipeData, "STUFFED EGGPLANT")
-	}
+// 	// STUFFED EGGPLANT
+// 	if strings.Count(titles, "Eggplant") < 1 || attributeCounts.vegeCount < 1 {
+// 		delete(recipeData, "STUFFED EGGPLANT")
+// 	}
 
-	// stuffed fish heads
-	if strings.Count(titles, "Barnacles") < 1 || attributeVals.fishVal-0.5 < 1 {
-		delete(recipeData, "STUFFED FISH HEADS")
-	}
+// 	// stuffed fish heads
+// 	if strings.Count(titles, "Barnacles") < 1 || attributeVals.fishVal-0.5 < 1 {
+// 		delete(recipeData, "STUFFED FISH HEADS")
+// 	}
 
-	// STUFFED PEPPER POPPERS
-	if strings.Count(titles, "Pepper") < 1 || attributeVals.meatVal > 1.5 || attributeCounts.meatCount == 0 || crockPot["Twigs"].NAME != "" {
-		delete(recipeData, "STUFFED PEPPER POPPERS")
-	}
+// 	// STUFFED PEPPER POPPERS
+// 	if strings.Count(titles, "Pepper") < 1 || attributeVals.meatVal > 1.5 || attributeCounts.meatCount == 0 || crockPot["Twigs"].NAME != "" {
+// 		delete(recipeData, "STUFFED PEPPER POPPERS")
+// 	}
 
-	// SURF 'N' TURF
-	if attributeVals.meatVal < 2.5 || attributeVals.fishVal < 1.5 || crockPot["Ice"].NAME != "" {
-		delete(recipeData, "SURF 'N' TURF")
-	}
+// 	// SURF 'N' TURF
+// 	if attributeVals.meatVal < 2.5 || attributeVals.fishVal < 1.5 || crockPot["Ice"].NAME != "" {
+// 		delete(recipeData, "SURF 'N' TURF")
+// 	}
 
-	// Taffy
-	if attributeVals.sweetVal < 3 || attributeCounts.meatCount != 0 {
-		delete(recipeData, "TAFFY")
-	}
+// 	// Taffy
+// 	if attributeVals.sweetVal < 3 || attributeCounts.meatCount != 0 {
+// 		delete(recipeData, "TAFFY")
+// 	}
 
-	// trail mix
-	// required berries must be uncooked
-	if strings.Count(titles, "Roasted Birchnut") < 1 || strings.Count(titles, "Berries") < 1 || strings.Count(titles, "Roasted") > 3 || attributeCounts.fruitCount-1 < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || attributeCounts.eggCount != 0 || attributeCounts.vegeCount != 0 || attributeCounts.dairyCount != 0 {
-		delete(recipeData, "TRAIL MIX")
-	}
+// 	// trail mix
+// 	// required berries must be uncooked
+// 	if strings.Count(titles, "Roasted Birchnut") < 1 || strings.Count(titles, "Berries") < 1 || strings.Count(titles, "Roasted") > 3 || attributeCounts.fruitCount-1 < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || attributeCounts.eggCount != 0 || attributeCounts.vegeCount != 0 || attributeCounts.dairyCount != 0 {
+// 		delete(recipeData, "TRAIL MIX")
+// 	}
 
-	// TURKEY DINNER
-	// checkingg twice for veg or fruit
-	if strings.Count(titles, "Drumstick") < 2 || attributeVals.meatVal-1 < 0.25 || (attributeVals.fruitVal < .5 || attributeVals.vegVal < .5) {
-		delete(recipeData, "TURKEY DINNER")
-	}
+// 	// TURKEY DINNER
+// 	// checkingg twice for veg or fruit
+// 	if strings.Count(titles, "Drumstick") < 2 || attributeVals.meatVal-1 < 0.25 || (attributeVals.fruitVal < .5 || attributeVals.vegVal < .5) {
+// 		delete(recipeData, "TURKEY DINNER")
+// 	}
 
-	// unagi
-	if strings.Count(titles, "Eel") < 1 || (strings.Count(titles, "Lichen") < 1 || strings.Count(titles, "Kelp Fronds") < 1) {
-		delete(recipeData, "UNAGI")
-	}
+// 	// unagi
+// 	if strings.Count(titles, "Eel") < 1 || (strings.Count(titles, "Lichen") < 1 || strings.Count(titles, "Kelp Fronds") < 1) {
+// 		delete(recipeData, "UNAGI")
+// 	}
 
-	// VEGETABLE STINGER
-	if (strings.Count(titles, "Toma Root") < 1 || strings.Count(titles, "Asparagus") < 1) || strings.Count(titles, "Ice") < 1 || attributeVals.vegVal-1 < 1.5 {
-		delete(recipeData, "VEGETABLE STINGER")
-	}
+// 	// VEGETABLE STINGER
+// 	if (strings.Count(titles, "Toma Root") < 1 || strings.Count(titles, "Asparagus") < 1) || strings.Count(titles, "Ice") < 1 || attributeVals.vegVal-1 < 1.5 {
+// 		delete(recipeData, "VEGETABLE STINGER")
+// 	}
 
-	// Veggie Burger
-	if strings.Count(titles, "Leafy Meat") < 1 || strings.Count(titles, "Onion") < 1 || attributeVals.vegVal-1 < 1 {
-		delete(recipeData, "VEGGIE BURGER")
-	}
+// 	// Veggie Burger
+// 	if strings.Count(titles, "Leafy Meat") < 1 || strings.Count(titles, "Onion") < 1 || attributeVals.vegVal-1 < 1 {
+// 		delete(recipeData, "VEGGIE BURGER")
+// 	}
 
-	// waffles
-	if strings.Count(titles, "Butter") < 1 || strings.Count(titles, "Berries") < 1 || attributeCounts.eggCount < 1 {
-		delete(recipeData, "WAFFLES")
-	}
+// 	// waffles
+// 	if strings.Count(titles, "Butter") < 1 || strings.Count(titles, "Berries") < 1 || attributeCounts.eggCount < 1 {
+// 		delete(recipeData, "WAFFLES")
+// 	}
 
-	// wet goop
-	// if everything is false
+// 	wet goop
+// 	if everything is false
 
-	// WOBSTER DINNER
-	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Butter") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || crockPot["Twigs"].NAME != "" {
-		delete(recipeData, "WOBSTER DINNER")
-	}
-	return recipeData
-}
+// 	WOBSTER DINNER
+// 	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Butter") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || crockPot["Twigs"].NAME != "" {
+// 		delete(recipeData, "WOBSTER DINNER")
+// 	}
+// 	return recipeData
+// }
 
 // required ingredient
 func stringInSlice(a string, x []IngredientDetails) bool {
@@ -706,272 +716,6 @@ func processPossible(x string) {
 	if strings.Contains(x, "x") {
 		fmt.Println("Crock Has Exclusion")
 	}
-}
-func blankRec(recipeData map[string]RecipeDetails, attributeCounts AttributeCounts, attributeVals AttributeVals, titles string, crockPot map[string]IngredientDetails) map[string]RecipeDetails {
-
-	// AMBEROSIA
-	if strings.Count(titles, "Collected Dust") < 1 {
-	}
-
-	// ASPARAGUS SOUP
-	if strings.Count(titles, "Asparagus") < 1 || attributeVals.vegVal < 1.5 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 {
-	}
-
-	// Bacon and Eggs
-	if attributeVals.meatVal <= 1 || attributeVals.eggVal <= 1 || attributeVals.vegVal != 0 {
-	}
-
-	// BANANA POP
-	if strings.Count(titles, "Banana") < 1 || strings.Count(titles, "twigs") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 {
-	}
-
-	// Barnacle Linguine
-	if strings.Count(titles, "Barnacles") != 2 || attributeCounts.vegeCount != 2 {
-	}
-
-	// Barnacle Nigiri
-	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
-	}
-
-	// BARNACLE PITA
-	// attributeVals.fishval over 1 can cause stuffed fish head but idk the percentage
-	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
-	}
-
-	// BEEFY GREENS
-	if strings.Count(titles, "Leafy Meat") < 1 || attributeVals.vegVal < 3 {
-	}
-
-	// butter muffin
-	if strings.Count(titles, "Butterfly Wings") < 1 || attributeCounts.vegeCount < 1 || crockPot["Mandrake"].NAME != "" || attributeCounts.meatCount != 0 {
-	}
-
-	// CALIFORNIA ROLL
-	if strings.Count(titles, "Kelp Fronds") < 2 || attributeVals.fishVal < 1 {
-	}
-
-	// ceviche
-	if strings.Count(titles, "Ice") < 2 || attributeVals.fishVal < 2 || attributeCounts.eggCount != 0 || attributeCounts.inedibleCount != 0 {
-	}
-
-	// CREAMY POTATO PURÉE**
-	// need to look at potato or roasted potato
-	if strings.Count(titles, "Potato") < 2 || strings.Count(titles, "Garlic") < 1 || crockPot["Twigs"].NAME != "" || attributeCounts.meatCount != 0 {
-	}
-
-	// dragonpie
-	// need to look at dragon fruit or prepared dragon fruit
-	if strings.Count(titles, "Dragon Fruit") < 1 || crockPot["Mandrake"].NAME != "" || attributeCounts.meatCount != 0 {
-	}
-
-	// FANCY SPIRALLED TUBERS
-	// need to look at potato or roasted potato
-	if strings.Count(titles, "Potato") < 1 || strings.Count(titles, "Twigs") < 1 || attributeCounts.inedibleCount-1 > 1 || attributeCounts.meatCount != 0 {
-	}
-
-	// fish tacos
-	// twig value - 1 twig 50% chance of  fish sticks
-	// need to look at corn or popcorn
-	if attributeVals.fishVal < 0.5 || (strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Popcorn") < 1) {
-	}
-
-	// fishsticks
-	if attributeVals.fishVal < 0.25 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" {
-	}
-
-	// fist full of jam
-	if attributeVals.fruitVal < 0.5 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.inedVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
-	}
-
-	// flower salad
-	if strings.Count(titles, "Cactus Flower") < 1 || attributeVals.vegVal-.5 < 1.5 || attributeVals.meatVal != 0 || attributeVals.fruitVal != 0 || attributeVals.eggVal != 0 || attributeVals.sweetVal != 0 || crockPot["Twigs"].NAME != "" {
-	}
-
-	// froggle bunwich
-	// need to look at frog legs or cooked frog legs
-	// makes kabob if only one stick
-	if strings.Count(titles, "Frog Legs") < 1 || attributeCounts.vegeCount < 1 || attributeVals.eggVal != 0 || attributeVals.sweetVal != 0 || crockPot["Mandrake"].NAME != "" {
-	}
-
-	// fruit medley
-	// twigs is safest anything else 50% of fist full of jam
-	if attributeVals.fruitVal < 3 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || crockPot["Dragon Fruit"].NAME != "" {
-	}
-
-	// guacamole
-	// need to look at cactus flesh or stone fruit
-	if strings.Count(titles, "Moleworm") < 1 || (strings.Count(titles, "Cactus Flesh") < 1 || strings.Count(titles, "Ripe Stone Fruit") < 1) || attributeVals.fruitVal != 0 {
-	}
-
-	// Honey Ham
-	if strings.Count(titles, "Honey") < 1 || attributeVals.meatVal <= 1.5 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
-	}
-
-	// Honey Nuggets
-	if strings.Count(titles, "Honey") < 1 || attributeVals.meatVal > 1.5 || attributeVals.inedVal != 0 {
-	}
-
-	// ice cream
-	if strings.Count(titles, "Ice") < 1 || attributeCounts.dairyCount < 1 || attributeCounts.sweetenerCount < 1 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.eggVal != 0 || crockPot["Twigs"].NAME != "" {
-	}
-
-	// jelly salad
-	// look for cooked version
-	if strings.Count(titles, "Leafy Meat") < 2 || attributeVals.sweetVal < 2 {
-	}
-
-	// jellybeans
-	if strings.Count(titles, "Royal Jelly") < 1 || attributeVals.monVal != 0 || attributeVals.inedVal != 0 {
-	}
-
-	// kabobs
-	if attributeCounts.meatCount < 1 || strings.Count(titles, "Twigs") != 1 || crockPot["Moleworm"].NAME != "" || crockPot["Mandrake"].NAME != "" || attributeVals.fishVal != 0 {
-	}
-
-	// leafy meatloaf
-	if strings.Count(titles, "Leafy Meat") < 2 {
-	}
-
-	// LOBSTER BISQUE
-	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Ice") < 1 {
-	}
-
-	// mandrake soup
-	if strings.Count(titles, "Mandrake") < 1 {
-	}
-
-	// Meatballs
-	if attributeVals.meatVal >= 3 || attributeVals.meatVal == 0 || crockPot["Twigs"].NAME != "" {
-	}
-
-	// meaty stew
-	if attributeVals.meatVal < 3 || crockPot["Twigs"].NAME != "" || crockPot["Moleworm"].NAME != "" || crockPot["Honey"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Tallbird Egg"].NAME != "" {
-	}
-
-	// melonsicle
-	if strings.Count(titles, "Watermelon") < 1 || strings.Count(titles, "Ice") < 1 || strings.Count(titles, "Twigs") < 1 || attributeVals.meatVal != 0 || attributeVals.vegVal != 0 || attributeVals.eggVal != 0 {
-	}
-
-	// MILKMADE HAT
-	if strings.Count(titles, "Nostrils") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.dairyCount < 1 {
-	}
-
-	// monster lasagna
-	if attributeCounts.monsterCount < 2 || crockPot["Twigs"].NAME != "" {
-	}
-
-	// Mushy Cake
-	if strings.Count(titles, "Moon Shroom") != 1 || strings.Count(titles, "Red Cap") != 1 || strings.Count(titles, "Blue Cap") != 1 || strings.Count(titles, "Green Cap") != 1 {
-	}
-
-	// Pierogi
-	if attributeCounts.meatCount < 1 || attributeCounts.eggCount < 1 || attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
-	}
-
-	//powdercake
-	if strings.Count(titles, "Corn") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Twigs") < 1 {
-	}
-
-	//Pumkin cookie
-	// 3 honey or comb 50% chance of making taffy
-	if strings.Count(titles, "Pumpkin") < 1 || strings.Count(titles, "Honey") <= 1 {
-	}
-
-	// RATATOUILLE
-	if attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" || crockPot["Butterfly Wings"].NAME != "" || crockPot["Dragon Fruit"].NAME != "" {
-	}
-
-	// SALSA FRESCA
-	// look for cooked versions
-	if strings.Count(titles, "Toma Root") < 1 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 || attributeCounts.eggCount != 0 {
-	}
-
-	// SEAFOOD GUMBO
-	if strings.Count(titles, "Eel") < 1 || attributeVals.fishVal <= 2 {
-	}
-
-	//  Soothing tea
-	// look for honey or comb
-	if strings.Count(titles, "Forget-Me-Lots") < 1 || strings.Count(titles, "Honey") < 1 || strings.Count(titles, "Ice") < 1 || attributeCounts.monsterCount != 0 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || attributeCounts.eggCount != 0 || attributeCounts.inedibleCount != 0 || attributeCounts.dairyCount != 0 {
-	}
-
-	//  Spicy Chili
-	if attributeCounts.meatCount != 2 || attributeCounts.vegeCount != 2 || attributeVals.meatVal < 1.5 || attributeVals.vegVal < 1.5 {
-	}
-
-	// STUFFED EGGPLANT
-	if strings.Count(titles, "Eggplant") < 1 || attributeCounts.vegeCount < 1 {
-	}
-
-	// stuffed fish heads
-	if strings.Count(titles, "Barnacles") < 1 || attributeVals.fishVal-0.5 < 1 {
-	}
-
-	// STUFFED PEPPER POPPERS
-	if strings.Count(titles, "Pepper") < 1 || attributeVals.meatVal > 1.5 || attributeCounts.meatCount == 0 || crockPot["Twigs"].NAME != "" {
-	}
-
-	// SURF 'N' TURF
-	if attributeVals.meatVal < 2.5 || attributeVals.fishVal < 1.5 || crockPot["Ice"].NAME != "" {
-	}
-
-	// Taffy
-	if attributeVals.sweetVal < 3 || attributeCounts.meatCount != 0 {
-	}
-
-	// trail mix
-	// required berries must be uncooked
-	if strings.Count(titles, "Roasted Birchnut") < 1 || strings.Count(titles, "Berries") < 1 || strings.Count(titles, "Roasted") > 3 || attributeCounts.fruitCount-1 < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || attributeCounts.eggCount != 0 || attributeCounts.vegeCount != 0 || attributeCounts.dairyCount != 0 {
-	}
-
-	// TURKEY DINNER
-	// checkingg twice for veg or fruit
-	if strings.Count(titles, "Drumstick") < 2 || attributeVals.meatVal-1 < 0.25 || (attributeVals.fruitVal < .5 || attributeVals.vegVal < .5) {
-	}
-
-	// unagi
-	if strings.Count(titles, "Eel") < 1 || (strings.Count(titles, "Lichen") < 1 || strings.Count(titles, "Kelp Fronds") < 1) {
-	}
-
-	// VEGETABLE STINGER
-	if (strings.Count(titles, "Toma Root") < 1 || strings.Count(titles, "Asparagus") < 1) || strings.Count(titles, "Ice") < 1 || attributeVals.vegVal-1 < 1.5 {
-	}
-
-	// Veggie Burger
-	if strings.Count(titles, "Leafy Meat") < 1 || strings.Count(titles, "Onion") < 1 || attributeVals.vegVal-1 < 1 {
-	}
-
-	// waffles
-	if strings.Count(titles, "Butter") < 1 || strings.Count(titles, "Berries") < 1 || attributeCounts.eggCount < 1 {
-	}
-
-	// wet goop
-	// if everything is false
-
-	// WOBSTER DINNER
-	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Butter") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || crockPot["Twigs"].NAME != "" {
-	}
-	return recipeData
-}
-
-func testerRec(recipeData map[string]RecipeDetails, attributeCounts AttributeCounts, attributeVals AttributeVals, titles string, crockPot map[string]IngredientDetails) map[string]RecipeDetails {
-
-	// Bacon and Eggs
-	if attributeVals.meatVal <= 1 || attributeVals.eggVal <= 1 || attributeVals.vegVal != 0 {
-	}
-
-	// Barnacle Nigiri
-	if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
-	}
-
-	// Pierogi
-	if attributeCounts.meatCount < 1 || attributeCounts.eggCount < 1 || attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
-	}
-
-	// WOBSTER DINNER
-	if strings.Count(titles, "Wobster") < 1 || strings.Count(titles, "Butter") < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 || crockPot["Twigs"].NAME != "" {
-	}
-	return recipeData
 }
 
 // for printing valid recipes
@@ -1158,7 +902,7 @@ func main() {
 	i1 := "Jerky"
 	i2 := "Jerky"
 	i3 := "Egg"
-	i4 := "Egg"
+	i4 := "Jerky"
 	// Jerky
 	// Egg
 	// Barnacles
@@ -1203,14 +947,14 @@ func main() {
 
 	// if i4 != "" { star hurrr
 	// function that deletes false recipes
-	// deleteRecipes(recipeData, attributeCounts, attributeVals, titles, crockPot) ------------------------------------------------------
+	// deleteRecipes(recipeData, attributeCounts, attributeVals, titles, crockPot)
+	// ------------------------------------------------------
 
 	//
 	baconAndEggs := ""
 	// if attributeVals.meatVal > 1 && attributeVals.eggVal > 1 && attributeVals.vegVal == 0 {
 	// 	fmt.Println("ok bacon eggs")
 	// }
-
 	{
 		if attributeVals.meatVal > 1 {
 		} else {
@@ -1225,8 +969,10 @@ func main() {
 			baconAndEggs += "x"
 		}
 	}
+
 	fmt.Println(baconAndEggs)
 	processPossible(baconAndEggs)
+
 	// *****
 	// Pierogi
 	if attributeCounts.meatCount >= 1 && attributeCounts.eggCount >= 1 && attributeCounts.vegeCount >= 1 && stringNotInSlice("Twigs", crockPot) && stringNotInSlice("Mandrake", crockPot) {

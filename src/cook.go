@@ -56,7 +56,6 @@ type AttributeCounts struct {
 	inedibleCount  float64 `json:"INEDIBLE"`
 	miscCount      float64 `json:"MISC"`
 }
-
 type AttributeVals struct {
 	meatVal  float64 `json:"MEAT"`
 	fishVal  float64 `json:"FISH"`
@@ -76,15 +75,6 @@ type AttributeVals struct {
 
 // func deleteFalseReipe(recipeData map[string]RecipeDetails, masterCounts AttributeCounts, masterVals AttributeVals, titles string) map[string]RecipeDetails
 // count strings in cropost array
-func countIngName(x string, crockPot []IngredientDetails) int {
-	count := 0
-	for _, cp := range crockPot {
-		if cp.NAME == x {
-			count++
-		}
-	}
-	return count
-}
 
 func masterCounts(crockPot []IngredientDetails) AttributeCounts {
 
@@ -721,9 +711,9 @@ func processPossible(x string) {
 }
 func testerRecipes(recipeData map[string]RecipeDetails, attributeCounts AttributeCounts, attributeVals AttributeVals, crockPot []IngredientDetails) map[string]RecipeDetails {
 
-	// AMBEROSIA
-	if countIngName("Collected Dust", crockPot) < 1 {
-	}
+	// // AMBEROSIA
+	// if countIngName("Collected Dust", crockPot) < 1 {
+	// }
 
 	// ASPARAGUS SOUP
 	if countIngName("Asparagus", crockPot) < 1 {
@@ -1340,64 +1330,6 @@ func readRecipeData() map[string]RecipeDetails {
 var recipeData = readRecipeData()
 
 func main() {
-
-	// "amberosia":            0,
-	// "asparagusSoup":        0,
-	// "baconAndEggs":         0,
-	// "bananaPop":            0,
-	// "barnacleLinguine":     0,
-	// "barnacleNigiri":       0,
-	// "barnaclePita":         0,
-	// "beefyGreens":          0,
-	// "butterMuffin":         0,
-	// "californiaRoll":       0,
-	// "ceviche":              0,
-	// "creamyPotatoPurée":    0,
-	// "dragonpie":            0,
-	// "fancySpiralledTubers": 0,
-	// "fishTacos":            0,
-	// "fishsticks":           0,
-	// "fistFullOfJam":        0,
-	// "flowerSalad":          0,
-	// "froggleBunwich":       0,
-	// "fruitMedley":          0,
-	// "guacamole":            0,
-	// "honeyHam":             0,
-	// "honeyNuggets":         0,
-	// "iceCream":             0,
-	// "jellySalad":           0,
-	// "jellybeans":           0,
-	// "kabobs":               0,
-	// "leafyMeatloaf":        0,
-	// "lobsterBisque":        0,
-	// "mandrakeSoup":         0,
-	// "meatballs":            0,
-	// "meatyStew":            0,
-	// "melonsicle":           0,
-	// "milkmadeHat":          0,
-	// "monsterLasagna":       0,
-	// "mushyCake":            0,
-	// "pierogi":              0,
-	// "powdercake":           0,
-	// "pumpkinCookie":        0,
-	// "ratatouille":          0,
-	// "salsaFresca":          0,
-	// "seafoodGumbo":         0,
-	// "soothingTea":          0,
-	// "spicyChili":           0,
-	// "stuffedEggplant":      0,
-	// "stuffedFishHeads":     0,
-	// "stuffedPepperPoppers": 0,
-	// "surfNturf":            0,
-	// "taffy":                0,
-	// "trailMix":             0,
-	// "turkeyDinner":         0,
-	// "unagi":                0,
-	// "vegetableStinger":     0,
-	// "veggieBurger":         0,
-	// "waffles":              0,
-	// "wetGoop":              0,
-	// "wobsterDinner":        0,
 
 	// Find that file ingredients
 	jsonFile, err := os.Open("../lib/ingredientsv2.json")

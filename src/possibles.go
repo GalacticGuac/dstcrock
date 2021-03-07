@@ -18,13 +18,21 @@ func compilePossibleRecipes(crockPot []IngredientDetails, attributeVals Attribut
 
 }
 
+func amberosiaPossible(crockPot []IngredientDetails, attributeVals AttributeVals, attributeCounts AttributeCounts) *RecipeDetails {
+	// AMBEROSIA
+	amberosia := recipeData["AMBEROSIA"]
+	if countIngName("Collected Dust", crockPot) < 1 {
+		return nil
+	}
+	return &amberosia
+}
+
 func baconAndEggsPossible(crockPot []IngredientDetails, attributeVals AttributeVals, attributeCounts AttributeCounts) *RecipeDetails {
 	baconAndEggs := recipeData["BACON AND EGGS"]
 
 	if attributeVals.vegVal != 0 {
 		return nil
 	}
-
 	if attributeVals.eggVal <= 1 {
 		baconAndEggs.UNMETCONDITIONS = append(baconAndEggs.UNMETCONDITIONS, "ev")
 	}

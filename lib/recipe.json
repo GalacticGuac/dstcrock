@@ -52,7 +52,7 @@
     "HEALTH": 10,
     "HUNGER": 75,
     "SANITY": 20,
-    "INGREDIENTS": "2 BARNACLES, VEGETABLE",
+    "INGREDIENTS": "2 BARNACLES, VEGETABLE >=2 ",
     "EXCLUDE": "",
     "NOTES": "",
     "EXPIRES": 6,

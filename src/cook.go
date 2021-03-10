@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"os"
 	"sort"
-	"strings"
 )
 
 type IngredientDetails struct {
@@ -56,6 +55,7 @@ type AttributeCounts struct {
 	inedibleCount  float64 `json:"INEDIBLE"`
 	miscCount      float64 `json:"MISC"`
 }
+
 type AttributeVals struct {
 	meatVal  float64 `json:"MEAT"`
 	fishVal  float64 `json:"FISH"`
@@ -527,172 +527,6 @@ func deleteRecipes(recipeData map[string]RecipeDetails, attributeCounts Attribut
 	return recipeData
 }
 
-func processPossible(x string) {
-
-	conditions := []string{
-		"mV",
-		"mC",
-		"twigs",
-	}
-	// for each possible recipe {
-	for _, condition := range conditions {
-		switch condition {
-		case "mV":
-			fmt.Println("Meat value too high")
-
-		case "mv":
-			fmt.Println("Meat value too low")
-
-		default:
-			fmt.Printf("Missing %s", condition)
-
-		}
-	}
-	// }
-
-	if strings.Contains(x, "mV") {
-		fmt.Println("Meat value too high")
-	}
-	if strings.Contains(x, "mv") {
-		fmt.Println("Meat value too low")
-	}
-	if strings.Contains(x, "mC") {
-		fmt.Println("Meat count too high")
-	}
-	if strings.Contains(x, "mc") {
-		fmt.Println("Meat count to low")
-	}
-	if strings.Contains(x, "hV") {
-		fmt.Println("Fish value too high")
-	}
-	if strings.Contains(x, "hv") {
-		fmt.Println("Fish value too low")
-	}
-	if strings.Contains(x, "hC") {
-		fmt.Println("Fish count too high")
-	}
-	if strings.Contains(x, "hc") {
-		fmt.Println("Fish count to low")
-	}
-	if strings.Contains(x, "eV") {
-		fmt.Println("Egg value too high")
-	}
-	if strings.Contains(x, "ev") {
-		fmt.Println("Egg value too low")
-	}
-	if strings.Contains(x, "eC") {
-		fmt.Println("Egg count too high")
-	}
-	if strings.Contains(x, "ec") {
-		fmt.Println("Egg count to low")
-	}
-	if strings.Contains(x, "fV") {
-		fmt.Println("Fruit value too high")
-	}
-	if strings.Contains(x, "fv") {
-		fmt.Println("Fruit value too low")
-	}
-	if strings.Contains(x, "fC") {
-		fmt.Println("Fruit count too high")
-	}
-	if strings.Contains(x, "fc") {
-		fmt.Println("Fruit count to low")
-	}
-	if strings.Contains(x, "gV") {
-		fmt.Println("Vegetable value too high")
-	}
-	if strings.Contains(x, "gv") {
-		fmt.Println("Vegetable value too low")
-	}
-	if strings.Contains(x, "gC") {
-		fmt.Println("Vegetable count too high")
-	}
-	if strings.Contains(x, "gc") {
-		fmt.Println("Vegetable count to low")
-	}
-	if strings.Contains(x, "sV") {
-		fmt.Println("Sweetener value too high")
-	}
-	if strings.Contains(x, "sv") {
-		fmt.Println("Sweetener value too low")
-	}
-	if strings.Contains(x, "sC") {
-		fmt.Println("Sweetener count too high")
-	}
-	if strings.Contains(x, "sc") {
-		fmt.Println("Sweetener count to low")
-	}
-	if strings.Contains(x, "tV") {
-		fmt.Println("Monster value too high")
-	}
-	if strings.Contains(x, "tv") {
-		fmt.Println("Monster value too low")
-	}
-	if strings.Contains(x, "tC") {
-		fmt.Println("Monster count too high")
-	}
-	if strings.Contains(x, "tc") {
-		fmt.Println("Monster count to low")
-	}
-	if strings.Contains(x, "dV") {
-		fmt.Println("Dairy value too high")
-	}
-	if strings.Contains(x, "dv") {
-		fmt.Println("Dairy value too low")
-	}
-	if strings.Contains(x, "dC") {
-		fmt.Println("Dairy count too high")
-	}
-	if strings.Contains(x, "dc") {
-		fmt.Println("Dairy count to low")
-	}
-	if strings.Contains(x, "bV") {
-		fmt.Println("Bug value too high")
-	}
-	if strings.Contains(x, "bv") {
-		fmt.Println("Bug value too low")
-	}
-	if strings.Contains(x, "bC") {
-		fmt.Println("Bug count too high")
-	}
-	if strings.Contains(x, "bc") {
-		fmt.Println("Bug count to low")
-	}
-	if strings.Contains(x, "iV") {
-		fmt.Println("Inedible value too high")
-	}
-	if strings.Contains(x, "iv") {
-		fmt.Println("Inedible value too low")
-	}
-	if strings.Contains(x, "iC") {
-		fmt.Println("Inedible count too high")
-	}
-	if strings.Contains(x, "ic") {
-		fmt.Println("Inedible count to low")
-	}
-	if strings.Contains(x, "lV") {
-		fmt.Println("Misc value too high")
-	}
-	if strings.Contains(x, "lv") {
-		fmt.Println("Misc value too low")
-	}
-	if strings.Contains(x, "lC") {
-		fmt.Println("Misc count too high")
-	}
-	if strings.Contains(x, "lc") {
-		fmt.Println("Misc count to low")
-	}
-	if strings.Contains(x, "oC") {
-		fmt.Println("Required Ingredient count too high")
-	}
-	if strings.Contains(x, "oc") {
-		fmt.Println("Required Ingredient count too low")
-	}
-	if strings.Contains(x, "x") {
-		fmt.Println("Crock Has Exclusion")
-	}
-}
-
 func orgValidRec(recipeData map[string]RecipeDetails) {
 	// creating new map so remove recipes to keep integrity of original map recipeData
 	fRecipeData := map[string]RecipeDetails{}
@@ -776,6 +610,156 @@ func readRecipeData() map[string]RecipeDetails {
 
 var recipeData = readRecipeData()
 
+func processPossible(x []*RecipeDetails) {
+
+	// for each possible recipe {
+	for _, condition := range x.UNMETCONDITIONS {
+		switch condition {
+		case "mv":
+			fmt.Println("Meat value too low")
+
+		case "mV":
+			fmt.Println("Meat value too high")
+
+		case "mc":
+			fmt.Println("Meat count to low")
+
+		case "hV":
+			fmt.Println("Fish value too high")
+
+		case "hv":
+			fmt.Println("Fish value too low")
+
+		case "hC":
+			fmt.Println("Fish count too high")
+
+		case "hc":
+			fmt.Println("Fish count to low")
+
+		case "eV":
+			fmt.Println("Egg value too high")
+
+		case "ev":
+			fmt.Println("Egg value too low")
+
+		case "eC":
+			fmt.Println("Egg count too high")
+
+		case "ec":
+			fmt.Println("Egg count to low")
+
+		case "fV":
+			fmt.Println("Fruit value too high")
+
+		case "fv":
+			fmt.Println("Fruit value too low")
+
+		case "fC":
+			fmt.Println("Fruit count too high")
+
+		case "fc":
+			fmt.Println("Fruit count to low")
+
+		case "gV":
+			fmt.Println("Vegetable value too high")
+
+		case "gv":
+			fmt.Println("Vegetable value too low")
+
+		case "gC":
+			fmt.Println("Vegetable count too high")
+
+		case "gc":
+			fmt.Println("Vegetable count to low")
+
+		case "sV":
+			fmt.Println("Sweetener value too high")
+
+		case "sv":
+			fmt.Println("Sweetener value too low")
+
+		case "sC":
+			fmt.Println("Sweetener count too high")
+
+		case "sc":
+			fmt.Println("Sweetener count to low")
+
+		case "tV":
+			fmt.Println("Monster value too high")
+
+		case "tv":
+			fmt.Println("Monster value too low")
+
+		case "tC":
+			fmt.Println("Monster count too high")
+
+		case "tc":
+			fmt.Println("Monster count to low")
+
+		case "dV":
+			fmt.Println("Dairy value too high")
+
+		case "dv":
+			fmt.Println("Dairy value too low")
+
+		case "dC":
+			fmt.Println("Dairy count too high")
+
+		case "dc":
+			fmt.Println("Dairy count to low")
+
+		case "bV":
+			fmt.Println("Bug value too high")
+
+		case "bv":
+			fmt.Println("Bug value too low")
+
+		case "bC":
+			fmt.Println("Bug count too high")
+
+		case "bc":
+			fmt.Println("Bug count to low")
+
+		case "iV":
+			fmt.Println("Inedible value too high")
+
+		case "iv":
+			fmt.Println("Inedible value too low")
+
+		case "iC":
+			fmt.Println("Inedible count too high")
+
+		case "ic":
+			fmt.Println("Inedible count to low")
+
+		case "lV":
+			fmt.Println("Misc value too high")
+
+		case "lv":
+			fmt.Println("Misc value too low")
+
+		case "lC":
+			fmt.Println("Misc count too high")
+
+		case "lc":
+			fmt.Println("Misc count to low")
+
+		case "oC":
+			fmt.Println("Required Ingredient count too high")
+
+		case "oc":
+			fmt.Println("Required Ingredient count too low")
+
+		case "x":
+			fmt.Println("Crock Has Exclusion")
+
+		default:
+			fmt.Printf("Missing %s", condition)
+
+		}
+	}
+}
+
 func main() {
 
 	// Find that file ingredients
@@ -816,7 +800,7 @@ func main() {
 	i1 := "Jerky"
 	i2 := "Jerky"
 	i3 := "Jerky"
-	i4 := "Jerky"
+	i4 := ""
 	// Jerky
 	// Egg
 	// Barnacles
@@ -843,27 +827,19 @@ func main() {
 	// Count Ingredient types
 	attributeCounts := masterCounts(crockPot)
 
-	// if i4 != "" { star hurrr
-	// function that deletes false recipes
-	deleteRecipes(recipeData, attributeCounts, attributeVals, crockPot)
-	// ------------------------------------------------------
-
-	//possibleRecipes
-	_ = compilePossibleRecipes(crockPot, attributeVals, attributeCounts)
-	// TO PRINT:
-	// Loop over possibleRecipes
-	// Print recipe.Name
-	// run processPossible(recipe)
-
-	// *****
-	// Pierogi
-	if attributeCounts.meatCount >= 1 && attributeCounts.eggCount >= 1 && attributeCounts.vegeCount >= 1 && stringNotInSlice("Twigs", crockPot) && stringNotInSlice("Mandrake", crockPot) {
-		fmt.Println("ok pierogi")
+	if len(crockPot) == 4 {
+		// function that deletes false recipes
+		deleteRecipes(recipeData, attributeCounts, attributeVals, crockPot)
+	} else {
+		//possibleRecipes
+		possibleRecipes := compilePossibleRecipes(crockPot, attributeVals, attributeCounts)
+		processPossible(possibleRecipes)
+		// TO PRINT:
+		// Loop over possibleRecipes
+		// Print recipe.Name
+		// run processPossible(recipe)
 	}
-	// // -----------------------------------------------------------------------------------------------------------------------------------
-
 	// Output goes here
-
 	//  this output only shows the vals that are greater than 0
 	outVal := map[string]float64{"Meat value:": attributeVals.meatVal, "Fish value:": attributeVals.fishVal, "Egg value:": attributeVals.eggVal, "Fruit value:": attributeVals.fruitVal, "Vegetable value:": attributeVals.vegVal, "Sweetener value:": attributeVals.sweetVal, "Monster value:": attributeVals.monVal, "Dairy value:": attributeVals.dairyVal, "Bug value:": attributeVals.bugVal, "Inedible value:": attributeVals.inedVal, "Misc value:": attributeVals.miscVal}
 	for inName, existVal := range outVal {

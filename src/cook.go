@@ -613,149 +613,151 @@ var recipeData = readRecipeData()
 func processPossible(x []*RecipeDetails) {
 
 	// for each possible recipe {
-	for _, condition := range x.UNMETCONDITIONS {
-		switch condition {
-		case "mv":
-			fmt.Println("Meat value too low")
+	for _, recipe := range x {
+		for _, condition := range recipe.UNMETCONDITIONS {
+			switch condition {
+			case "mv":
+				fmt.Println("Meat value too low")
 
-		case "mV":
-			fmt.Println("Meat value too high")
+			case "mV":
+				fmt.Println("Meat value too high")
 
-		case "mc":
-			fmt.Println("Meat count to low")
+			case "mc":
+				fmt.Println("Meat count to low")
 
-		case "hV":
-			fmt.Println("Fish value too high")
+			case "hV":
+				fmt.Println("Fish value too high")
 
-		case "hv":
-			fmt.Println("Fish value too low")
+			case "hv":
+				fmt.Println("Fish value too low")
 
-		case "hC":
-			fmt.Println("Fish count too high")
+			case "hC":
+				fmt.Println("Fish count too high")
 
-		case "hc":
-			fmt.Println("Fish count to low")
+			case "hc":
+				fmt.Println("Fish count to low")
 
-		case "eV":
-			fmt.Println("Egg value too high")
+			case "eV":
+				fmt.Println("Egg value too high")
 
-		case "ev":
-			fmt.Println("Egg value too low")
+			case "ev":
+				fmt.Println("Egg value too low")
 
-		case "eC":
-			fmt.Println("Egg count too high")
+			case "eC":
+				fmt.Println("Egg count too high")
 
-		case "ec":
-			fmt.Println("Egg count to low")
+			case "ec":
+				fmt.Println("Egg count to low")
 
-		case "fV":
-			fmt.Println("Fruit value too high")
+			case "fV":
+				fmt.Println("Fruit value too high")
 
-		case "fv":
-			fmt.Println("Fruit value too low")
+			case "fv":
+				fmt.Println("Fruit value too low")
 
-		case "fC":
-			fmt.Println("Fruit count too high")
+			case "fC":
+				fmt.Println("Fruit count too high")
 
-		case "fc":
-			fmt.Println("Fruit count to low")
+			case "fc":
+				fmt.Println("Fruit count to low")
 
-		case "gV":
-			fmt.Println("Vegetable value too high")
+			case "gV":
+				fmt.Println("Vegetable value too high")
 
-		case "gv":
-			fmt.Println("Vegetable value too low")
+			case "gv":
+				fmt.Println("Vegetable value too low")
 
-		case "gC":
-			fmt.Println("Vegetable count too high")
+			case "gC":
+				fmt.Println("Vegetable count too high")
 
-		case "gc":
-			fmt.Println("Vegetable count to low")
+			case "gc":
+				fmt.Println("Vegetable count to low")
 
-		case "sV":
-			fmt.Println("Sweetener value too high")
+			case "sV":
+				fmt.Println("Sweetener value too high")
 
-		case "sv":
-			fmt.Println("Sweetener value too low")
+			case "sv":
+				fmt.Println("Sweetener value too low")
 
-		case "sC":
-			fmt.Println("Sweetener count too high")
+			case "sC":
+				fmt.Println("Sweetener count too high")
 
-		case "sc":
-			fmt.Println("Sweetener count to low")
+			case "sc":
+				fmt.Println("Sweetener count to low")
 
-		case "tV":
-			fmt.Println("Monster value too high")
+			case "tV":
+				fmt.Println("Monster value too high")
 
-		case "tv":
-			fmt.Println("Monster value too low")
+			case "tv":
+				fmt.Println("Monster value too low")
 
-		case "tC":
-			fmt.Println("Monster count too high")
+			case "tC":
+				fmt.Println("Monster count too high")
 
-		case "tc":
-			fmt.Println("Monster count to low")
+			case "tc":
+				fmt.Println("Monster count to low")
 
-		case "dV":
-			fmt.Println("Dairy value too high")
+			case "dV":
+				fmt.Println("Dairy value too high")
 
-		case "dv":
-			fmt.Println("Dairy value too low")
+			case "dv":
+				fmt.Println("Dairy value too low")
 
-		case "dC":
-			fmt.Println("Dairy count too high")
+			case "dC":
+				fmt.Println("Dairy count too high")
 
-		case "dc":
-			fmt.Println("Dairy count to low")
+			case "dc":
+				fmt.Println("Dairy count to low")
 
-		case "bV":
-			fmt.Println("Bug value too high")
+			case "bV":
+				fmt.Println("Bug value too high")
 
-		case "bv":
-			fmt.Println("Bug value too low")
+			case "bv":
+				fmt.Println("Bug value too low")
 
-		case "bC":
-			fmt.Println("Bug count too high")
+			case "bC":
+				fmt.Println("Bug count too high")
 
-		case "bc":
-			fmt.Println("Bug count to low")
+			case "bc":
+				fmt.Println("Bug count to low")
 
-		case "iV":
-			fmt.Println("Inedible value too high")
+			case "iV":
+				fmt.Println("Inedible value too high")
 
-		case "iv":
-			fmt.Println("Inedible value too low")
+			case "iv":
+				fmt.Println("Inedible value too low")
 
-		case "iC":
-			fmt.Println("Inedible count too high")
+			case "iC":
+				fmt.Println("Inedible count too high")
 
-		case "ic":
-			fmt.Println("Inedible count to low")
+			case "ic":
+				fmt.Println("Inedible count to low")
 
-		case "lV":
-			fmt.Println("Misc value too high")
+			case "lV":
+				fmt.Println("Misc value too high")
 
-		case "lv":
-			fmt.Println("Misc value too low")
+			case "lv":
+				fmt.Println("Misc value too low")
 
-		case "lC":
-			fmt.Println("Misc count too high")
+			case "lC":
+				fmt.Println("Misc count too high")
 
-		case "lc":
-			fmt.Println("Misc count to low")
+			case "lc":
+				fmt.Println("Misc count to low")
 
-		case "oC":
-			fmt.Println("Required Ingredient count too high")
+			case "oC":
+				fmt.Println("Required Ingredient count too high")
 
-		case "oc":
-			fmt.Println("Required Ingredient count too low")
+			case "oc":
+				fmt.Println("Required Ingredient count too low")
 
-		case "x":
-			fmt.Println("Crock Has Exclusion")
+			case "x":
+				fmt.Println("Crock Has Exclusion")
 
-		default:
-			fmt.Printf("Missing %s", condition)
+			default:
+				fmt.Printf("Missing %s", condition)
 
+			}
 		}
 	}
 }

@@ -613,8 +613,8 @@ var recipeData = readRecipeData()
 func processPossible(x []*RecipeDetails) {
 
 	// for each possible recipe {
-	for _, condition := range x.UNMETCONDITIONS {
-		switch condition {
+	for _, condition := range x {
+		switch condition.UNMETCONDITIONS {
 		case "mv":
 			fmt.Println("Meat value too low")
 

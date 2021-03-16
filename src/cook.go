@@ -232,7 +232,7 @@ func deleteRecipes(recipeData map[string]RecipeDetails, attributeCounts Attribut
 	}
 
 	// ASPARAGUS SOUP
-	if countIngName("Asparagus", crockPot) < 1 || attributeVals.vegVal < 1.5 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 {
+	if countIngName("Asparagus", crockPot) < 1 || attributeVals.vegVal-1 < .5 || attributeCounts.meatCount != 0 || attributeCounts.inedibleCount != 0 {
 		delete(recipeData, "ASPARAGUS SOUP")
 	}
 
@@ -242,7 +242,7 @@ func deleteRecipes(recipeData map[string]RecipeDetails, attributeCounts Attribut
 	}
 
 	// BANANA POP
-	if countIngName("Banana", crockPot) < 1 || countIngName("Twigs", crockPot) < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 {
+	if countIngName("Banana", crockPot) < 1 || countIngName("Twigs", crockPot) < 1 || countIngName("Ice", crockPot) < 1 || attributeCounts.meatCount != 0 || attributeCounts.fishCount != 0 {
 		delete(recipeData, "BANANA POP")
 	}
 
@@ -347,7 +347,7 @@ func deleteRecipes(recipeData map[string]RecipeDetails, attributeCounts Attribut
 	}
 
 	// Honey Nuggets
-	if countIngName("Honey", crockPot) < 1 || attributeVals.meatVal > 1.5 || attributeVals.inedVal != 0 {
+	if countIngName("Honey", crockPot) < 1 || attributeVals.meatVal > 1.5 || attributeVals.meatVal == 0 || attributeVals.inedVal != 0 {
 		delete(recipeData, "HONEY NUGGETS")
 	}
 
@@ -611,151 +611,128 @@ func readRecipeData() map[string]RecipeDetails {
 var recipeData = readRecipeData()
 
 func processPossible(x []*RecipeDetails) {
+	// sorts by priority
+	sort.Slice(x[:], func(i, j int) bool {
+		return x[i].PRIORITY > x[j].PRIORITY
+	})
 
 	// for each possible recipe {
-	for _, condition := range x {
-		switch condition.UNMETCONDITIONS {
-		case "mv":
-			fmt.Println("Meat value too low")
+	for _, recipe := range x {
+		fmt.Println()
+		fmt.Println(recipe.NAME)
+		for _, condition := range recipe.UNMETCONDITIONS {
+			switch condition {
+			// Meat
+			case "mv+":
+				fmt.Printf("Meat value too high")
+			case "mv-":
+				fmt.Printf("Meat value too low")
+			case "mc+":
+				fmt.Printf("Meat count to high")
+			case "mc-":
+				fmt.Printf("Meat count to low")
+				// Fish
+			case "hv+":
+				fmt.Printf("Fish value too high")
+			case "hv-":
+				fmt.Printf("Fish value too low")
+			case "hc+":
+				fmt.Printf("Fish count too high")
+			case "hc-":
+				fmt.Printf("Fish count to low")
+				// Egg
+			case "ev+":
+				fmt.Printf("Egg value too high")
+			case "ev-":
+				fmt.Printf("Egg value too low")
+			case "ec+":
+				fmt.Printf("Egg count too high")
+			case "ec-":
+				fmt.Printf("Egg count to low")
+				// Fruit
+			case "fv+":
+				fmt.Printf("Fruit value too high")
+			case "fv-":
+				fmt.Printf("Fruit value too low")
+			case "fc+":
+				fmt.Printf("Fruit count too high")
+			case "fc-":
+				fmt.Printf("Fruit count to low")
+				// Vegetable
+			case "gv+":
+				fmt.Printf("Vegetable value too high")
+			case "gv-":
+				fmt.Printf("Vegetable value too low")
+			case "gc+":
+				fmt.Printf("Vegetable count too high")
+			case "gc-":
+				fmt.Printf("Vegetable count to low")
+				// Sweetener
+			case "sv+":
+				fmt.Printf("Sweetener value too high")
+			case "sv-":
+				fmt.Printf("Sweetener value too low")
+			case "sc+":
+				fmt.Printf("Sweetener count too high")
+			case "sc-":
+				fmt.Printf("Sweetener count to low")
+				// Monster
+			case "tv+":
+				fmt.Printf("Monster value too high")
+			case "tv-":
+				fmt.Printf("Monster value too low")
+			case "tc+":
+				fmt.Printf("Monster count too high")
+			case "tc-":
+				fmt.Printf("Monster count to low")
+				// Dairy
+			case "dv+":
+				fmt.Printf("Dairy value too high")
+			case "dv-":
+				fmt.Printf("Dairy value too low")
+			case "dc+":
+				fmt.Printf("Dairy count too high")
+			case "dc-":
+				fmt.Printf("Dairy count to low")
+				// Bug
+			case "bv+":
+				fmt.Printf("Bug value too high")
+			case "bv-":
+				fmt.Printf("Bug value too low")
+			case "bc+":
+				fmt.Printf("Bug count too high")
+			case "bc-":
+				fmt.Printf("Bug count to low")
+				// Inedible
+			case "iv+":
+				fmt.Printf("Inedible value too high")
+			case "iv-":
+				fmt.Printf("Inedible value too low")
+			case "ic+":
+				fmt.Printf("Inedible count too high")
+			case "ic-":
+				fmt.Printf("Inedible count to low")
+				// Misc
+			case "lv+":
+				fmt.Printf("Misc value too high")
+			case "lv-":
+				fmt.Printf("Misc value too low")
+			case "lc+":
+				fmt.Printf("Misc count too high")
+			case "lc-":
+				fmt.Printf("Misc count to low")
 
-		case "mV":
-			fmt.Println("Meat value too high")
+			case "oC":
+				fmt.Printf("Required Ingredient count too high")
+			case "oc":
+				fmt.Printf("Required Ingredient count too low")
+			case "x":
+				fmt.Printf("Crock Has Exclusion")
+			default:
+				fmt.Printf("Missing %s", condition)
 
-		case "mc":
-			fmt.Println("Meat count to low")
-
-		case "hV":
-			fmt.Println("Fish value too high")
-
-		case "hv":
-			fmt.Println("Fish value too low")
-
-		case "hC":
-			fmt.Println("Fish count too high")
-
-		case "hc":
-			fmt.Println("Fish count to low")
-
-		case "eV":
-			fmt.Println("Egg value too high")
-
-		case "ev":
-			fmt.Println("Egg value too low")
-
-		case "eC":
-			fmt.Println("Egg count too high")
-
-		case "ec":
-			fmt.Println("Egg count to low")
-
-		case "fV":
-			fmt.Println("Fruit value too high")
-
-		case "fv":
-			fmt.Println("Fruit value too low")
-
-		case "fC":
-			fmt.Println("Fruit count too high")
-
-		case "fc":
-			fmt.Println("Fruit count to low")
-
-		case "gV":
-			fmt.Println("Vegetable value too high")
-
-		case "gv":
-			fmt.Println("Vegetable value too low")
-
-		case "gC":
-			fmt.Println("Vegetable count too high")
-
-		case "gc":
-			fmt.Println("Vegetable count to low")
-
-		case "sV":
-			fmt.Println("Sweetener value too high")
-
-		case "sv":
-			fmt.Println("Sweetener value too low")
-
-		case "sC":
-			fmt.Println("Sweetener count too high")
-
-		case "sc":
-			fmt.Println("Sweetener count to low")
-
-		case "tV":
-			fmt.Println("Monster value too high")
-
-		case "tv":
-			fmt.Println("Monster value too low")
-
-		case "tC":
-			fmt.Println("Monster count too high")
-
-		case "tc":
-			fmt.Println("Monster count to low")
-
-		case "dV":
-			fmt.Println("Dairy value too high")
-
-		case "dv":
-			fmt.Println("Dairy value too low")
-
-		case "dC":
-			fmt.Println("Dairy count too high")
-
-		case "dc":
-			fmt.Println("Dairy count to low")
-
-		case "bV":
-			fmt.Println("Bug value too high")
-
-		case "bv":
-			fmt.Println("Bug value too low")
-
-		case "bC":
-			fmt.Println("Bug count too high")
-
-		case "bc":
-			fmt.Println("Bug count to low")
-
-		case "iV":
-			fmt.Println("Inedible value too high")
-
-		case "iv":
-			fmt.Println("Inedible value too low")
-
-		case "iC":
-			fmt.Println("Inedible count too high")
-
-		case "ic":
-			fmt.Println("Inedible count to low")
-
-		case "lV":
-			fmt.Println("Misc value too high")
-
-		case "lv":
-			fmt.Println("Misc value too low")
-
-		case "lC":
-			fmt.Println("Misc count too high")
-
-		case "lc":
-			fmt.Println("Misc count to low")
-
-		case "oC":
-			fmt.Println("Required Ingredient count too high")
-
-		case "oc":
-			fmt.Println("Required Ingredient count too low")
-
-		case "x":
-			fmt.Println("Crock Has Exclusion")
-
-		default:
-			fmt.Printf("Missing %s", condition)
-
+			}
+			fmt.Println()
 		}
 	}
 }
@@ -798,13 +775,14 @@ func main() {
 
 	// Add Ingredients to the pot
 	i1 := "Jerky"
-	i2 := "Jerky"
-	i3 := "Jerky"
+	i2 := "Egg"
+	i3 := "Egg"
 	i4 := ""
 	// Jerky
 	// Egg
 	// Barnacles
 	// Blue Cap
+	// Twigs
 	crockPot := make([]IngredientDetails, 0)
 	crockSlots := []string{i1, i2, i3, i4}
 	for _, slot := range crockSlots {
@@ -827,18 +805,6 @@ func main() {
 	// Count Ingredient types
 	attributeCounts := masterCounts(crockPot)
 
-	if len(crockPot) == 4 {
-		// function that deletes false recipes
-		deleteRecipes(recipeData, attributeCounts, attributeVals, crockPot)
-	} else {
-		//possibleRecipes
-		possibleRecipes := compilePossibleRecipes(crockPot, attributeVals, attributeCounts)
-		processPossible(possibleRecipes)
-		// TO PRINT:
-		// Loop over possibleRecipes
-		// Print recipe.Name
-		// run processPossible(recipe)
-	}
 	// Output goes here
 	//  this output only shows the vals that are greater than 0
 	outVal := map[string]float64{"Meat value:": attributeVals.meatVal, "Fish value:": attributeVals.fishVal, "Egg value:": attributeVals.eggVal, "Fruit value:": attributeVals.fruitVal, "Vegetable value:": attributeVals.vegVal, "Sweetener value:": attributeVals.sweetVal, "Monster value:": attributeVals.monVal, "Dairy value:": attributeVals.dairyVal, "Bug value:": attributeVals.bugVal, "Inedible value:": attributeVals.inedVal, "Misc value:": attributeVals.miscVal}
@@ -870,9 +836,18 @@ func main() {
 		fmt.Println(crockPot[i].NAME, "expires in", crockPot[i].EXPIRE, "days")
 	}
 
-	// creating new map so remove recipes to keep integrity of original map recipeData
+	// main functions and printouts
+	if len(crockPot) == 4 {
+		// function that deletes false recipes
+		// creating new map so remove recipes to keep integrity of original map recipeData
+		deleteRecipes(recipeData, attributeCounts, attributeVals, crockPot)
+		orgValidRec(recipeData)
+	} else {
+		//possibleRecipes
+		possibleRecipes := compilePossibleRecipes(crockPot, attributeVals, attributeCounts)
+		processPossible(possibleRecipes)
+	}
 
-	orgValidRec(recipeData)
 	/**************************************************************************************************************start heerrrr
 
 	} else { //////////////////////////////// START OF FIRST LOOP

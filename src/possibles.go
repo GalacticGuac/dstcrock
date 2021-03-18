@@ -1516,6 +1516,14 @@ func surfNTurfPossible(crockPot []IngredientDetails, attributeVals AttributeVals
 	}
 
 	openslots := 4 - len(crockPot)
+	if attributeVals.fishVal == .5 && attributeVals.meatVal == 1.5 && openslots == 1 {
+		surfNTurf.UNMETCONDITIONS = append(surfNTurf.UNMETCONDITIONS, "Wobster")
+	} else if attributeVals.fishVal == 1.5 && attributeVals.meatVal == 1 && openslots == 1 {
+	} else if attributeVals.fishVal < 0 && attributeVals.meatVal < 0 && openslots == 0 && openslots >= 2 {
+	} else {
+		return nil
+	}
+
 	if count > openslots {
 		return nil
 	}

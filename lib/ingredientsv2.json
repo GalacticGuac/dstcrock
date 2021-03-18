@@ -1,4 +1,23 @@
 {
+  "Asparagus": {
+    "INGREDIENT": "Asparagus",
+    "MEAT": 0,
+    "FISH": 0,
+    "EGG": 0,
+    "FRUIT": 0,
+    "VEGETABLE": 1,
+    "SWEETENER": 0,
+    "MONSTER FOOD": 0,
+    "DAIRY": 0,
+    "BUG": 0,
+    "INEDIBLE": 0,
+    "MISC": 0,
+    "HEALTH": 3,
+    "HUNGER": 12.5,
+    "SANITY": 0,
+    "EXPIRE": 6,
+    "NOTES": "cook: Cooked Asparagus"
+  },
   "Banana": {
     "INGREDIENT": "Banana",
     "MEAT": 0,
@@ -302,6 +321,25 @@
     "SANITY": 0,
     "EXPIRE": 10,
     "NOTES": "cook: Roasted Carrot"
+  },
+  "Cooked Asparagus": {
+    "INGREDIENT": "Cooked Asparagus",
+    "MEAT": 0,
+    "FISH": 0,
+    "EGG": 0,
+    "FRUIT": 0,
+    "VEGETABLE": 1,
+    "SWEETENER": 0,
+    "MONSTER FOOD": 0,
+    "DAIRY": 0,
+    "BUG": 0,
+    "INEDIBLE": 0,
+    "MISC": 0,
+    "HEALTH": 3,
+    "HUNGER": 25,
+    "SANITY": 0,
+    "EXPIRE": 3,
+    "NOTES": ""
   },
   "Cooked Banana": {
     "INGREDIENT": "Cooked Banana",
@@ -740,6 +778,25 @@
     "EXPIRE": 6,
     "NOTES": "cannot be added to crock pot"
   },
+  "Dead Wobster": {
+    "INGREDIENT": "Dead Wobster",
+    "MEAT": 1,
+    "FISH": 1,
+    "EGG": 0,
+    "FRUIT": 0,
+    "VEGETABLE": 0,
+    "SWEETENER": 0,
+    "MONSTER FOOD": 0,
+    "DAIRY": 0,
+    "BUG": 0,
+    "INEDIBLE": 0,
+    "MISC": 0,
+    "HEALTH": 1,
+    "HUNGER": 12.5,
+    "SANITY": 0,
+    "EXPIRE": 3,
+    "NOTES": ""
+  },
   "Deep Bass": {
     "INGREDIENT": "Deep Bass",
     "MEAT": 1,
@@ -777,6 +834,25 @@
     "SANITY": -15,
     "EXPIRE": 0,
     "NOTES": "cannot be added to crock pot"
+  },
+  "Delicious Wobster": {
+    "INGREDIENT": "Delicious Wobster",
+    "MEAT": 1,
+    "FISH": 1,
+    "EGG": 0,
+    "FRUIT": 0,
+    "VEGETABLE": 0,
+    "SWEETENER": 0,
+    "MONSTER FOOD": 0,
+    "DAIRY": 0,
+    "BUG": 0,
+    "INEDIBLE": 0,
+    "MISC": 0,
+    "HEALTH": 1,
+    "HUNGER": 12.5,
+    "SANITY": 0,
+    "EXPIRE": 6,
+    "NOTES": ""
   },
   "Dragon Fruit": {
     "INGREDIENT": "Dragon Fruit",
@@ -968,8 +1044,8 @@
     "EXPIRE": 1,
     "NOTES": "murder: Leafy Meat, cook: Cooked Leafy Meat"
   },
-  "Fish": {
-    "INGREDIENT": "Fish",
+  "Freshwater Fish": {
+    "INGREDIENT": "Freshwater Fish",
     "MEAT": 0.5,
     "FISH": 0.5,
     "EGG": 0,
@@ -2449,5 +2525,24 @@
     "SANITY": 5,
     "EXPIRE": 8,
     "NOTES": "cook: Grilled Watermelon"
+  },
+  "Wobster": {
+    "INGREDIENT": "Wobster",
+    "MEAT": 0,
+    "FISH": 2,
+    "EGG": 0,
+    "FRUIT": 0,
+    "VEGETABLE": 0,
+    "SWEETENER": 0,
+    "MONSTER FOOD": 0,
+    "DAIRY": 0,
+    "BUG": 0,
+    "INEDIBLE": 0,
+    "MISC": 0,
+    "HEALTH": 0,
+    "HUNGER": 0,
+    "SANITY": 0,
+    "EXPIRE": 0,
+    "NOTES": "murder: Dead Wobster, cook: Delicious Wobster"
   }
 }

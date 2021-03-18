@@ -848,88 +848,6 @@ func main() {
 		processPossible(possibleRecipes)
 	}
 
-	/**************************************************************************************************************start heerrrr
-
-	} else { //////////////////////////////// START OF FIRST LOOP
-		// BARNACLE NIGIRI
-		barnacleNigiri := []string{}
-		for ingreTrue := range ingredientsData {
-			i4 := ingreTrue
-			titles = "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
-			// Look through each ingredient and sets values
-			// count Ingredient Valus
-			attributeVals := masterVals(ingredientsData, i1, i2, i3, i4)
-			// Count Ingredient types
-			attributeCounts := masterCounts(ingredientsData, i1, i2, i3, i4)
-
-			blankRec(recipeData, attributeCounts, attributeVals, titles, crockPot)
-			// test
-			if strings.Count(titles, "Barnacles") < 1 || strings.Count(titles, "Kelp Fronds") < 1 || attributeCounts.eggCount < 1 {
-			} else {
-				barnacleNigiri = append(barnacleNigiri, ingreTrue)
-			}
-		}
-		if len(barnacleNigiri) != 0 {
-			sort.Strings(barnacleNigiri)
-			fmt.Println("BARNACLE NIGIRI")
-			for _, ingre := range barnacleNigiri {
-				fmt.Println(ingre)
-			}
-			fmt.Println()
-		} // end of first loop
-
-		baconAndEggs := []string{}
-		for ingreTrue := range ingredientsData {
-			i4 := ingreTrue
-			titles = "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
-			// Look through each ingredient and sets values
-			// count Ingredient Valus
-			attributeVals := masterVals(ingredientsData, i1, i2, i3, i4)
-			// Count Ingredient types
-			attributeCounts := masterCounts(ingredientsData, i1, i2, i3, i4)
-
-			blankRec(recipeData, attributeCounts, attributeVals, titles, crockPot)
-			// test
-			if attributeVals.meatVal <= 1 || attributeVals.eggVal <= 1 || attributeVals.vegVal != 0 {
-			} else {
-				baconAndEggs = append(baconAndEggs, ingreTrue)
-			}
-		}
-		if len(baconAndEggs) != 0 {
-			sort.Strings(baconAndEggs)
-			fmt.Println("BACON AND EGGS")
-			for _, ingre := range baconAndEggs {
-				fmt.Println(ingre)
-			}
-			fmt.Println()
-		} // end of first loop
-
-		pierogi := []string{}
-		for ingreTrue := range ingredientsData {
-			i4 := ingreTrue
-			titles = "[" + i1 + ", " + i2 + ", " + i3 + ", " + i4 + "]"
-			// Look through each ingredient and sets values
-			// count Ingredient Valus
-			attributeVals := masterVals(ingredientsData, i1, i2, i3, i4)
-			// Count Ingredient types
-			attributeCounts := masterCounts(ingredientsData, i1, i2, i3, i4)
-
-			blankRec(recipeData, attributeCounts, attributeVals, titles, crockPot)
-			// test
-			if attributeCounts.meatCount < 1 || attributeCounts.eggCount < 1 || attributeCounts.vegeCount < 1 || crockPot["Twigs"].NAME != "" || crockPot["Mandrake"].NAME != "" {
-			} else {
-				pierogi = append(pierogi, ingreTrue)
-			}
-		}
-		if len(pierogi) != 0 {
-			sort.Strings(pierogi)
-			fmt.Println("PIEROGI")
-			for _, ingre := range pierogi {
-				fmt.Println(ingre)
-			}
-			fmt.Println()
-		} // end of first loop
-	}
 	// ****standard output****
 	// fmt.Println("FOR TESTINGS Meat: ", attributeVals.meatVal)
 	// fmt.Println("FOR TESTINGS Fish: ", attributeVals.fishVal)
@@ -967,5 +885,5 @@ func main() {
 	// 	fmt.Println("FOR TESTING Expires:", existRec.EXPIRES)
 	// 	fmt.Println("FOR TESTING Cooktime:", existRec.COOKTIME)
 	// 	fmt.Println("FOR TESTING Priority:", existRec.PRIORITY)
-	*/ //end herrr******************************************************************************************
+	//end herrr******************************************************************************************
 }
